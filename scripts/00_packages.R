@@ -1,0 +1,20 @@
+# Project: Vocatives
+# Authors: Marton Soskuthy & Timo Roettgery
+# Part 00: Install packages needed for analysis
+# Date: 06/17/2019
+# contacts: timo.b.roettger@gmail.com
+#           marton.soskuthy@ubc.ca
+
+# install and load in packages
+
+## define package list
+packages <- c("readbulk",
+              "rstudioapi",
+	            "tidyverse",
+              "brms")
+
+## install packages (don't run)
+install.packages(packages)
+
+## snapshot packages into packrat
+packrat::snapshot(ignore.stale = TRUE)
