@@ -1,5 +1,5 @@
 # Project: Vocatives
-# Authors: Marton Soskuthy & Timo Roettgery
+# Authors: Marton Soskuthy & Timo Roettger
 # Part 02: session_info
 # Date: 06/17/2019
 # contacts: timo.b.roettger@gmail.com
