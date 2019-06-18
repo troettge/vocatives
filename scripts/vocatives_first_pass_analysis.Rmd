@@ -1,0 +1,106 @@
+---
+title: "First pass analysis of vocatives data"
+author: "Márton Sóskuthy"
+date: "18/06/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prep
+
+Loading libraries & raw data.
+
+```{r}
+library(tidyverse)
+
+v <- read_csv('../data/vocatives_processed.csv')
+v_aggr <- v %>%
+  group_by(language, case_broad) %>%
+  summarise(vowel_pres=mean(vowel_pres, na.rm=T),
+            cons_pres=mean(cons_pres, na.rm=T),
+            vowel_end=mean(vowel_end, na.rm=T),
+            obstr_vl_pres=mean(obstr_vl_pres, na.rm=T),
+            v_long=mean(v_long, na.rm=T),
+            prosody_clean=mean(prosody_clean, na.rm=T)) %>%
+  ungroup()
+```
+
+## Aggregating & plotting
+
+Case morphemes generally have vowels, with a few exceptions (especially nominatives). No real vocative advantage.
+
+```{r}
+v_aggr %>%
+  filter(!is.nan(vowel_pres)) %>%
+  group_by(case_broad) %>%
+  summarise(vowel_pres=mean(vowel_pres)) %>%
+  ggplot(aes(x=case_broad, y=vowel_pres)) + geom_bar(stat="identity")
+```
+
+
+
+```{r}
+v_aggr %>%
+  filter(!is.nan(cons_pres)) %>%
+  group_by(case_broad) %>%
+  summarise(cons_pres=mean(cons_pres)) %>%
+  ggplot(aes(x=case_broad, y=cons_pres)) + geom_bar(stat="identity")
+```
+
+
+
+There is a vocative advantage for V-final: about 12% more final vowels for vocatives...
+
+```{r}
+v_aggr %>%
+  filter(!is.nan(vowel_end)) %>%
+  group_by(case_broad) %>%
+  summarise(vowel_end=mean(vowel_end)) %>%
+  ggplot(aes(x=case_broad, y=vowel_end)) + geom_bar(stat="identity")
+```
+
+Fewer voiceless consonants in vocatives than in accusatives / nominatives.
+
+```{r}
+v_aggr %>%
+  filter(!is.nan(obstr_vl_pres)) %>%
+  group_by(case_broad) %>%
+  summarise(obstr_vl_pres=mean(obstr_vl_pres)) %>%
+  ggplot(aes(x=case_broad, y=obstr_vl_pres)) + geom_bar(stat="identity")
+```
+
+Vocatives have longer vowels!
+
+```{r}
+v_aggr %>%
+  filter(!is.nan(v_long)) %>%
+  group_by(case_broad) %>%
+  summarise(v_long=mean(v_long)) %>%
+  ggplot(aes(x=case_broad, y=v_long)) + geom_bar(stat="identity")
+```
+
+Prosody -- was there any doubt about this one???
+
+```{r}
+v_aggr %>%
+  filter(!is.nan(prosody_clean)) %>%
+  group_by(case_broad) %>%
+  summarise(prosody_clean=mean(prosody_clean)) %>%
+  ggplot(aes(x=case_broad, y=prosody_clean)) + geom_bar(stat="identity")
+```
+
+More mid-vowels (and low vowels)
+
+```{r}
+v_aggr_qual <- v %>%
+  group_by(case_broad, v_height) %>%
+  
+  filter(!is.nan(prosody_clean)) %>%
+  group_by(case_broad) %>%
+  summarise(prosody_clean=mean(prosody_clean)) %>%
+  ggplot(aes(x=case_broad, y=prosody_clean)) + geom_bar(stat="identity")
+```
+

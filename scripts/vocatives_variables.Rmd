@@ -16,12 +16,190 @@ Loading libraries & raw data.
 ```{r}
 library(tidyverse)
 
-v <- read_csv('../raw_data/vocatives.csv')
+v_orig <- read_csv('../raw_data/vocatives.csv')
 ```
 
 Some basic formatting, e.g. numeric 0-1 to logical. 
 
 ```{r}
+colnames(v_orig) <- gsub(" ", "_", tolower(colnames(v_orig)))
+v <- v_orig %>%
+  mutate(default=!is.na(default),
+         prosody_clean=!is.na(prosody_clean),
+         morphological=dplyr::recode(morphological, yes='affix'),
+         noun_class=replace_na(noun_class, ""),
+         number=replace_na(number, ""),
+         conditioning=replace_na(conditioning, ""),
+         form_add=replace_na(form_add, ""),
+         form_replace=replace_na(form_replace, ""),
+         form_delete=replace_na(form_delete, ""),
+         need_checking=!is.na(need_checking),
+         exclude=!is.na(exclude)) %>%
+  filter(!need_checking, !exclude) %>%
+  select(-case_comment, 
+         -epenthesis,
+         -intonation,
+         -`function`,
+         -optional,
+         -reference,
+         -notes,
+         -quotes,
+         -need_checking,
+         -exclude)
+```
+
+## Case column
+
+```{r}
+v <- v %>%
+  mutate(case_broad=dplyr::recode(case,
+                                  accusative="acc-like",
+                                  nominative="nom-like",
+                                  vocative="vocative",
+                                  absolutive="nom-like",
+                                  ergative="acc-like",
+                                  oblique="acc-like",
+                                  `accusative/dative`="acc-like",
+                                  `object marker`="acc-like",
+                                  agentive="nom-like",
+                                  `"nominative"`="nom-like",
+                                  `non-nominative`="acc-like",
+                                  `anti-agentive`="acc-like",
+                                  `absolutive-modalis (indefinite object)`="acc-like",
+                                  `relative`="acc-like",
+                                  `subject case`="nom-like",
+                                  `objective`="acc-like",
+                                  `direct object`="acc-like"))
+```
+
+## form_add-based variables
+
+Creating some cleaner versions of form-add.
+
+- single character for each consonant
+- separate prefix vs suffix 
+
+```{r}
+conversion_table <- list(
+  `ts[']*`="K",
+  `tʃ[']*`="C",
+  `dʒ`="J",
+  `d´`="d",
+  `ph`="p"
+)
+
+transform_to_single <- function (str_vector, conversion_table) {
+  for (key in names(conversion_table)) {
+    str_vector <- gsub(key, conversion_table[[key]], str_vector)
+  }
+  return(str_vector)
+}
+
+v <- v %>%
+  mutate(form_add_s=transform_to_single(form_add, conversion_table),
+         form_add_s=dplyr::recode(form_add_s, zero=""),
+         form_add_prefix=unlist(map(str_split(form_add_s, "-+"), function (x) x[1])),
+         form_add_suffix=unlist(map(str_split(form_add_s, "-+"), function (x) x[length(x)])),
+         form_add_all=gsub("[-]+", "", form_add_s))
+```
+
+Let's generate some form_add-based variables. The LIST:
+
+- vowel vs. no vowel (1vs0)
+- does it end in a vowel or not (1vs0) 
+- if C is it sonorant?
+- Presence of voiceless obstruent (1vs0)
+- proportion of voiceless-to-voiced consonants (ZOIB beta)
+- (final) vowel quality (high, mid, low)
+- Prosody (1vs0)
+- Long vowel vs. short vowel (1vs0)
+
+```{r}
+# vowel vs no vowel
+
+segs <- unique(str_split(paste0(v$form_add_all, collapse=""), "")[[1]])
+
+# a decision made here: {j,w} in V+{j,w} is coded as vowel, but in {w,j}+v it is coded as consonant
+vowels <- c("V","u","a",".w$","i","o","e","ə",".j$","ɯ","ẽ","õ","ɛ","ɔ","ê","ʊ","ɑ","æ","ã","ĩ","ɨ","y","A")
+vowels.no.wj <- c("V","u","a","i","o","e","ə","ɯ","ẽ","õ","ɛ","ɔ","ê","ʊ","ɑ","æ","ã","ĩ","ɨ","y","A")
+consonants <- c("n","t","w[VuaioeəɯẽõɛɔêʊɑæãĩɨyA]","m","h","j[VuaioeəɯẽõɛɔêʊɑæãĩɨyA]","r","s","l","k","ʔ","v","C","d","g","K","J","ŋ","p","q","χ")
+obstr_vl <- c("t","h","s","k","ʔ","C","K","p","q","χ")
+
+vowel_height <- list(
+  `V`= NA,
+  `u`= "h",
+  `a`= "l",
+  `i`= "h",
+  `o`= "m",
+  `e`= "m",
+  `ə`= "m",
+  `ɯ`= "h",
+  `ẽ`= "m",
+  `õ`= "m",
+  `ɛ`= "m",
+  `ɔ`= "m",
+  `ê`= "m",
+  `ʊ`= "h",
+  `ɑ`= "l",
+  `æ`= "l",
+  `ã`= "l",
+  `ĩ`= "h",
+  `ɨ`= "h",
+  `y`= "h",
+  `A`= "l")
+
+find_last_vowel <- function (str_vector, vowel_height, ignore.length=F) {
+  if (ignore.length) {
+    last_vowel <- unlist(
+      map(
+        str_extract_all(str_vector, paste0(names(vowel_height), collapse="|")), 
+        function (x) ifelse(length(x) > 0, x[length(x)], NA)
+      )
+    )
+  } else {
+    last_vowel <- unlist(
+      map(
+        str_extract_all(str_vector, 
+                        paste0(names(vowel_height), names(vowel_height), "|", names(vowel_height), "[jw]|", names(vowel_height), collapse="|")), 
+        function (x) ifelse(length(x) > 0, x[length(x)], NA)
+      )
+    )
+  }
+  return(last_vowel)
+}
+
+
+
+find_height <- function (vowels, vowel_height) {
+  return(vowel_height[vowels])
+}
+
+v <- v %>%
+  mutate(
+    # vowel vs no vowel
+    vowel_pres = ifelse(form_add_all != "", grepl(paste0(vowels, collapse="|"),form_add_all), NA),
+    # consonant vs no consonant
+    cons_pres = ifelse(form_add_all != "", grepl(paste0(consonants, collapse="|"),form_add_all), NA),
+    # does it end in a vowel or not?
+    vowel_end = ifelse(form_add_suffix != "", grepl(paste0(paste0(vowels,"$"), collapse="|"),form_add_suffix), NA),
+    # does it have a voiceless obstruent?
+    obstr_vl_pres = ifelse(form_add_all != "", grepl(paste0(obstr_vl, collapse="|"),form_add_all), NA),
+    # proportion of voiceless to voiced material
+    obstr_vl_count = str_count(form_add_all, paste0(obstr_vl, collapse="|")),
+    obstr_vl_prop = ifelse(form_add_all != "", obstr_vl_count / nchar(form_add_all), NA),
+    obstr_vl_count = ifelse(form_add_all != "", obstr_vl_count, NA),
+    # last V quality
+    last_vowel = find_last_vowel(form_add_all, vowel_height),
+    last_vowel_qual = find_last_vowel(form_add_all, vowel_height, ignore.length=T),
+    v_height = as.vector(unlist(map(vowel_height[last_vowel_qual], function (x) ifelse(is.null(x), NA, x)))),
+    # last V length
+    v_long = ifelse(nchar(last_vowel)==2, T, F)
+    )
 
 ```
 
+## Write data
+
+```{r}
+write_csv(v, "../data/vocatives_processed.csv")
+```
