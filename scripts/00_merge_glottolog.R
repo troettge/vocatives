@@ -6,6 +6,7 @@
 #           marton.soskuthy@ubc.ca
 
 library(rstudioapi)
+library(tidyverse)
 
 # Getting the path of your current open file
 current_path = rstudioapi::getActiveDocumentContext()$path 
@@ -17,6 +18,7 @@ lang <- read_tsv("Glottolog_complete.csv")
 
 # reduce to relevant columns
 lang <- lang %>% 
+  rename(Language = name) %>% 
   select(Language, latitude, longitude, family)
 
 # load in rows that are not in "lang"
@@ -78,8 +80,9 @@ voc[voc$Language == "!Gora",]$Language <- "Korana"
 # join voc and lang, add "isolate", drop columns
 voc_languages <- full_join(voc, lang) %>% 
   drop_na(Case) %>% 
-  mutate(family = ifelse(is.na(family), "isolate", family)) %>% 
-  select(-Old, -Case) %>% 
+  mutate(family1 = ifelse(is.na(family), Language, family),
+         family2 = ifelse(is.na(family), "isolate", family)) %>% 
+  select(-Old, -Case, -family) %>% 
   rename(language = Language) %>% 
   distinct()
 
