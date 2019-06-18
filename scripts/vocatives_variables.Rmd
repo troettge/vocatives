@@ -1,0 +1,27 @@
+---
+title: "Generating variables for vocatives data"
+author: "Márton Sóskuthy"
+date: "18/06/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prep
+
+Loading libraries & raw data.
+
+```{r}
+library(tidyverse)
+
+v <- read_csv('../raw_data/vocatives.csv')
+```
+
+Some basic formatting, e.g. numeric 0-1 to logical. 
+
+```{r}
+
+```
+
