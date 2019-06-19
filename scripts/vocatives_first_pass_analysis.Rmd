@@ -96,11 +96,34 @@ More mid-vowels (and low vowels)
 
 ```{r}
 v_aggr_qual <- v %>%
+  filter(!is.na(v_height)) %>%
+  group_by(language, case_broad, v_height) %>%
+  tally() %>%
+  ungroup() %>%
+  complete(nesting(language, case_broad), v_height, fill=list(n = 0)) %>%
+  group_by(language, case_broad) %>%
+  mutate(prop=n/sum(n)) %>%
+  ungroup()
+
+
+v_aggr_qual %>%
   group_by(case_broad, v_height) %>%
-  
-  filter(!is.nan(prosody_clean)) %>%
-  group_by(case_broad) %>%
-  summarise(prosody_clean=mean(prosody_clean)) %>%
-  ggplot(aes(x=case_broad, y=prosody_clean)) + geom_bar(stat="identity")
+  summarise(prop=mean(prop)) %>%
+  ggplot(aes(x=factor(v_height, levels=c("l","m","h")), y=prop)) + 
+  facet_grid(~case_broad) +
+  geom_bar(stat="identity")
 ```
 
+If there is a consonant, is it voiceless?
+
+```{r}
+v %>%
+  filter(cons_pres) %>%
+  group_by(language, case_broad) %>%
+  summarise(obstr_vl_pres=mean(obstr_vl_pres, na.rm=T)) %>%
+  ungroup() %>%
+  filter(!is.nan(obstr_vl_pres)) %>%
+  group_by(case_broad) %>%
+  summarise(obstr_vl_pres=mean(obstr_vl_pres)) %>%
+  ggplot(aes(x=case_broad, y=obstr_vl_pres)) + geom_bar(stat="identity")
+```
