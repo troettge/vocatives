@@ -82,8 +82,9 @@ voc_languages <- full_join(voc, lang) %>%
   drop_na(Case) %>% 
   mutate(family1 = ifelse(is.na(family), Language, family),
          family2 = ifelse(is.na(family), "isolate", family)) %>% 
-  select(-Old, -Case, -family) %>% 
-  rename(language = Language) %>% 
+  select(-Case, -family) %>% 
+  rename(language = Old,
+         new_language = Language) %>% 
   distinct()
 
 # write to csv

@@ -198,6 +198,14 @@ v <- v %>%
 
 ```
 
+```{r}
+
+v$cons_end <- ifelse(v$cons_pres == TRUE & v$vowel_end == FALSE, TRUE, FALSE)
+v$cons_onset <- ifelse(v$cons_pres == TRUE & v$cons_end == FALSE, TRUE, FALSE)
+
+```
+
+
 ## Write data
 
 ```{r}

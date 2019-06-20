@@ -15,17 +15,75 @@ Loading libraries & raw data.
 
 ```{r}
 library(tidyverse)
+library(ggbeeswarm)
 
 v <- read_csv('../data/vocatives_processed.csv')
+langs <- read_csv('../derived_data/voc_languages.csv')
+
+v <- full_join(v,langs)
+
 v_aggr <- v %>%
-  group_by(language, case_broad) %>%
+  select(language, case_broad, prosody_clean,
+         vowel_pres,cons_pres,cons_end,vowel_end,obstr_vl_pres,
+         v_long, family1) %>% 
+  group_by(language, case_broad, family1) %>%
+  summarise(vowel_pres=mean(vowel_pres, na.rm=T),
+            cons_pres=mean(cons_pres, na.rm=T),
+            vowel_end=mean(vowel_end, na.rm=T),
+            obstr_vl_pres=mean(obstr_vl_pres, na.rm=T),
+            v_long = mean(v_long, na.rm=T),
+            cons_end = mean(cons_end, na.rm=T),
+            prosody_clean=mean(prosody_clean, na.rm=T)) %>%
+  ungroup()
+
+v_agg_overall <- v_aggr %>%
+  group_by(case_broad) %>%
+  filter(!is.na(case_broad)) %>% 
   summarise(vowel_pres=mean(vowel_pres, na.rm=T),
             cons_pres=mean(cons_pres, na.rm=T),
             vowel_end=mean(vowel_end, na.rm=T),
             obstr_vl_pres=mean(obstr_vl_pres, na.rm=T),
             v_long=mean(v_long, na.rm=T),
+            cons_end = mean(cons_end, na.rm=T),
             prosody_clean=mean(prosody_clean, na.rm=T)) %>%
   ungroup()
+
+
+# get aggregates for largest families
+v_aggr_family <- v_aggr %>%
+  group_by(family1, case_broad) %>%
+      add_tally() %>% 
+  summarise(vowel_pres=mean(vowel_pres, na.rm=T),
+            cons_pres=mean(cons_pres, na.rm=T),
+            vowel_end=mean(vowel_end, na.rm=T),
+            obstr_vl_pres=mean(obstr_vl_pres, na.rm=T),
+            v_long=mean(v_long, na.rm=T),
+            cons_end = mean(cons_end, na.rm=T),
+            prosody_clean=mean(prosody_clean, na.rm=T),
+            n = mean(n)) %>%
+  ungroup()
+
+#store theme
+
+theme_voc <- 
+theme_classic() + 
+  theme(legend.position = "none",
+        legend.key.height = unit(2,"line"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12),
+        legend.background = element_rect(fill = "transparent"),
+        strip.background = element_blank(),
+        panel.spacing = unit(2, "lines"),
+        panel.border = element_blank(),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        panel.background = element_rect(fill = "transparent"),
+        strip.text.y = element_text(size = 12, hjust = 0),
+        axis.text = element_text(size = 12),
+        axis.line = element_blank(),
+        axis.title = element_text(size = 12, face = "bold"),
+        plot.title = element_text(size = 14, face = "bold"),
+        plot.margin = unit(c(0.3,0.3,0.3,0.3),"cm"))
+
 ```
 
 ## Aggregating & plotting
@@ -33,97 +91,307 @@ v_aggr <- v %>%
 Case morphemes generally have vowels, with a few exceptions (especially nominatives). No real vocative advantage.
 
 ```{r}
-v_aggr %>%
-  filter(!is.nan(vowel_pres)) %>%
-  group_by(case_broad) %>%
-  summarise(vowel_pres=mean(vowel_pres)) %>%
-  ggplot(aes(x=case_broad, y=vowel_pres)) + geom_bar(stat="identity")
+
+v_aggr_family %>%
+  filter(!is.nan(vowel_pres), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(vowel_pres = mean(vowel_pres),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = vowel_pres)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = vowel_pres + 0.1, ymax = vowel_pres - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives have as much vowels as other cases",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with vowels", 
+       x = "\n") +
+  theme_voc
+
 ```
 
 
+Vocatives have less consonants.
 
 ```{r}
-v_aggr %>%
-  filter(!is.nan(cons_pres)) %>%
-  group_by(case_broad) %>%
-  summarise(cons_pres=mean(cons_pres)) %>%
-  ggplot(aes(x=case_broad, y=cons_pres)) + geom_bar(stat="identity")
+
+v_aggr_family %>%
+  filter(!is.nan(cons_pres), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(cons_pres = mean(cons_pres),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = cons_pres)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = cons_pres + 0.1, ymax = cons_pres - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives have less consonants",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with consonants", 
+       x = "\n") +
+  theme_voc
+
+
 ```
-
-
 
 There is a vocative advantage for V-final: about 12% more final vowels for vocatives...
 
 ```{r}
-v_aggr %>%
-  filter(!is.nan(vowel_end)) %>%
-  group_by(case_broad) %>%
-  summarise(vowel_end=mean(vowel_end)) %>%
-  ggplot(aes(x=case_broad, y=vowel_end)) + geom_bar(stat="identity")
+
+v_aggr_family %>%
+  filter(!is.nan(vowel_end), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(vowel_end = mean(vowel_end),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = vowel_end)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = vowel_end + 0.1, ymax = vowel_end - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives end more often in vowels",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with final vowels", 
+       x = "\n") +
+  theme_voc
+
 ```
 
-Fewer voiceless consonants in vocatives than in accusatives / nominatives.
+If consonant in there is it final
+
 
 ```{r}
-v_aggr %>%
-  filter(!is.nan(obstr_vl_pres)) %>%
-  group_by(case_broad) %>%
-  summarise(obstr_vl_pres=mean(obstr_vl_pres)) %>%
-  ggplot(aes(x=case_broad, y=obstr_vl_pres)) + geom_bar(stat="identity")
+
+v_aggr_family %>%
+  filter(case_broad != "nom-like") %>%
+  filter(!is.nan(cons_end)) %>%
+  ggplot(aes(x = case_broad, y = cons_end)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = cons_end + 0.1, ymax = cons_end - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives have less consonants in final position",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with final consonants", 
+       x = "\n") +
+  theme_voc
+  
 ```
 
-Vocatives have longer vowels!
+Vocatives have more long vowels!
 
 ```{r}
-v_aggr %>%
-  filter(!is.nan(v_long)) %>%
-  group_by(case_broad) %>%
-  summarise(v_long=mean(v_long)) %>%
-  ggplot(aes(x=case_broad, y=v_long)) + geom_bar(stat="identity")
+
+v_aggr_family %>%
+  filter(!is.nan(v_long), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(v_long = mean(v_long),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = v_long)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = v_long + 0.1, ymax = v_long - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives have more long vowels / diphtongues",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with long vowels", 
+       x = "\n") +
+  theme_voc
+
 ```
 
 Prosody -- was there any doubt about this one???
 
 ```{r}
-v_aggr %>%
-  filter(!is.nan(prosody_clean)) %>%
-  group_by(case_broad) %>%
-  summarise(prosody_clean=mean(prosody_clean)) %>%
-  ggplot(aes(x=case_broad, y=prosody_clean)) + geom_bar(stat="identity")
+
+v_aggr_family %>%
+  filter(!is.nan(prosody_clean), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(prosody_clean = mean(prosody_clean),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = prosody_clean)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = prosody_clean + 0.1, ymax = prosody_clean), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives are often prosodically modulated",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with prosodic changes", 
+       x = "\n") +
+  theme_voc
+
 ```
 
-More mid-vowels (and low vowels)
+Less high vowels, and more mid-vowels in vocatives
+
+```{r}
+
+#
+v_quali_aggr <- v %>%
+  select(language, case_broad, v_height, family1) %>% 
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+  group_by(language, case_broad, family1, v_height) %>%
+  tally() %>%
+  complete(nesting(language, family1, case_broad), v_height, fill = list(n = 0)) %>%
+  group_by(language, family1, case_broad) %>%
+  mutate(prop = n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+ 
+v_quali_aggr_family <- v %>%
+  select(language, case_broad, v_height, family1) %>% 
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1, v_height) %>%
+  tally() %>%
+  complete(nesting(family1, case_broad), v_height, fill = list(n = 0)) %>%
+  group_by(family1, case_broad) %>%
+  mutate(prop = n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+
+
+v_quali_aggr_overall <- v %>%
+  select(language, case_broad, v_height, family1) %>% 
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+  group_by(case_broad, v_height) %>%
+  tally() %>%
+  complete(nesting(case_broad), v_height, fill = list(n = 0)) %>%
+  group_by(case_broad) %>%
+  mutate(prop = n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+
+```
+
+```{r}
+
+v_quali_aggr_family %>% 
+  ggplot(aes(x = case_broad, y = prop)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = sum), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_quali_aggr_overall[v_quali_aggr_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_quali_aggr_overall[v_quali_aggr_overall$case_broad != "nom-like",],
+                aes(ymin = prop + 0.1, ymax = prop - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_quali_aggr_overall[v_quali_aggr_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  scale_y_continuous(breaks = (c(0,0.25,0.5,0.75,1)), limits = c(0,1)) + 
+  facet_grid(~factor(v_height, levels=c("l","m","h"))) +
+  labs(title = "Vocatives have less high vowels and more mid vowels",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of occurences", 
+       x = "\n") +
+  theme_voc +
+  theme(strip.text = element_text(size = 12))
+
+```
+
+
+
+
+
+Old stuff
 
 ```{r}
 v_aggr_qual <- v %>%
-  filter(!is.na(v_height)) %>%
-  group_by(language, case_broad, v_height) %>%
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+   group_by(language, case_broad, v_height, family1) %>%
+  #        add_tally() %>% 
+  group_by(language, case_broad, v_height, family1) %>%
   tally() %>%
   ungroup() %>%
   complete(nesting(language, case_broad), v_height, fill=list(n = 0)) %>%
   group_by(language, case_broad) %>%
-  mutate(prop=n/sum(n)) %>%
+  mutate(prop=n/sum(n),
+         sum = sum(n)) %>%
   ungroup()
-
 
 v_aggr_qual %>%
   group_by(case_broad, v_height) %>%
   summarise(prop=mean(prop)) %>%
-  ggplot(aes(x=factor(v_height, levels=c("l","m","h")), y=prop)) + 
+  ggplot(aes(x=factor(v_height, levels=c("l","m","h")), y=prop, fill = v_height)) + 
   facet_grid(~case_broad) +
-  geom_bar(stat="identity")
-```
+  geom_point(stat="identity")
 
-If there is a consonant, is it voiceless?
-
-```{r}
-v %>%
-  filter(cons_pres) %>%
-  group_by(language, case_broad) %>%
-  summarise(obstr_vl_pres=mean(obstr_vl_pres, na.rm=T)) %>%
-  ungroup() %>%
-  filter(!is.nan(obstr_vl_pres)) %>%
-  group_by(case_broad) %>%
-  summarise(obstr_vl_pres=mean(obstr_vl_pres)) %>%
-  ggplot(aes(x=case_broad, y=obstr_vl_pres)) + geom_bar(stat="identity")
 ```
