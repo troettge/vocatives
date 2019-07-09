@@ -15,11 +15,16 @@ setwd("../derived_data/")
 
 # read in collection of glottolog and WALS
 lang <- read_tsv("Glottolog_complete.csv")
+lang_with_areas <- read_csv("languages_and_dialects_geo.csv")
 
 # reduce to relevant columns
 lang <- lang %>% 
   rename(Language = name) %>% 
-  select(Language, latitude, longitude, family)
+  dplyr::select(Language, latitude, longitude, family)
+lang_with_areas <- lang_with_areas %>% 
+  rename(Language = name) %>% 
+  dplyr::select(Language, macroarea)
+
 
 # load in rows that are not in "lang"
 lang_add <- read_csv("Glottolog_complete_add_on.csv")
@@ -33,7 +38,7 @@ voc <- read_csv("Vocatives_glottolog.csv")
 
 # preprocess 
 voc <- voc %>% 
-  select(Language, Case) %>% 
+  dplyr::select(Language, Case) %>% 
   rename(Old = Language) %>% 
   mutate(Language = Old) 
 
@@ -79,13 +84,31 @@ voc[voc$Language == "!Gora",]$Language <- "Korana"
 
 # join voc and lang, add "isolate", drop columns
 voc_languages <- full_join(voc, lang) %>% 
+  full_join(lang_with_areas) %>%
   drop_na(Case) %>% 
   mutate(family1 = ifelse(is.na(family), Language, family),
          family2 = ifelse(is.na(family), "isolate", family)) %>% 
-  select(-Case, -family) %>% 
+  dplyr::select(-Case, -family) %>% 
   rename(language = Old,
          new_language = Language) %>% 
   distinct()
+
+# adding missing area codes, removing duplicates
+
+voc_languages[voc_languages$new_language=='Mongol (Khamnigan)',]$macroarea <- "Eurasia"
+voc_languages[voc_languages$new_language=='Lezghian',]$macroarea <- "Eurasia"
+voc_languages[voc_languages$new_language=='Mangarayi',]$macroarea <- "Australia"
+voc_languages[voc_languages$new_language=='rGyalrong (Caodeng)',]$macroarea <- "Eurasia"
+voc_languages[voc_languages$new_language=="Yup'ik (Central)",]$macroarea <- "North America"
+voc_languages[voc_languages$new_language=="Illinois",]$macroarea <- "North America"
+voc_languages[voc_languages$new_language=="Zoque (Copainalá)",]$macroarea <- "North America"
+voc_languages[voc_languages$new_language=="Nahuatl (Central)",]$macroarea <- "North America"
+
+# removing duplicates (Lavukaleve and Bilua are in same family, not isolates)
+voc_languages <- voc_languages %>% 
+  filter(!(family1 %in% c("Lavukaleve","Bilua")))
+
+
 
 # write to csv
 setwd("../derived_data/")

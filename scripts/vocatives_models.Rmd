@@ -1,0 +1,830 @@
+---
+title: "Bayesian models of vocatives"
+author: "Márton Sóskuthy"
+date: "03/07/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prep
+
+Loading libraries & raw data.
+
+```{r}
+library(tidyverse)
+library(ggbeeswarm)
+library(brms)
+
+v <- read_csv('../data/vocatives_processed.csv')
+langs <- read_csv('../derived_data/voc_languages.csv') %>%
+  filter(!(language %in% c("Korean","Alaaba")))
+
+
+v <- full_join(v,langs)
+v_acc_voc <- filter(v, case_broad %in% c("vocative","acc-like"))
+```
+
+## 3.1 Prosody
+
+We have a case of quasi-complete separation, i.e. one cell of our contingency table is empty. I follow https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations and http://www.stat.columbia.edu/~gelman/research/published/priors11.pdf in using a restrictive prior to deal with the resulting run-away estimates.
+
+```{r}
+# sum-coding case_broad and scaling
+v_acc_voc <- v_acc_voc %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+# raw data
+v_acc_voc %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prosody_clean))
+
+# raw data by language family
+v_acc_voc %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(prosody_clean)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+```
+
+Some thinking is necessary for the random effect coefficients.
+
+```{r}
+v_acc_voc %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop = mean(prosody_clean)) %>%
+  ungroup()
+```
+
+Note that both intercepts and slopes will vary widely between 0% - 100% (on a probability scale): 
+
+(1) some families have only vocatives, no accusatives, and they might all have prosodic marking (so intercept = 100%, slope not possible to estimate)
+(2) some families have no prosodic marking at all in vocatives (intercept = 100%, slope = 0%)
+(3) some families have prosodic marking in all vocatives, but no prosodic marking at all in accusatuves (intercept = in between, slope = 100%)
+
+We can safely assume that much of this is due to small n's -- it's not reasonable to assume that some language families always have special prosodic marking, all that some language families always have special prosodic marking in vocatives but never in accusatives. Note that a change of 1% to 99% is roughly equivalent to a step size of 10 on the log-odds scale (0% to 100% is, of course, +Inf). It would be sensible to restrict our SD estimates so that they don't allow slopes to run away much further than this (i.e. 10). I'll use a scaled student-T distribution with df=4 (falls off slightly more gradually than in df=1 case) and scale=2 (basically rules out anything much higher than 10).
+
+We'll also try some slightly more lenient priors (for the SDs, not the slopes/intercepts) to see the extent to which prior choice affects our models.
+
+The scale parameter and df for the population-level slopes / intercept is based on advice from Gelman: https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations.
+
+```{r}
+priors_prosody_strict <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+priors_prosody_lenient <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(1)", class = "cor"),
+  set_prior("student_t(4,0,4)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,4)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,4)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,4)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+mod_prosody_strict <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_prosody_strict)
+mod_prosody_lenient <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_prosody_lenient)
+# mod_prosody_strict <- readRDS("../models/mod_prosody_strict.rds")
+# mod_prosody_lenient <- readRDS("../models/mod_prosody_lenient.rds")
+
+summary(mod_prosody_strict)
+summary(mod_prosody_lenient)
+saveRDS(mod_prosody_strict, "../models/mod_prosody_strict.rds")
+saveRDS(mod_prosody_lenient, "../models/mod_prosody_lenient.rds")
+```
+
+The two marginal effects plots look qualitatively very similar, with slightly wider confidence intervals around the lenient model -- unsurprising, given that this model allows random slopes to veer further away from the group trend, decreasing the amount of pooling. The pp_check's look fine for both models. I'd recommend using the strict model for the paper, as the random effects are so brittle (so we actually want more pooling!).
+
+```{r}
+marginal_effects(mod_prosody_strict, robust=T)
+marginal_effects(mod_prosody_lenient, robust=T)
+pp_check(mod_prosody_strict)
+pp_check(mod_prosody_lenient)
+```
+
+## 3.2 Presence of consonants
+
+No complete separation here, though it still makes sense to limit random effect variance. Still using the scaled case_broad_sum variable, so using the same prior for the population-level coefficients.
+
+
+```{r}
+v_acc_voc_non_zero <- filter(v_acc_voc, !is.na(form_add_all))
+
+# raw data
+v_acc_voc_non_zero %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(cons_pres))
+
+# raw data by language family
+v_acc_voc_non_zero %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(cons_pres)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+```
+
+```{r}
+# rescaling case_broad
+v_acc_voc_non_zero <- v_acc_voc_non_zero %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_consonants <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+mod_consonants <- brm(cons_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_non_zero, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_consonants)
+# mod_consonants <- readRDS(saveRDS("../models/mod_consonants.rds")
+saveRDS(mod_consonants, "../models/mod_consonants.rds")
+summary(mod_consonants)
+pp_check(mod_consonants)
+marginal_effects(mod_consonants)
+stanplot(mod_consonants, type="dens")
+```
+
+And when the data set is restricted to suffixes:
+
+```{r}
+v_acc_voc_non_zero_suff <- filter(v_acc_voc_non_zero, !is.na(form_add_suffix), morphological=="affix")
+
+# raw data
+v_acc_voc_non_zero_suff %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(cons_pres))
+
+# raw data by language family
+v_acc_voc_non_zero_suff %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(cons_pres)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+```
+
+Bayesian modelling;
+
+```{r}
+# rescaling case_broad
+v_acc_voc_non_zero_suff <- v_acc_voc_non_zero_suff %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_consonants <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+mod_consonants_suff <- brm(cons_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_non_zero_suff, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_consonants)
+# mod_consonants_suff <- readRDS("../models/mod_consonants_suff.rds")
+saveRDS(mod_consonants_suff, "../models/mod_consonants_suff.rds")
+summary(mod_consonants_suff)
+pp_check(mod_consonants_suff)
+marginal_effects(mod_consonants_suff)
+stanplot(mod_consonants_suff, type="dens")
+```
+
+When a consonant is present, is it typically final or not?
+
+```{r}
+v_acc_voc_cons_fin <- filter(v_acc_voc_non_zero, cons_pres, !is.na(form_add_suffix))
+
+# raw data
+v_acc_voc_cons_fin %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(cons_end))
+
+# raw data by language family
+v_acc_voc_cons_fin %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(cons_end)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+```
+
+Bayesian modelling:
+
+```{r}
+v_acc_voc_cons_fin <- v_acc_voc_cons_fin %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_consonants <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+mod_c_final <- brm(cons_end ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_cons_fin, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_consonants)
+# mod_consonants_suff <- readRDS("../models/mod_c_final.rds")
+saveRDS(mod_c_final, "../models/mod_c_final.rds")
+summary(mod_c_final)
+pp_check(mod_c_final)
+marginal_effects(mod_c_final)
+stanplot(mod_c_final, type="dens")
+```
+
+When a consonant is present, is it typically voiceless or voiced?
+
+```{r}
+v_acc_voc_cons <- filter(v_acc_voc_non_zero, cons_pres)
+
+# raw data
+v_acc_voc_cons %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(obstr_vl_pres))
+
+# raw data by language family
+v_acc_voc_cons %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(obstr_vl_pres)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+
+```
+
+Bayesian modelling:
+
+```{r}
+v_acc_voc_cons <- v_acc_voc_cons %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_consonants <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+# output of this model is very strange!
+mod_vl_obstr <- brm(obstr_vl_pres ~ case_broad_sum + 
+                      (1 + case_broad_sum | family1) + 
+                      (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_cons, family="bernoulli", cores=2,
+            control=list(adapt_delta=0.99),
+            prior=priors_consonants)
+# mod_vl_obstr <- readRDS("../models/mod_vl_obstr.rds")
+saveRDS(mod_vl_obstr, "../models/mod_vl_obstr.rds")
+summary(mod_vl_obstr)
+pp_check(mod_vl_obstr)
+marginal_effects(mod_vl_obstr)
+stanplot(mod_vl_obstr, type="dens")
+```
+
+Note that the model here pretty radically overestimates the size of the effect compared to simple proportions (raw, averaged across families). As it turns out, this is due to low-n language families having a much larger number of vl obstruents in vocatives than high-n language families (where accusatives actually have a higher proportion of vl obstruents).
+
+The summary table below shows this very clearly.
+
+```{r}
+v_acc_voc_cons %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(obstr_vl_pres),
+            size=length(obstr_vl_pres)) %>%
+  ungroup() %>%
+  mutate(small = size <= 2) %>%
+  group_by(case_broad, small) %>%
+  summarise(prop=mean(prop))
+```
+
+While these low-n families have little impact on raw proportions, they have a much larger impact once the estimates for large-n families are weighted down in a mixed effects regression model.
+
+## 3.3 Presence of vowel
+
+Case-type has essentially zero effect on presence / absence of vowel in case marker, BUT: note that the vowel is really there most of the time.
+
+```{r}
+v_acc_voc_non_zero <- filter(v_acc_voc, !is.na(form_add_all))
+
+# raw data
+v_acc_voc_non_zero %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(vowel_pres))
+
+# raw data by language family
+v_acc_voc_non_zero %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(vowel_pres)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+
+```
+
+Bayesian modelling:
+
+```{r}
+# rescaling case_broad
+v_acc_voc_non_zero <- v_acc_voc_non_zero %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_vowel_pres <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+mod_vowel_pres <- brm(vowel_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_non_zero, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_vowel_pres)
+# mod_vowel_pres <- readRDS(saveRDS("../models/mod_vowel_pres.rds")
+saveRDS(mod_vowel_pres, "../models/mod_vowel_pres.rds")
+summary(mod_vowel_pres)
+pp_check(mod_vowel_pres)
+marginal_effects(mod_vowel_pres)
+stanplot(mod_vowel_pres, type="dens")
+```
+
+## 3.4 Vowel quantity
+
+If there's a vowel, is it long? (focus on final vowel)
+
+```{r}
+v_acc_voc_vowel <- filter(v_acc_voc, !is.na(form_add_all) & vowel_pres)
+
+# raw data
+v_acc_voc_vowel %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(v_long))
+
+# raw data by language family
+v_acc_voc_vowel %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(v_long)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+```
+
+Bayesian modelling:
+
+```{r}
+# rescaling case_broad
+v_acc_voc_vowel <- v_acc_voc_vowel %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_v_long <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+mod_v_long <- brm(v_long ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_vowel, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_v_long)
+# mod_vowel_pres <- readRDS(saveRDS("../models/mod_v_long.rds")
+saveRDS(mod_v_long, "../models/mod_v_long.rds")
+summary(mod_v_long)
+pp_check(mod_v_long)
+marginal_effects(mod_v_long)
+stanplot(mod_v_long, type="dens")
+```
+
+## 3.5 Multinomial modelling of vowel quality
+
+
+## Aggregating & plotting
+
+Case morphemes generally have vowels, with a few exceptions (especially nominatives). No real vocative advantage.
+
+```{r}
+
+v_aggr_family %>%
+  filter(!is.nan(vowel_pres), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(vowel_pres = mean(vowel_pres),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = vowel_pres)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = vowel_pres + 0.1, ymax = vowel_pres - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives contain vowels as frequently as other cases",
+       subtitle = "Semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with vowels", 
+       x = "\n") +
+  theme_voc
+ggsave("../prelim_plots/vowel_pres.pdf", width=6, height=4.5)
+```
+
+
+Vocatives have less consonants.
+
+```{r}
+
+v_aggr_family %>%
+  filter(!is.nan(cons_pres), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(cons_pres = mean(cons_pres),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = cons_pres)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = cons_pres + 0.1, ymax = cons_pres - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Consonants less frequent in vocative markers",
+       subtitle = "Semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with consonants", 
+       x = "\n") +
+  theme_voc
+ggsave("../prelim_plots/cons_pres.pdf", width=6, height=4.5)
+
+```
+
+Same but just with suffixes? Oh yeah.
+
+```{r}
+v_aggr_family_suffix %>%
+  filter(!is.nan(cons_pres), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(cons_pres = mean(cons_pres),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = cons_pres)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall_suffix[v_agg_overall_suffix$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall_suffix[v_agg_overall_suffix$case_broad != "nom-like",],
+                aes(ymin = cons_pres + 0.1, ymax = cons_pres - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall_suffix[v_agg_overall_suffix$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Consonants less frequent in vocative suffixes",
+       subtitle = "semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with consonants", 
+       x = "\n") +
+  theme_voc
+ggsave("../prelim_plots/cons_pres_suffix.pdf", width=6, height=4.5)
+
+```
+
+There is a vocative advantage for V-final: about 12% more final vowels for vocatives... (! when there is a consonant - otherwise this is heavily confounded with presence of consonant) MEH
+
+```{r}
+
+v_aggr_family_c %>%
+  filter(!is.nan(vowel_end), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(vowel_end = mean(vowel_end),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = vowel_end)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall_c[v_agg_overall_c$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall_c[v_agg_overall_c$case_broad != "nom-like",],
+                aes(ymin = vowel_end + 0.1, ymax = vowel_end - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall_c[v_agg_overall_c$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives and other cases end in Vs equally frequently",
+       subtitle = "Semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with final vowels", 
+       x = "\n") +
+  theme_voc
+ggsave("../prelim_plots/vowel_final_when_c_pres.pdf", width=6, height=4.5)
+```
+
+
+Vocatives have more long vowels!
+
+```{r}
+
+v_aggr_family %>%
+  filter(!is.nan(v_long), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(v_long = mean(v_long),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = v_long)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = v_long + 0.1, ymax = v_long - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives have more long vowels",
+       subtitle = "Semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with long vowels", 
+       x = "\n") +
+  theme_voc
+ggsave("../prelim_plots/v_long.pdf", width=6, height=4.5)
+```
+
+Prosody -- was there any doubt about this one???
+
+```{r}
+
+v_aggr_family %>%
+  filter(!is.nan(prosody_clean), 
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1) %>%
+  summarise(prosody_clean = mean(prosody_clean),
+            n = mean(n)) %>%
+  ggplot(aes(x = case_broad, y = prosody_clean)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",],
+                aes(ymin = prosody_clean - 0.1, ymax = prosody_clean + 0.1), width = 0.1
+                ) +
+  geom_point(data = v_agg_overall[v_agg_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  labs(title = "Vocatives are often prosodically marked",
+       subtitle = "Semi-transparent points are averages for language families\n",
+       y = "\nproportion of forms with prosodic changes", 
+       x = "\n") +
+  theme_voc
+ggsave("../prelim_plots/prosody.pdf", width=6, height=4.5)
+```
+
+Less high vowels, and more mid-vowels in vocatives
+
+```{r}
+
+#
+v_quali_aggr <- v %>%
+  dplyr::select(language, case_broad, v_height, family1) %>% 
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+  group_by(language, case_broad, family1, v_height) %>%
+  tally() %>%
+  complete(nesting(language, family1, case_broad), v_height, fill = list(n = 0)) %>%
+  group_by(language, family1, case_broad) %>%
+  mutate(prop = n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+ 
+v_quali_aggr_family <- v %>%
+  dplyr::select(language, case_broad, v_height, family1) %>% 
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+  group_by(case_broad, family1, v_height) %>%
+  tally() %>%
+  complete(nesting(family1, case_broad), v_height, fill = list(n = 0)) %>%
+  group_by(family1, case_broad) %>%
+  mutate(prop = n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+
+
+v_quali_aggr_overall <- v %>%
+  dplyr::select(language, case_broad, v_height, family1) %>% 
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+  group_by(case_broad, v_height) %>%
+  tally() %>%
+  complete(nesting(case_broad), v_height, fill = list(n = 0)) %>%
+  group_by(case_broad) %>%
+  mutate(prop = n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+
+```
+
+```{r}
+
+v_quali_aggr_family %>% 
+  ggplot(aes(x = case_broad, y = prop)) +
+  #geom_quasirandom(aes(color = case_broad, size = n), alpha = 0.3) +
+  geom_point(aes(color = case_broad, size = sum), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_line(data = v_quali_aggr_overall[v_quali_aggr_overall$case_broad != "nom-like",], 
+             aes(group = 1)) +
+  geom_errorbar(data = v_quali_aggr_overall[v_quali_aggr_overall$case_broad != "nom-like",],
+                aes(ymin = prop + 0.1, ymax = prop - 0.1), width = 0.1
+                ) +
+  geom_point(data = v_quali_aggr_overall[v_quali_aggr_overall$case_broad != "nom-like",], 
+             aes(fill = case_broad), size = 8, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range =c(2,6)) +
+  scale_y_continuous(breaks = (c(0,0.25,0.5,0.75,1)), limits = c(0,1)) + 
+  facet_grid(~factor(v_height, levels=c("l","m","h"))) +
+  labs(title = "Vocatives typically contain mid vowels",
+       subtitle = "Semi-transparent points are averages for language families\n",
+       y = "\nproportion of occurences", 
+       x = "\n") +
+  theme_voc +
+  theme(strip.text = element_text(size = 12))
+ggsave("../prelim_plots/v_height.pdf", width=6, height=4.5)
+```
+
+
+
+
+
+Old stuff
+
+```{r}
+v_aggr_qual <- v %>%
+  filter(!is.na(v_height),
+         case_broad != "nom-like") %>%
+   group_by(language, case_broad, v_height, family1) %>%
+  #        add_tally() %>% 
+  group_by(language, case_broad, v_height, family1) %>%
+  tally() %>%
+  ungroup() %>%
+  complete(nesting(language, case_broad), v_height, fill=list(n = 0)) %>%
+  group_by(language, case_broad) %>%
+  mutate(prop=n/sum(n),
+         sum = sum(n)) %>%
+  ungroup()
+
+v_aggr_qual %>%
+  group_by(case_broad, v_height) %>%
+  summarise(prop=mean(prop)) %>%
+  ggplot(aes(x=factor(v_height, levels=c("l","m","h")), y=prop, fill = v_height)) + 
+  facet_grid(~case_broad) +
+  geom_point(stat="identity")
+
+```
+
+## Further exploration
+
+```{r}
+v %>% count(case_broad, morphological)
+
+```
+
+## An attempt at modelling the data
+
+Let's look at our massive presence-of-consonants effect.
+
+```{r}
+v_cons_pres <- filter(v, case_broad != "nom-like" & !is.na(form_add) & form_add != "zero")
+
+v_cons_pres$case_broad_f <- as.factor(v_cons_pres$case_broad)
+v_cons_pres$family1_f <- as.factor(v_cons_pres$family1)
+
+mod_cons_pres <- glmer(cons_pres ~ case_broad +  (1 + case_broad | family1),
+             data=v_cons_pres, family="binomial")
+mod_cons_pres_b <- brm(cons_pres ~ case_broad + (1 + case_broad | family1) + s(latitude,longitude,bs="sos",k=10, by=case_broad),
+            data=v_cons_pres, family="bernoulli", cores=2, control=list(adapt_delta=0.99))
+
+
+mod_cons_pres_gam <- bam(cons_pres ~ case_broad_f + s(family1_f, bs="re") + s(family1_f, case_broad_f, bs="re") + s(latitude,longitude,bs="sos",k=10, by=case_broad_f),
+            data=v_cons_pres, family="binomial", discrete=T)
+
+fvisgam(mod_cons_pres_gam, view=c("longitude","latitude"), cond=list(case_broad_f="acc-like"))
+map('world', add=T)
+fvisgam(mod_cons_pres_gam, view=c("longitude","latitude"), cond=list(case_broad_f="vocative"))
+map('world', add=T)
+
+
+
+summary(mod_cons_pres)
+summary(mod_cons_pres_b)
+summary(mod_cons_pres_gam)
+
+ms <- marginal_smooths(mod_cons_pres_b)[[1]]
+
+
+ggplot(ms, aes(x=longitude, y=latitude)) +
+  facet_grid(~case_broad) +
+  geom_raster(aes(fill=estimate__)) +
+  borders("world", xlim=range(ms$longitude), ylim=range(ms$latitude), col="black", lwd=0.2)
+
+ggplot(filter(v_aggr, case_broad %in% c("acc-like", "vocative")), aes(x=longitude, y=latitude, col=cons_pres)) +
+  facet_grid(~case_broad) +
+  geom_point(size=3) +
+  scale_colour_viridis_c() +
+  #geom_raster(aes(fill=estimate__)) +
+  borders("world", xlim=range(ms$longitude), ylim=range(ms$latitude), col="black", lwd=0.2) + theme_bw()
+
+
+
+v_v_long <- filter(v, case_broad != "nom-like" & !is.na(form_add) & form_add != "zero" & !is.na(v_long))
+mod_v_long <- glmer(v_long ~ case_broad +  (1 + case_broad | family1),
+             data=v_v_long, family="binomial")
+mod_v_long_b <- brm(v_long ~ case_broad + (1+case_broad | family1),
+            data=v_v_long, family="bernoulli", cores=2, control=list(adapt_delta=0.99))
+summary(mod_v_long)
+summary(mod_v_long_b)
+
+
+```
+
+Logistic models with vowel height.
+
+```{r}
+v_v_long$mid <- v_v_long$v_height=="m"
+mid.glm <- glmer(mid ~ case_broad + (1 + case_broad | family1),
+                 data=v_v_long, family="binomial")
+summary(mid.glm)
+
+v_v_long$low <- v_v_long$v_height=="l"
+low.glm <- glmer(low ~ case_broad + (1 + case_broad | family1),
+                 data=v_v_long, family="binomial")
+summary(low.glm)
+
+v_v_long$hi <- v_v_long$v_height=="h"
+hi.glm <- glmer(hi ~ case_broad + (1 + case_broad || family1),
+                 data=v_v_long, family="binomial", control=glmerControl(optimizer="bobyqa"))
+summary(hi.glm)
+```
