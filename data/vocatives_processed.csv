@@ -99,7 +99,7 @@ Hup,vocative,FALSE,affix,"personal name, kindship term",,,f,-wa,-wa,,,NA,FALSE,v
 Iraqw,vocative,FALSE,prosodic,person,,,,NA,zero,,,high tone on penultimate syllable,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Kakua,accusative,FALSE,clitic,NA,,,,=di?,-diʔ,,,NA,FALSE,acc-like,-diʔ,,diʔ,diʔ,TRUE,TRUE,FALSE,TRUE,1,0.3333333333333333,i,i,h,FALSE,TRUE,FALSE
 Kakua,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,reduplication of the stem vowel,zero,,,reduplication of the stem vowel,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,reduplication of the stem vowel,zero,,,"reduplication of the stem vowel, high tone",TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,NA,-a,,,NA,TRUE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
 Kannada,accusative,FALSE,affix,NA,,,,-anna,-anna,,,NA,FALSE,acc-like,-anna,,anna,anna,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
 Kannada,accusative,FALSE,affix,NA,,,,-annu,-annu,,,NA,FALSE,acc-like,-annu,,annu,annu,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
@@ -467,7 +467,7 @@ Chiapas Zoque,ergative,FALSE,affix,NA,,,,=ʔis,-ʔis,,,NA,FALSE,acc-like,-ʔis,,
 Nahuatl,vocative,FALSE,affix,person,,,used by men,-é,-e,,,"accented, stress-shift from penult to vocative suffix",TRUE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
 Nahuatl,vocative,FALSE,prosodic,person,,,used by women,"stress-shift to final syllable, ""raised voice""",zero,,,"stress-shift to final from penult, raised voice",TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Nahuatl,vocative,FALSE,particle,person,,,used by both,in ## __,in-,,,NA,FALSE,vocative,in-,in,,in,TRUE,TRUE,NA,FALSE,0,0,i,i,h,FALSE,NA,NA
-Tariana,vocative,FALSE,prosodic,NA,,,,delete gender suffix (final syllable),,,-CV,delete final syll,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tariana,vocative,FALSE,prosodic,NA,,,,delete gender suffix (final syllable),,,-CV,delete final syll,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Tariana,vocative,FALSE,prosodic,NA,,,,stress-shift to final syllable from penult,,,,stress shift penult > ult,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Tariana,vocative,FALSE,prosodic,NA,,,,"delete gender suffix, stress shift",,,-CV,stress shift penult > ult,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 Pirahã,vocative,FALSE,particle,proper noun,,,,ko ## __,ko-,,,NA,FALSE,vocative,ko-,ko,,ko,TRUE,TRUE,NA,TRUE,1,0.5,o,o,m,FALSE,NA,NA

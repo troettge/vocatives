@@ -36,7 +36,7 @@ v <- v_orig %>%
          need_checking=!is.na(need_checking),
          exclude=!is.na(exclude)) %>%
   filter(!need_checking, !exclude) %>%
-  select(-case_comment, 
+  dplyr::select(-case_comment, 
          -epenthesis,
          -intonation,
          -`function`,
