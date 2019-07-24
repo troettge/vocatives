@@ -51,6 +51,15 @@ v_acc_voc %>%
   summarise(prop=mean(prop))
 ```
 
+Out of these, proportion of stress/accent-related; tone-related; vowel lengthening?
+
+```{r}
+mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_stress)
+mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_tone)
+mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_stress | filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_tone)
+mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_vowel_lengthening)
+```
+
 Some thinking is necessary for the random effect coefficients.
 
 ```{r}
@@ -115,6 +124,49 @@ pp_check(mod_prosody_strict)
 pp_check(mod_prosody_lenient)
 ```
 
+Manually calculating credible intervals.
+
+```{r}
+mod_prosody_strict_psamp <- as.matrix(posterior_samples(mod_prosody_strict)[,1:2])
+# accusative-like - all probabilities
+mod_prosody_strict_acc_probs <- plogis(mod_prosody_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+round(mean(mod_prosody_strict_acc_probs), 5)
+round(quantile(mod_prosody_strict_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_prosody_strict_voc_probs <- plogis(mod_prosody_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+round(mean(mod_prosody_strict_voc_probs), 5)
+round(quantile(mod_prosody_strict_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_prosody_strict_voc_probs - mod_prosody_strict_acc_probs), 5)
+round(quantile(mod_prosody_strict_voc_probs - mod_prosody_strict_acc_probs, c(0.025, 0.975)), 5)
+```
+
+With by-language random effects:
+
+```{r}
+priors_prosody_strict_language <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="language"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="language")
+)
+
+mod_prosody_strict_language <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea) + (1 + case_broad_sum | language),
+            data=v_acc_voc, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_prosody_strict_language)
+# mod_prosody_strict_language <- readRDS("../models/mod_prosody_strict.rds")
+
+summary(mod_prosody_strict_language)
+saveRDS(mod_prosody_strict_language, "../models/mod_prosody_strict_language.rds")
+```
+
 ## 3.2 Presence of consonants
 
 No complete separation here, though it still makes sense to limit random effect variance. Still using the scaled case_broad_sum variable, so using the same prior for the population-level coefficients.
@@ -156,7 +208,7 @@ priors_consonants <- c(
 mod_consonants <- brm(cons_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
             data=v_acc_voc_non_zero, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_consonants)
-# mod_consonants <- readRDS(saveRDS("../models/mod_consonants.rds")
+# mod_consonants <- readRDS("../models/mod_consonants.rds")
 saveRDS(mod_consonants, "../models/mod_consonants.rds")
 summary(mod_consonants)
 pp_check(mod_consonants)
@@ -164,10 +216,63 @@ marginal_effects(mod_consonants)
 stanplot(mod_consonants, type="dens")
 ```
 
+Manual estimates.
+
+```{r}
+mod_consonants_psamp <- as.matrix(posterior_samples(mod_consonants)[,1:2])
+# accusative-like - all probabilities
+mod_consonants_acc_probs <- plogis(mod_consonants_psamp %*% matrix(c(1, min(v_acc_voc_non_zero$case_broad_sum))))
+round(mean(mod_consonants_acc_probs), 5)
+round(quantile(mod_consonants_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_consonants_voc_probs <- plogis(mod_consonants_psamp %*% matrix(c(1, max(v_acc_voc_non_zero$case_broad_sum))))
+round(mean(mod_consonants_voc_probs), 5)
+round(quantile(mod_consonants_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_consonants_voc_probs - mod_consonants_acc_probs), 5)
+round(quantile(mod_consonants_voc_probs - mod_consonants_acc_probs, c(0.025, 0.975)), 5)
+```
+
+The same model with language as a random effect.
+
+```{r}
+# rescaling case_broad
+v_acc_voc_non_zero <- v_acc_voc_non_zero %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_consonants_language <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="language"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="language")
+)
+
+mod_consonants_language <- brm(cons_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea) + (1 + case_broad_sum | language),
+            data=v_acc_voc_non_zero, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_consonants_language)
+# mod_consonants_language <- readRDS("../models/mod_consonants_language.rds")
+saveRDS(mod_consonants_language, "../models/mod_consonants_language.rds")
+summary(mod_consonants_language)
+pp_check(mod_consonants_language)
+marginal_effects(mod_consonants_language)
+stanplot(mod_consonants_language, type="dens")
+```
+
 And when the data set is restricted to suffixes:
 
 ```{r}
 v_acc_voc_non_zero_suff <- filter(v_acc_voc_non_zero, !is.na(form_add_suffix), morphological=="affix")
+
+# numbers
+table(v_acc_voc_non_zero_suff$case_broad)
 
 # raw data
 v_acc_voc_non_zero_suff %>%
@@ -212,18 +317,39 @@ marginal_effects(mod_consonants_suff)
 stanplot(mod_consonants_suff, type="dens")
 ```
 
+Manual estimates.
+
+```{r}
+mod_consonants_suff_psamp <- as.matrix(posterior_samples(mod_consonants_suff)[,1:2])
+# accusative-like - all probabilities
+mod_consonants_suff_acc_probs <- plogis(mod_consonants_suff_psamp %*% matrix(c(1, min(v_acc_voc_non_zero_suff$case_broad_sum))))
+round(mean(mod_consonants_suff_acc_probs), 5)
+round(quantile(mod_consonants_suff_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_consonants_suff_voc_probs <- plogis(mod_consonants_suff_psamp %*% matrix(c(1, max(v_acc_voc_non_zero_suff$case_broad_sum))))
+round(mean(mod_consonants_suff_voc_probs), 5)
+round(quantile(mod_consonants_suff_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_consonants_suff_voc_probs - mod_consonants_suff_acc_probs), 5)
+round(quantile(mod_consonants_suff_voc_probs - mod_consonants_suff_acc_probs, c(0.025, 0.975)), 5)
+```
+
 When a consonant is present, is it typically final or not?
 
 ```{r}
-v_acc_voc_cons_fin <- filter(v_acc_voc_non_zero, cons_pres, !is.na(form_add_suffix))
+v_acc_voc_cons <- filter(v_acc_voc_non_zero, cons_pres)
+
+table(v_acc_voc_cons$case_broad)
 
 # raw data
-v_acc_voc_cons_fin %>%
+v_acc_voc_cons %>%
   group_by(case_broad) %>%
   summarise(prop=mean(cons_end))
 
 # raw data by language family
-v_acc_voc_cons_fin %>%
+v_acc_voc_cons %>%
   group_by(family1, case_broad) %>%
   summarise(prop=mean(cons_end)) %>%
   ungroup() %>%
@@ -234,7 +360,7 @@ v_acc_voc_cons_fin %>%
 Bayesian modelling:
 
 ```{r}
-v_acc_voc_cons_fin <- v_acc_voc_cons_fin %>%
+v_acc_voc_cons <- v_acc_voc_cons %>%
   mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
          case_broad_sum=case_broad_sum-mean(case_broad_sum))
 
@@ -257,6 +383,25 @@ summary(mod_c_final)
 pp_check(mod_c_final)
 marginal_effects(mod_c_final)
 stanplot(mod_c_final, type="dens")
+```
+
+Manual estimates.
+
+```{r}
+mod_c_final_psamp <- as.matrix(posterior_samples(mod_c_final)[,1:2])
+# accusative-like - all probabilities
+mod_c_final_acc_probs <- plogis(mod_c_final_psamp %*% matrix(c(1, min(v_acc_voc_cons$case_broad_sum))))
+round(mean(mod_c_final_acc_probs), 5)
+round(quantile(mod_c_final_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_c_final_voc_probs <- plogis(mod_c_final_psamp %*% matrix(c(1, max(v_acc_voc_cons$case_broad_sum))))
+round(mean(mod_c_final_voc_probs), 5)
+round(quantile(mod_c_final_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_c_final_voc_probs - mod_c_final_acc_probs), 5)
+round(quantile(mod_c_final_voc_probs - mod_c_final_acc_probs, c(0.025, 0.975)), 5)
 ```
 
 When a consonant is present, is it typically voiceless or voiced?
@@ -309,6 +454,25 @@ summary(mod_vl_obstr)
 pp_check(mod_vl_obstr)
 marginal_effects(mod_vl_obstr)
 stanplot(mod_vl_obstr, type="dens")
+```
+
+Manual estimates.
+
+```{r}
+mod_vl_obstr_psamp <- as.matrix(posterior_samples(mod_vl_obstr)[,1:2])
+# accusative-like - all probabilities
+mod_vl_obstr_acc_probs <- plogis(mod_vl_obstr_psamp %*% matrix(c(1, min(v_acc_voc_cons$case_broad_sum))))
+round(mean(mod_vl_obstr_acc_probs), 5)
+round(quantile(mod_vl_obstr_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_vl_obstr_voc_probs <- plogis(mod_vl_obstr_psamp %*% matrix(c(1, max(v_acc_voc_cons$case_broad_sum))))
+round(mean(mod_vl_obstr_voc_probs), 5)
+round(quantile(mod_vl_obstr_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_vl_obstr_voc_probs - mod_vl_obstr_acc_probs), 5)
+round(quantile(mod_vl_obstr_voc_probs - mod_vl_obstr_acc_probs, c(0.025, 0.975)), 5)
 ```
 
 Note that the model here pretty radically overestimates the size of the effect compared to simple proportions (raw, averaged across families). As it turns out, this is due to low-n language families having a much larger number of vl obstruents in vocatives than high-n language families (where accusatives actually have a higher proportion of vl obstruents).
@@ -371,12 +535,31 @@ priors_vowel_pres <- c(
 mod_vowel_pres <- brm(vowel_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
             data=v_acc_voc_non_zero, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_vowel_pres)
-# mod_vowel_pres <- readRDS(saveRDS("../models/mod_vowel_pres.rds")
+# mod_vowel_pres <- readRDS("../models/mod_vowel_pres.rds")
 saveRDS(mod_vowel_pres, "../models/mod_vowel_pres.rds")
 summary(mod_vowel_pres)
 pp_check(mod_vowel_pres)
 marginal_effects(mod_vowel_pres)
 stanplot(mod_vowel_pres, type="dens")
+```
+
+Manual estimates.
+
+```{r}
+mod_vowel_pres_psamp <- as.matrix(posterior_samples(mod_vowel_pres)[,1:2])
+# accusative-like - all probabilities
+mod_vowel_pres_acc_probs <- plogis(mod_vowel_pres_psamp %*% matrix(c(1, min(v_acc_voc_non_zero$case_broad_sum))))
+round(mean(mod_vowel_pres_acc_probs), 5)
+round(quantile(mod_vowel_pres_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_vowel_pres_voc_probs <- plogis(mod_vowel_pres_psamp %*% matrix(c(1, max(v_acc_voc_non_zero$case_broad_sum))))
+round(mean(mod_vowel_pres_voc_probs), 5)
+round(quantile(mod_vowel_pres_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_vowel_pres_voc_probs - mod_vowel_pres_acc_probs), 5)
+round(quantile(mod_vowel_pres_voc_probs - mod_vowel_pres_acc_probs, c(0.025, 0.975)), 5)
 ```
 
 ## 3.4 Vowel quantity
@@ -385,6 +568,8 @@ If there's a vowel, is it long? (focus on final vowel)
 
 ```{r}
 v_acc_voc_vowel <- filter(v_acc_voc, !is.na(form_add_all) & vowel_pres)
+
+table(v_acc_voc_vowel$case_broad)
 
 # raw data
 v_acc_voc_vowel %>%
@@ -421,12 +606,31 @@ priors_v_long <- c(
 mod_v_long <- brm(v_long ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
             data=v_acc_voc_vowel, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_v_long)
-# mod_v_long <- readRDS(saveRDS("../models/mod_v_long.rds")
+# mod_v_long <- readRDS("../models/mod_v_long.rds")
 saveRDS(mod_v_long, "../models/mod_v_long.rds")
 summary(mod_v_long)
 pp_check(mod_v_long)
 marginal_effects(mod_v_long)
 stanplot(mod_v_long, type="dens")
+```
+
+Manual estimates.
+
+```{r}
+mod_v_long_psamp <- as.matrix(posterior_samples(mod_v_long)[,1:2])
+# accusative-like - all probabilities
+mod_v_long_acc_probs <- plogis(mod_v_long_psamp %*% matrix(c(1, min(v_acc_voc_vowel$case_broad_sum))))
+round(mean(mod_v_long_acc_probs), 5)
+round(quantile(mod_v_long_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_v_long_voc_probs <- plogis(mod_v_long_psamp %*% matrix(c(1, max(v_acc_voc_vowel$case_broad_sum))))
+round(mean(mod_v_long_voc_probs), 5)
+round(quantile(mod_v_long_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_v_long_voc_probs - mod_v_long_acc_probs), 5)
+round(quantile(mod_v_long_voc_probs - mod_v_long_acc_probs, c(0.025, 0.975)), 5)
 ```
 
 ## 3.5 Multinomial modelling of vowel quality
@@ -479,7 +683,7 @@ mod_v_height <- brm(v_height ~ case_broad_sum + (1 + case_broad_sum | family1) +
             data=v_acc_voc_v_height, family="categorical", cores=2, control=list(adapt_delta=0.99),
             prior=priors_v_height)
 
-# mod_v_height <- readRDS(saveRDS("../models/mod_v_height.rds")
+# mod_v_height <- readRDS("../models/mod_v_height.rds")
 saveRDS(mod_v_height, "../models/mod_v_height")
 summary(mod_v_height) # note that estimates here tell us about log-odds of low / mid against high response - not necessarily easily interpretable!
 pp_check(mod_v_height)
@@ -502,6 +706,33 @@ p_l_voc <- p_h_voc * exp(l_over_h_samp %*% voc_matrix)
 p_m_acc <- p_h_acc * exp(m_over_h_samp %*% acc_matrix)
 p_m_voc <- p_h_voc * exp(m_over_h_samp %*% voc_matrix)
 
+# means / quantiles / differences
+# low vowels
+mean(p_l_acc)
+quantile(p_l_acc, c(0.025,0.975))
+mean(p_l_voc)
+quantile(p_l_voc, c(0.025,0.975))
+mean(p_l_voc - p_l_acc)
+quantile(p_l_voc - p_l_acc, c(0.025,0.975))
+
+# mid vowels
+mean(p_m_acc)
+quantile(p_m_acc, c(0.025,0.975))
+mean(p_m_voc)
+quantile(p_m_voc, c(0.025,0.975))
+mean(p_m_voc - p_m_acc)
+quantile(p_m_voc - p_m_acc, c(0.025,0.975))
+# how much probability mass > 0?
+1-ecdf(p_m_voc - p_m_acc)(0)
+
+mean(p_h_acc)
+quantile(p_h_acc, c(0.025,0.975))
+mean(p_h_voc)
+quantile(p_h_voc, c(0.025,0.975))
+mean(p_h_voc - p_h_acc)
+quantile(p_h_voc - p_h_acc, c(0.025,0.975))
+ecdf(p_h_voc - p_h_acc)(0)
+
 # estimated differences!
 
 hist(p_h_voc - p_h_acc)
@@ -516,3 +747,41 @@ ecdf(p_m_voc - p_m_acc)(0) # about 5% of the probability mass lower than 0s
 stanplot(mod_v_height, type="dens")
 ```
 
+Same model with by-language random effects.
+
+```{r}
+# rescaling case_broad
+v_acc_voc_v_height <- v_acc_voc_v_height %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+
+priors_v_height_language <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1", dpar="mul"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1", dpar="mum"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1", dpar="mul"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1", dpar="mum"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea", dpar="mul"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea", dpar="mum"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea", dpar="mul"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea", dpar="mum"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="language", dpar="mul"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="language", dpar="mum"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="language", dpar="mul"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="language", dpar="mum"))
+
+
+mod_v_height_language <- brm(v_height ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea) + (1 + case_broad_sum | language),
+            data=v_acc_voc_v_height, family="categorical", cores=2, control=list(adapt_delta=0.99),
+            prior=priors_v_height_language)
+
+# mod_v_height_language <- readRDS("../models/mod_v_height_language.rds")
+saveRDS(mod_v_height_language, "../models/mod_v_height")
+summary(mod_v_height_language) # note that estimates here tell us about log-odds of low / mid against high response - not necessarily easily interpretable!
+pp_check(mod_v_height_language)
+
+marginal_effects(mod_v_height_language, categorical=T)
+```

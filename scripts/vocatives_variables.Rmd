@@ -88,6 +88,7 @@ conversion_table <- list(
   `ph`="p"
 )
 
+# for converting digraphs to single characters
 transform_to_single <- function (str_vector, conversion_table) {
   for (key in names(conversion_table)) {
     str_vector <- gsub(key, conversion_table[[key]], str_vector)
@@ -181,7 +182,7 @@ v <- v %>%
     # consonant vs no consonant
     cons_pres = ifelse(form_add_all != "", grepl(paste0(consonants, collapse="|"),form_add_all), NA),
     # does it end in a vowel or not?
-    vowel_end = ifelse(form_add_suffix != "", grepl(paste0(paste0(vowels,"$"), collapse="|"),form_add_suffix), NA),
+    vowel_end = ifelse(form_add_all != "", grepl(paste0(paste0(vowels,"$"), collapse="|"),form_add_all), NA),
     # does it have a voiceless obstruent?
     obstr_vl_pres = ifelse(form_add_all != "", grepl(paste0(obstr_vl, collapse="|"),form_add_all), NA),
     # proportion of voiceless to voiced material
