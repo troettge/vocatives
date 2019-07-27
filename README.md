@@ -10,7 +10,7 @@ What things you need to install the software and how to install them
 ## define package list
 packages <- c("readbulk",
               "rstudioapi",
-	            "tidyverse",
+	      "tidyverse",
               "brms",
               "ggbeeswarm",
               "maps")
