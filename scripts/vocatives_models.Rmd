@@ -14,17 +14,21 @@ knitr::opts_chunk$set(echo = TRUE)
 Loading libraries & raw data.
 
 ```{r}
+
+# load in libraries
 library(tidyverse)
 library(ggbeeswarm)
 library(brms)
 
-v <- read_csv('../data/vocatives_processed.csv')
+# load in raw data
+v <- read_csv('../derived_data/vocatives_processed.csv')
 langs <- read_csv('../derived_data/voc_languages.csv') %>%
   filter(!(language %in% c("Korean","Alaaba")))
 
-
+# join and filter (-nominative)
 v <- full_join(v,langs)
 v_acc_voc <- filter(v, case_broad %in% c("vocative","acc-like"))
+
 ```
 
 ## 3.1 Prosody
@@ -32,41 +36,47 @@ v_acc_voc <- filter(v, case_broad %in% c("vocative","acc-like"))
 We have a case of quasi-complete separation, i.e. one cell of our contingency table is empty. I follow https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations and http://www.stat.columbia.edu/~gelman/research/published/priors11.pdf in using a restrictive prior to deal with the resulting run-away estimates.
 
 ```{r}
+
 # sum-coding case_broad and scaling
 v_acc_voc <- v_acc_voc %>%
   mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
          case_broad_sum=case_broad_sum-mean(case_broad_sum))
 
-# raw data
+# calculate mean proportion overall
 v_acc_voc %>%
   group_by(case_broad) %>%
   summarise(prop=mean(prosody_clean))
 
-# raw data by language family
+# calculate mean proportion by language family
 v_acc_voc %>%
   group_by(family1, case_broad) %>%
   summarise(prop=mean(prosody_clean)) %>%
   ungroup() %>%
   group_by(case_broad) %>%
   summarise(prop=mean(prop))
+
 ```
 
 Out of these, proportion of stress/accent-related; tone-related; vowel lengthening?
 
 ```{r}
+
 mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_stress)
 mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_tone)
 mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_stress | filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_tone)
 mean(filter(v_acc_voc, prosody_clean, case_broad=="vocative")$prosody_vowel_lengthening)
+
 ```
 
 Some thinking is necessary for the random effect coefficients.
 
 ```{r}
+
 v_acc_voc %>%
   group_by(family1, case_broad) %>%
   summarise(prop = mean(prosody_clean)) %>%
   ungroup()
+
 ```
 
 Note that both intercepts and slopes will vary widely between 0% - 100% (on a probability scale): 
@@ -82,6 +92,8 @@ We'll also try some slightly more lenient priors (for the SDs, not the slopes/in
 The scale parameter and df for the population-level slopes / intercept is based on advice from Gelman: https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations.
 
 ```{r}
+
+# set 'strict' prior
 priors_prosody_strict <- c(
   set_prior("student_t(5,0,2.5)", class = "b"),
   set_prior("student_t(5,0,2.5)", class = "Intercept"),
@@ -91,6 +103,8 @@ priors_prosody_strict <- c(
   set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
   set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
 )
+
+# set 'lenient' priors
 priors_prosody_lenient <- c(
   set_prior("student_t(5,0,2.5)", class = "b"),
   set_prior("student_t(5,0,2.5)", class = "Intercept"),
@@ -100,6 +114,8 @@ priors_prosody_lenient <- c(
   set_prior("student_t(4,0,4)", class = "sd", coef = "Intercept", group="macroarea"),
   set_prior("student_t(4,0,4)", class = "sd", coef = "case_broad_sum", group="macroarea")
 )
+
+# model
 mod_prosody_strict <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
             data=v_acc_voc, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_prosody_strict)
@@ -109,25 +125,36 @@ mod_prosody_lenient <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum 
 # mod_prosody_strict <- readRDS("../models/mod_prosody_strict.rds")
 # mod_prosody_lenient <- readRDS("../models/mod_prosody_lenient.rds")
 
+# summary model output
 summary(mod_prosody_strict)
 summary(mod_prosody_lenient)
+
+# save model output
 saveRDS(mod_prosody_strict, "../models/mod_prosody_strict.rds")
 saveRDS(mod_prosody_lenient, "../models/mod_prosody_lenient.rds")
+
 ```
 
 The two marginal effects plots look qualitatively very similar, with slightly wider confidence intervals around the lenient model -- unsurprising, given that this model allows random slopes to veer further away from the group trend, decreasing the amount of pooling. The pp_check's look fine for both models. I'd recommend using the strict model for the paper, as the random effects are so brittle (so we actually want more pooling!).
 
 ```{r}
+
+# check model predictions
 marginal_effects(mod_prosody_strict, robust=T)
 marginal_effects(mod_prosody_lenient, robust=T)
+
+# posterior predictive check
 pp_check(mod_prosody_strict)
 pp_check(mod_prosody_lenient)
+
 ```
 
 Manually calculating credible intervals.
 
 ```{r}
+
 mod_prosody_strict_psamp <- as.matrix(posterior_samples(mod_prosody_strict)[,1:2])
+
 # accusative-like - all probabilities
 mod_prosody_strict_acc_probs <- plogis(mod_prosody_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
 round(mean(mod_prosody_strict_acc_probs), 5)
@@ -141,11 +168,14 @@ round(quantile(mod_prosody_strict_voc_probs, c(0.025, 0.975)), 5)
 # difference
 round(mean(mod_prosody_strict_voc_probs - mod_prosody_strict_acc_probs), 5)
 round(quantile(mod_prosody_strict_voc_probs - mod_prosody_strict_acc_probs, c(0.025, 0.975)), 5)
+
 ```
 
-With by-language random effects:
+Run the same model and add by-language random effects:
 
 ```{r}
+
+# define priors
 priors_prosody_strict_language <- c(
   set_prior("student_t(5,0,2.5)", class = "b"),
   set_prior("student_t(5,0,2.5)", class = "Intercept"),
@@ -158,13 +188,17 @@ priors_prosody_strict_language <- c(
   set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="language")
 )
 
-mod_prosody_strict_language <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea) + (1 + case_broad_sum | language),
+# mode
+mod_prosody_strict_language <- brm(prosody_clean ~ case_broad_sum + (1 + case_broad_sum | family1) 
+                                   + (1 + case_broad_sum | macroarea) + (1 + case_broad_sum | language),
             data=v_acc_voc, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_prosody_strict_language)
 # mod_prosody_strict_language <- readRDS("../models/mod_prosody_strict.rds")
 
+# summary and save
 summary(mod_prosody_strict_language)
 saveRDS(mod_prosody_strict_language, "../models/mod_prosody_strict_language.rds")
+
 ```
 
 ## 3.2 Presence of consonants
@@ -173,6 +207,7 @@ No complete separation here, though it still makes sense to limit random effect 
 
 
 ```{r}
+
 v_acc_voc_non_zero <- filter(v_acc_voc, !is.na(form_add_all))
 
 # raw data
@@ -187,14 +222,17 @@ v_acc_voc_non_zero %>%
   ungroup() %>%
   group_by(case_broad) %>%
   summarise(prop=mean(prop))
+
 ```
 
 ```{r}
+
 # rescaling case_broad
 v_acc_voc_non_zero <- v_acc_voc_non_zero %>%
   mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
          case_broad_sum=case_broad_sum-mean(case_broad_sum))
 
+# define priors
 priors_consonants <- c(
   set_prior("student_t(5,0,2.5)", class = "b"),
   set_prior("student_t(5,0,2.5)", class = "Intercept"),
@@ -205,20 +243,28 @@ priors_consonants <- c(
   set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
 )
 
-mod_consonants <- brm(cons_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
+# model
+mod_consonants <- brm(cons_pres ~ case_broad_sum + (1 + case_broad_sum | family1) + 
+                        (1 + case_broad_sum | macroarea),
             data=v_acc_voc_non_zero, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_consonants)
 # mod_consonants <- readRDS("../models/mod_consonants.rds")
+
+# save model
 saveRDS(mod_consonants, "../models/mod_consonants.rds")
+
+# summary, posterior predictive check and marginal effects
 summary(mod_consonants)
 pp_check(mod_consonants)
 marginal_effects(mod_consonants)
 stanplot(mod_consonants, type="dens")
+
 ```
 
 Manual estimates.
 
 ```{r}
+
 mod_consonants_psamp <- as.matrix(posterior_samples(mod_consonants)[,1:2])
 # accusative-like - all probabilities
 mod_consonants_acc_probs <- plogis(mod_consonants_psamp %*% matrix(c(1, min(v_acc_voc_non_zero$case_broad_sum))))
@@ -233,6 +279,7 @@ round(quantile(mod_consonants_voc_probs, c(0.025, 0.975)), 5)
 # difference
 round(mean(mod_consonants_voc_probs - mod_consonants_acc_probs), 5)
 round(quantile(mod_consonants_voc_probs - mod_consonants_acc_probs, c(0.025, 0.975)), 5)
+
 ```
 
 The same model with language as a random effect.
@@ -684,11 +731,9 @@ mod_v_height <- brm(v_height ~ case_broad_sum + (1 + case_broad_sum | family1) +
             prior=priors_v_height)
 
 # mod_v_height <- readRDS("../models/mod_v_height.rds")
-saveRDS(mod_v_height, "../models/mod_v_height")
+saveRDS(mod_v_height, "../models/mod_v_height.rds")
 summary(mod_v_height) # note that estimates here tell us about log-odds of low / mid against high response - not necessarily easily interpretable!
 pp_check(mod_v_height)
-
-marginal_effects(mod_v_height, categorical=T)
 
 # we can do better than marginal effects!
 psamp <- posterior_samples(mod_v_height)
@@ -725,6 +770,7 @@ quantile(p_m_voc - p_m_acc, c(0.025,0.975))
 # how much probability mass > 0?
 1-ecdf(p_m_voc - p_m_acc)(0)
 
+# high vowels
 mean(p_h_acc)
 quantile(p_h_acc, c(0.025,0.975))
 mean(p_h_voc)

@@ -17,6 +17,7 @@ Loading libraries & raw data.
 library(tidyverse)
 
 v_orig <- read_csv('../raw_data/vocatives.csv')
+
 ```
 
 Some basic formatting, e.g. numeric 0-1 to logical. 
@@ -210,5 +211,5 @@ v$cons_onset <- ifelse(v$cons_pres == TRUE & v$cons_end == FALSE, TRUE, FALSE)
 ## Write data
 
 ```{r}
-write_csv(v, "../data/vocatives_processed.csv")
+write_csv(v, "../derived_data/vocatives_processed.csv")
 ```
