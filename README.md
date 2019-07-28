@@ -23,18 +23,29 @@ install.packages(packages)
 ### Content
 
 #### raw_data
-Contains the data table generated when collecting the corpus `vocatives.csv`
-  * file
-  * file
-  * file
+Contains the data table generated when collecting the corpus:
+  * `vocatives_glottolog.csv`
+  * `vocatives.csv`
 
 TO DO: what's in there and generate code book
 
 #### derived_data
 Contains all data derived by `01_merge_glottolog.R` and `vocative_variable.Rmd`
-  * file
-  * file
-  * file
+  * `vocatives_processed.csv`
+  * `languages_and_dialects_geo.csv`: 
+  
+  glottocode: 	glottolog code of language 	
+  name:		language name
+  isocodes:	isocode if available
+  level:	categorization as language or dialect
+  macroarea:	glottolog macroarea categorization into Africa, Australia, Eurasia, North America, Papunesia, South America
+  latitude:	self-explanatory
+  longitude:	self-explanatory
+  
+  
+  * `voc_languages.csv`	
+  * `glottolog_complete.csv`
+  * `glottolog_complete_add_on.csv`
   
 TO DO: code book for new variables
 
