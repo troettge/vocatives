@@ -1,7 +1,10 @@
 ---
-title: "Generating variables for vocatives data"
-author: "Márton Sóskuthy"
-date: "18/06/2019"
+title: "01_preprocess"
+decription: "Generating variables, cleaning and preprocessing for modelling and plotting"
+project: "Vocatives"
+author: "Marton Soskuthy & Timo Roettger"
+date: "7/24/2019"
+contacts: "timo.b.roettger@gmail.com, marton.soskuthy@ubc.ca"
 output: html_document
 ---
 
@@ -15,6 +18,7 @@ Loading libraries & raw data.
 
 ```{r}
 library(tidyverse)
+library(purrr)
 
 v_orig <- read_csv('../raw_data/vocatives.csv')
 

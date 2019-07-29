@@ -1,7 +1,10 @@
 ---
-title: "Bayesian models of vocatives"
-author: "Márton Sóskuthy"
-date: "03/07/2019"
+title: "03_modelling"
+description: "Bayesian models of vocatives"
+project: "Vocatives"
+author: "Marton Soskuthy & Timo Roettger"
+date: "7/24/2019"
+contacts: "timo.b.roettger@gmail.com, marton.soskuthy@ubc.ca"
 output: html_document
 ---
 

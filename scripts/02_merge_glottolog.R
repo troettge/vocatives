@@ -1,6 +1,6 @@
 # Project: Vocatives
 # Authors: Marton Soskuthy & Timo Roettger
-# Part 01: Merging Glottolog data with raw data
+# Part 02: Merging Glottolog data with raw data
 # Date: 06/17/2019
 # Contacts: timo.b.roettger@gmail.com
 #           marton.soskuthy@ubc.ca
@@ -21,10 +21,10 @@ lang_with_areas <- read_csv("languages_and_dialects_geo.csv")
 lang <- lang %>% 
   rename(Language = name) %>% 
   dplyr::select(Language, latitude, longitude, family)
+
 lang_with_areas <- lang_with_areas %>% 
   rename(Language = name) %>% 
   dplyr::select(Language, macroarea)
-
 
 # load in rows that are not in "lang"
 lang_add <- read_csv("Glottolog_complete_add_on.csv")
@@ -34,7 +34,7 @@ lang <- full_join(lang, lang_add)
 
 # read in vocative table
 setwd("../raw_data/")
-voc <- read_csv("Vocatives_glottolog.csv")
+voc <- read_csv("vocatives.csv")
 
 # preprocess 
 voc <- voc %>% 
