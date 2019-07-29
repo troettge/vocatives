@@ -24,28 +24,45 @@ install.packages(packages)
 
 #### raw_data
 Contains the data table generated when collecting the corpus:
-  * `vocatives_glottolog.csv`
-  * `vocatives.csv`
+  * `vocatives_glottolog.csv`(-> redundant)
+  * `vocatives.csv` 
+  The raw corpus.
+  * ADD CODE BOOK
+  
+  
 
 TO DO: what's in there and generate code book
 
 #### derived_data
 Contains all data derived by `01_merge_glottolog.R` and `vocative_variable.Rmd`
   * `vocatives_processed.csv`
+  Contains cleaned up raw-corpus for further modelling and plotting. Derived by `02_vocatives_variables.Rmd`
+  
   * `languages_and_dialects_geo.csv`: 
-  
-  glottocode: 	glottolog code of language 	
-  name:		language name
-  isocodes:	isocode if available
-  level:	categorization as language or dialect
-  macroarea:	glottolog macroarea categorization into Africa, Australia, Eurasia, North America, Papunesia, South America
-  latitude:	self-explanatory
-  longitude:	self-explanatory
-  
+  Contains information about macroareas and location of languages
+  	- **glottocode**: 	glottolog code of language 	
+  	- **name**:		language name
+  	- **isocodes**:		isocode if available
+  	- **level**:		categorization as language or dialect
+ 	- **macroarea**:	glottolog macroarea categorization into Africa, Australia, Eurasia, North America, Papunesia, South America
+  	- **latitude**:		self-explanatory
+  	- **longitude**:	self-explanatory
   
   * `voc_languages.csv`	
+  
   * `glottolog_complete.csv`
+  Contains complementary information about location and macroarea of languages. Relevant columns are: 
+  	- **latitude**:		self-explanatory
+  	- **longitude**:	self-explanatory
+  	- **Language**: 	language name
+	- **family**: 		language family according to glottolog
+  
   * `glottolog_complete_add_on.csv`
+  Contains missing information that are not contained in `glottolog_complete.csv`
+ 	- **latitude**:		self-explanatory
+  	- **longitude**:	self-explanatory
+  	- **Language**: 	language name
+	- **family**: 		language family according to glottolog
   
 TO DO: code book for new variables
 
@@ -53,8 +70,8 @@ TO DO: code book for new variables
 Contains all scripts numbered according to its usage:
 * `00_packages.R` installs all relevant packages and snapshots it with packrat
 * `00_packratRestore.R` can be executed by the user to restore the libary required for the scripts
-* `01_merge_glottolog` merges `Glottolog_complete.csv` and `languages_and_dialects_geo.csv`.
-* `0#_vocatives_variables.Rmd` DESCRIBE
+* `01_vocatives_variables.Rmd` cleans up raw data and preprocess it for further modelling and plotting
+* `02_merge_glottolog` merges raw data and several files containing information about location, family and macroareas.
 * `0#_vocatives-models.Rmd` runs all relevant Bayesian models and stores model outputs in `models`.
 * `0#_vocatives_plots.Rmd` takes model outputs and creates plots, stored in `plots`
   
