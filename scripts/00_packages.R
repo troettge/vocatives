@@ -17,6 +17,3 @@ packages <- c("readbulk",
 
 ## install packages (don't run)
 install.packages(packages)
-
-## snapshot packages into packrat
-packrat::snapshot(ignore.stale = TRUE)
