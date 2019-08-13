@@ -25,7 +25,7 @@ library(ggbeeswarm)
 library(brms)
 
 # load data
-v <- read_csv('../data/vocatives_processed.csv')
+v <- read_csv('../derived_data/vocatives_processed.csv')
 langs <- read_csv('../derived_data/voc_languages.csv')
 
 # join them
@@ -124,6 +124,10 @@ v_aggr_family_suffix <- v_aggr_suffix %>%
             n = mean(n)) %>%
   ungroup()
 
+v_acc_voc <- v %>%
+  filter(case_broad != "nom-like") %>% 
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
 
 ```
 
@@ -138,7 +142,7 @@ v_aggr_family_suffix <- v_aggr_suffix %>%
 prosody_model <- readRDS('../models/mod_prosody_strict.rds')
 
 # extract posteriors
-mod_prosody_strict_psamp <- as.matrix(posterior_samples(mod_prosody_strict)[,1:2])
+mod_prosody_strict_psamp <- as.matrix(posterior_samples(prosody_model)[,1:2])
 
 # accusative-like - all probabilities
 mod_prosody_strict_acc_probs <- plogis(mod_prosody_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
@@ -764,7 +768,7 @@ world_map <- map_data("world")
 
 map <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
   geom_polygon(fill = "lightgray", colour = "white", size = 0.2) +
-  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, color = cons_pres, group = NA, shape = ),
+  geom_point(data = v_aggr, aes(x = longitude, y = latitude, color = cons_pres, group = NA, size = 4),
              alpha = 0.8, position = position_jitter(0.5,0.5)) +
   coord_map(xlim = c(-180, 180),ylim = c(-60, 80)) +
   #coord_fixed(ylim = c(-60, 80), ratio = 1) +
@@ -799,8 +803,7 @@ library(ggpubr)
 # plot map
 map_combo <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
   geom_polygon(fill = "lightgray", colour = "white", size = 0.2) +
-  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, color = cons_pres, group = NA, shape = ),
-             alpha = 0.8, position = position_jitter(0.1)) +
+  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, color = cons_pres, group = NA), alpha = 0.8, size = 3, position = position_jitter(0.1)) +
    coord_map(xlim = c(-180, 180),ylim = c(-60, 80)) +
   #ylim(-60,80) +
   #coord_fixed(ylim = c(-60, 80), ratio = 1) +

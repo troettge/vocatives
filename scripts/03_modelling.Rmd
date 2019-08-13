@@ -425,7 +425,9 @@ priors_consonants <- c(
 )
 
 mod_c_final <- brm(cons_end ~ case_broad_sum + (1 + case_broad_sum | family1) + (1 + case_broad_sum | macroarea),
-            data=v_acc_voc_cons_fin, family="bernoulli", cores=2, control=list(adapt_delta=0.99),
+            #data=v_acc_voc_cons_fin, 
+            data=v_acc_voc_cons,
+              family="bernoulli", cores=2, control=list(adapt_delta=0.99),
             prior=priors_consonants)
 # mod_consonants_suff <- readRDS("../models/mod_c_final.rds")
 saveRDS(mod_c_final, "../models/mod_c_final.rds")
@@ -832,5 +834,4 @@ saveRDS(mod_v_height_language, "../models/mod_v_height")
 summary(mod_v_height_language) # note that estimates here tell us about log-odds of low / mid against high response - not necessarily easily interpretable!
 pp_check(mod_v_height_language)
 
-marginal_effects(mod_v_height_language, categorical=T)
 ```
