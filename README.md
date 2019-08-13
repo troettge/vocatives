@@ -27,16 +27,27 @@ Contains the data table generated when collecting the corpus:
   * `vocatives_glottolog.csv`(-> redundant)
   * `vocatives.csv` 
   The raw corpus.
-  * ADD CODE BOOK
   
-  
-
-TO DO: what's in there and generate code book
-
 #### derived_data
 Contains all data derived by `01_merge_glottolog.R` and `vocative_variable.Rmd`
   * `vocatives_processed.csv`
   Contains cleaned up raw-corpus for further modelling and plotting. Derived by `02_vocatives_variables.Rmd`
+  	- **language**: 	language name
+	- **case**: 		concrete case with a variety of structural case descriptions
+	- **default**: 		logical, ???
+	- **morphological**:	the nature of the marker incl. affix, clitic, particle, or phonological modulation including deletion, prosodic or no if not applicable to above categories
+	- **noun_type**: 	type of noun, if a restriction exists (e.g. vocatives are often restricted to kinship terms)
+	- **noun_class**:	noun class, if a restriction exists
+	- **number**:		grammatical number, if a restriction exists
+	- **conditioning**:	phonological conditioning, if a restriction exists
+	- **form**:		the actual phonological form of the alternation as noted when looking at the grammars
+	- **form_add**:		a tidied version of the form column that contains only forms that are added to the segmental string ( position is indicated by the hyphen)
+	- **form_replace**: 	a tidied version of the form column that contains only forms that are characterized by replacement (rare)
+	- **?**:
+	- **?**:
+	- **?**:
+	- **?**:
+  
   
   * `languages_and_dialects_geo.csv`: 
   Contains information about macroareas and location of languages
