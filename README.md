@@ -40,13 +40,32 @@ Contains all data derived by `01_merge_glottolog.R` and `vocative_variable.Rmd`
 	- **noun_class**:	noun class, if a restriction exists
 	- **number**:		grammatical number, if a restriction exists
 	- **conditioning**:	phonological conditioning, if a restriction exists
-	- **form**:		the actual phonological form of the alternation as noted when looking at the grammars
-	- **form_add**:		a tidied version of the form column that contains only forms that are added to the segmental string ( position is indicated by the hyphen)
+	- **form**:		the  phonological form of the alternation as originally noted when looking at the grammars
+	- **form_add**:		a tidied version of the form column that contains only forms that are added to the segmental string (position is indicated by the hyphen)
 	- **form_replace**: 	a tidied version of the form column that contains only forms that are characterized by replacement (rare)
-	- **?**:
-	- **?**:
-	- **?**:
-	- **?**:
+	- **form_delete**: 	a tidied version of the form column that contains only forms that are characterized by deletion (rare)
+	- **prosodic_form**:	if prosodic modulation is described,the prosodic form of the alternation as originally noted when looking at the grammars
+	- **prosody_clean**: 	logical, notes if row refers to a prosodic modulation
+	- **prosody_stress**: 	binary, notes if row refers to a stress shift
+	- **prosody_tone**: 	binary, notes if row refers to a lexical tone change
+	- **prosody_vowel_lengthening**: 	binary, notes if row refers to a vowel lengthening
+	- **case_broad**:	categorizes `case` column into three broad categories: nom-like, acc-like, and vocative
+	- **form_add_s**:	????
+	- **form_add_prefix**:	the content of `form_add` for only forms that precede the noun
+	- **form_add_suffix**: 	the content of `form_add` for only forms that succeed the noun
+	- **form_add_all**:	????
+	- **vowel_pres**:	logical, does the added form contain a vowel?
+	- **cons_pres**:	logical, does the added form contain a consonant?
+	- **vowel_end**:	logical, does the added form end in a vowel?
+	- **obstr_vl_pres**:	binary, does the added form contain a voiceless consonant?
+	- **obstr_vl_count**:	numeric, how many voiceless consonants does the added form contain?
+	- **obstr_vl_prop**:	numeric, what is the proportion of voiceless consonants to the overall number of segments of the added form?
+	- **last_vowel**:	what is the final vowel of the added form?
+	- **last_vowel_qual**:	what is the vowel quality of the last vowel of the added form
+	- **v_height**:		what is the vowel height of the last vowel of the added form
+	- **v_long**:		logical, does the last vowel occupy two length slots, i.e. is it a long vowel or a diphtongue?
+	- **cons_end**:		logical, does the form end in a consonant?
+	- **cons_onset**:	logical, does the form have a consonantal onset?
   
   
   * `languages_and_dialects_geo.csv`: 
