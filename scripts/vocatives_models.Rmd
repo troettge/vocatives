@@ -15,10 +15,9 @@ Loading libraries & raw data.
 
 ```{r}
 library(tidyverse)
-library(ggbeeswarm)
 library(brms)
 
-v <- read_csv('../data/vocatives_processed.csv')
+v <- read_csv('../derived_data/vocatives_processed.csv')
 langs <- read_csv('../derived_data/voc_languages.csv') %>%
   filter(!(language %in% c("Korean","Alaaba")))
 

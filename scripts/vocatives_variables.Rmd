@@ -26,6 +26,9 @@ colnames(v_orig) <- gsub(" ", "_", tolower(colnames(v_orig)))
 v <- v_orig %>%
   mutate(default=!is.na(default),
          prosody_clean=!is.na(prosody_clean),
+         prosody_stress=!is.na(prosody_stress),
+         prosody_tone=!is.na(prosody_tone),
+         prosody_vowel_lengthening=!is.na(prosody_vowel_lengthening),
          morphological=dplyr::recode(morphological, yes='affix'),
          noun_class=replace_na(noun_class, ""),
          number=replace_na(number, ""),
@@ -210,5 +213,5 @@ v$cons_onset <- ifelse(v$cons_pres == TRUE & v$cons_end == FALSE, TRUE, FALSE)
 ## Write data
 
 ```{r}
-write_csv(v, "../data/vocatives_processed.csv")
+write_csv(v, "../derived_data/vocatives_processed.csv")
 ```
