@@ -1,0 +1,884 @@
+---
+title: "Publication ready plots"
+project: "Vocatives"
+author: "Marton Soskuthy & Timo Roettger"
+date: "7/24/2019"
+contacts: "timo.b.roettger@gmail.com, marton.soskuthy@ubc.ca"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Prep
+
+Loading libraries & raw data.
+
+```{r preprocess}
+
+# load packages
+library(tidyverse)
+library(ggbeeswarm)
+library(brms)
+
+# load data
+v <- read_csv('../derived_data/vocatives_processed.csv')
+langs <- read_csv('../derived_data/voc_languages.csv')
+
+# join them
+v <- full_join(v,langs)
+
+# store theme
+theme_voc <- 
+theme_classic() + 
+  theme(legend.position = "none",
+        legend.key.height = unit(2,"line"),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12),
+        legend.background = element_rect(fill = "transparent"),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 12, face = "bold"),
+        panel.spacing = unit(2, "lines"),
+        panel.border = element_blank(),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        panel.background = element_rect(fill = "transparent"),
+        strip.text.y = element_text(size = 12, hjust = 0),
+        axis.text = element_text(size = 12),
+        axis.line = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title = element_text(size = 12, face = "bold"),
+        plot.title = element_text(size = 14, face = "bold"),
+        plot.margin = unit(c(0.4,0.4,0.4,0.4),"cm"))
+
+
+```
+```{r agg}
+
+# aggregate raw data over lang family
+v_aggr <- v %>%
+    filter(case_broad != "nom-like") %>% 
+    dplyr::select(language, case_broad, prosody_clean,
+         vowel_pres, cons_pres, cons_end, vowel_end, 
+         obstr_vl_pres, v_long, family1, latitude, longitude) %>% 
+  group_by(language, case_broad, family1) %>%
+  summarise(vowel_pres = mean(vowel_pres, na.rm = T),
+            cons_pres = mean(cons_pres, na.rm = T),
+            vowel_end = mean(vowel_end, na.rm = T),
+            obstr_vl_pres = mean(obstr_vl_pres, na.rm = T),
+            v_long = mean(v_long, na.rm = T),
+            cons_end = mean(cons_end, na.rm = T),
+            prosody_clean = mean(prosody_clean, na.rm = T),
+            latitude = mean(latitude),
+            longitude = mean(longitude)) %>%
+  ungroup()
+
+# aggregated over families
+v_aggr_family <- v_aggr %>%
+  group_by(family1, case_broad) %>%
+  add_tally() %>% 
+  filter(!is.na(case_broad)) %>% 
+  summarise(vowel_pres = mean(vowel_pres, na.rm = T),
+            cons_pres = mean(cons_pres, na.rm = T),
+            vowel_end = mean(vowel_end, na.rm = T),
+            obstr_vl_pres = mean(obstr_vl_pres, na.rm = T),
+            v_long = mean(v_long, na.rm = T),
+            cons_end = mean(cons_end, na.rm = T),
+            prosody_clean = mean(prosody_clean, na.rm = T),
+            n = mean(n)) %>%
+  ungroup()
+
+# aggregate raw data over lang family and suffix vs. non-suffix
+v_aggr_suffix <- v %>%
+    filter(case_broad != "nom-like") %>% 
+    filter(!is.na(form_add_suffix), morphological=="affix") %>% 
+    dplyr::select(language, case_broad, prosody_clean,
+         vowel_pres, cons_pres, cons_end, vowel_end, 
+         obstr_vl_pres, v_long, family1, latitude, longitude) %>% 
+  group_by(language, case_broad, family1) %>%
+  summarise(vowel_pres = mean(vowel_pres, na.rm = T),
+            cons_pres = mean(cons_pres, na.rm = T),
+            vowel_end = mean(vowel_end, na.rm = T),
+            obstr_vl_pres = mean(obstr_vl_pres, na.rm = T),
+            v_long = mean(v_long, na.rm = T),
+            cons_end = mean(cons_end, na.rm = T),
+            prosody_clean = mean(prosody_clean, na.rm = T),
+            latitude = mean(latitude),
+            longitude = mean(longitude)) %>%
+  ungroup()
+
+# aggregated over families
+v_aggr_family_suffix <- v_aggr_suffix %>%
+  group_by(family1, case_broad) %>%
+  add_tally() %>% 
+  filter(!is.na(case_broad)) %>% 
+  summarise(vowel_pres = mean(vowel_pres, na.rm = T),
+            cons_pres = mean(cons_pres, na.rm = T),
+            vowel_end = mean(vowel_end, na.rm = T),
+            obstr_vl_pres = mean(obstr_vl_pres, na.rm = T),
+            v_long = mean(v_long, na.rm = T),
+            cons_end = mean(cons_end, na.rm = T),
+            prosody_clean = mean(prosody_clean, na.rm = T),
+            n = mean(n)) %>%
+  ungroup()
+
+v_acc_voc <- v %>%
+  filter(case_broad != "nom-like") %>% 
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+```
+
+
+## Prosodic Modulation
+
+### Prepare
+
+```{r prep prosody}
+
+# load in model output
+prosody_model <- readRDS('../models/mod_prosody_strict.rds')
+
+# extract posteriors
+mod_prosody_strict_psamp <- as.matrix(posterior_samples(prosody_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_prosody_strict_acc_probs <- plogis(mod_prosody_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_prosody_strict_acc_probs), 5)
+lower <- round(quantile(mod_prosody_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_prosody_strict_acc_probs, 0.975), 5)
+
+prosody_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_prosody_strict_voc_probs <- plogis(mod_prosody_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_prosody_strict_voc_probs), 5)
+lower <- round(quantile(mod_prosody_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_prosody_strict_voc_probs, 0.975), 5)
+
+prosody_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+prosody_post <- rbind(prosody_acc_post, prosody_voc_post)
+prosody_post$case_broad <- c("acc-like", "vocative")
+
+
+```
+
+### Plot (publication plot Figure 2)
+
+```{r plot prosody}
+
+# plot and save
+ggplot(data = prosody_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family, aes(x = case_broad, y = prosody_clean, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "Results: Prosodic modulation",
+       subtitle = "Vocatives are often prosodically marked\n",
+       y = "proportion of forms \nwith prosodic changes\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/prosody.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/prosody.png", width = 4.5, height = 3.6)
+
+
+```
+
+
+## Consonants presence
+
+### Prepare
+
+```{r prep consonants}
+
+# load in model output for overall consonant model
+cons_pres_model <- readRDS('../models/mod_consonants.rds')
+
+# extract posteriors
+mod_cons_pres_strict_psamp <- as.matrix(posterior_samples(cons_pres_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_cons_pres_strict_acc_probs <- plogis(mod_cons_pres_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_pres_strict_acc_probs), 5)
+lower <- round(quantile(mod_cons_pres_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_pres_strict_acc_probs, 0.975), 5)
+
+cons_pres_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_cons_pres_strict_voc_probs <- plogis(mod_cons_pres_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_pres_strict_voc_probs), 5)
+lower <- round(quantile(mod_cons_pres_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_pres_strict_voc_probs, 0.975), 5)
+
+cons_pres_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+cons_pres_post <- rbind(cons_pres_acc_post, cons_pres_voc_post)
+cons_pres_post$case_broad <- c("acc-like", "vocative")
+
+#####
+
+# load in model output for presence of consonants only in suffixes
+cons_pres_suff_model <- readRDS('../models/mod_consonants_suff.rds')
+
+# extract posteriors
+mod_cons_pres_suff_strict_psamp <- as.matrix(posterior_samples(cons_pres_suff_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_cons_pres_suff_strict_acc_probs <- plogis(mod_cons_pres_suff_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_pres_suff_strict_acc_probs), 5)
+lower <- round(quantile(mod_cons_pres_suff_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_pres_suff_strict_acc_probs, 0.975), 5)
+
+cons_pres_suff_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_cons_pres_suff_strict_voc_probs <- plogis(mod_cons_pres_suff_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_pres_suff_strict_voc_probs), 5)
+lower <- round(quantile(mod_cons_pres_suff_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_pres_suff_strict_voc_probs, 0.975), 5)
+
+cons_pres_suff_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+cons_pres_suff_post <- rbind(cons_pres_suff_acc_post, cons_pres_suff_voc_post)
+cons_pres_suff_post$case_broad <- c("acc-like", "vocative")    
+  
+
+```
+
+### Plot overall pattern
+
+```{r plot consonant presence}
+
+# plot and save
+ggplot(data = cons_pres_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family, aes(x = case_broad, y = cons_pres, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "Results: Presence of consonant",
+       subtitle = "Overall: Vocatives often have no consonants\n",
+       y = "proportion of forms \nwith a consonant\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/consonant.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/consonant.png", width = 4.5, height = 3.6)
+
+
+```
+
+### Plot pattern for suffixes only
+
+```{r plot consonant presence for suffixes only}
+
+# plot and save
+ggplot(data = cons_pres_suff_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family_suffix, aes(x = case_broad, y = cons_pres, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "Results: Consonants in suffixes",
+       subtitle = "Suffixes only: Vocatives often have no consonants\n",
+       y = "proportion of forms \nwith a consonant\n", 
+       x = "\n") +
+  theme_voc
+
+
+# save  
+ggsave("../plots/consonant_suffix.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/consonant_suffix.png", width = 4.5, height = 3.6)
+
+
+```
+
+## Final consonant?
+
+### Prepare
+
+```{r prep consonants final}
+
+# load in model output for overall consonant model
+cons_vl_model <- readRDS('../models/mod_c_final.rds')
+
+# extract posteriors
+mod_cons_final_strict_psamp <- as.matrix(posterior_samples(cons_final_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_cons_final_strict_acc_probs <- plogis(mod_cons_final_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_final_strict_acc_probs), 5)
+lower <- round(quantile(mod_cons_final_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_final_strict_acc_probs, 0.975), 5)
+
+cons_final_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_cons_final_strict_voc_probs <- plogis(mod_cons_final_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_final_strict_voc_probs), 5)
+lower <- round(quantile(mod_cons_final_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_final_strict_voc_probs, 0.975), 5)
+
+cons_final_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+cons_final_post <- rbind(cons_final_acc_post, cons_final_voc_post)
+cons_final_post$case_broad <- c("acc-like", "vocative")
+
+```
+
+### Plot
+
+```{r plot consonant final}
+
+v_aggr_family_cons <- v_aggr_family %>% 
+  filter(cons_pres == T)
+
+# plot and save
+ggplot(data = cons_final_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family_cons, aes(x = case_broad, y = cons_end, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "Results: Position of consonant",
+       subtitle = "Vocative do not have less final consonants\n",
+       y = "proportion of forms \nwith a final consonant\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/consonant_final.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/consonant_final.png", width = 4.5, height = 3.6)
+
+
+```
+
+## Voiceless consonant?
+
+### Prepare
+
+```{r prep consonants voiceless}
+
+# load in model output for overall consonant model
+cons_vl_model <- readRDS('../models/mod_vl_obstr.rds')
+
+# extract posteriors
+mod_cons_vl_strict_psamp <- as.matrix(posterior_samples(cons_vl_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_cons_vl_strict_acc_probs <- plogis(mod_cons_vl_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_vl_strict_acc_probs), 5)
+lower <- round(quantile(mod_cons_vl_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_vl_strict_acc_probs, 0.975), 5)
+
+cons_vl_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_cons_vl_strict_voc_probs <- plogis(mod_cons_vl_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_cons_vl_strict_voc_probs), 5)
+lower <- round(quantile(mod_cons_vl_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_cons_vl_strict_voc_probs, 0.975), 5)
+
+cons_vl_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+cons_vl_post <- rbind(cons_vl_acc_post, cons_vl_voc_post)
+cons_vl_post$case_broad <- c("acc-like", "vocative")
+
+```
+
+### Plot 
+
+```{r plot consonant voiceless}
+
+v_aggr_family_cons <- v_aggr_family %>% 
+  filter(cons_pres == T)
+
+# plot and save
+ggplot(data = cons_vl_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family_cons, aes(x = case_broad, y = obstr_vl_pres, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "Results: Voicing of consonant",
+       subtitle = "Vocative do not have less voiceless consonants\n",
+       y = "proportion of forms \nwith voiceless consonants\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/consonant_vl.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/consonant_vl.png", width = 4.5, height = 3.6)
+
+
+```
+
+## Presence of vowel?
+
+### Prepare
+
+```{r prep vowel presence}
+
+# load in model output for overall consonant model
+vow_pres_model <- readRDS('../models/mod_vowel_pres.rds')
+
+# extract posteriors
+mod_vow_pres_strict_psamp <- as.matrix(posterior_samples(vow_pres_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_vow_pres_strict_acc_probs <- plogis(mod_vow_pres_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_vow_pres_strict_acc_probs), 5)
+lower <- round(quantile(mod_vow_pres_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_vow_pres_strict_acc_probs, 0.975), 5)
+
+vow_pres_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_vow_pres_strict_voc_probs <- plogis(mod_vow_pres_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_vow_pres_strict_voc_probs), 5)
+lower <- round(quantile(mod_vow_pres_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_vow_pres_strict_voc_probs, 0.975), 5)
+
+vow_pres_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+vow_pres_post <- rbind(vow_pres_acc_post, vow_pres_voc_post)
+vow_pres_post$case_broad <- c("acc-like", "vocative")
+
+```
+
+### Plot
+
+```{r plot vowel presence}
+
+# plot and save
+ggplot(data = vow_pres_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family, aes(x = case_broad, y = vowel_pres, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "Results: Presence of vowel",
+       subtitle = "Most forms have a vowel\n",
+       y = "proportion of forms \nwith vowels\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/vowels.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/vowels.png", width = 4.5, height = 3.6)
+
+
+```
+
+
+## Vowel quantity?
+
+### Prepare
+
+```{r prep vowel quant}
+
+# load in model output for overall consonant model
+vow_quant_model <- readRDS('../models/mod_v_long.rds')
+
+# extract posteriors
+mod_vow_quant_strict_psamp <- as.matrix(posterior_samples(vow_quant_model)[,1:2])
+
+# accusative-like - all probabilities
+mod_vow_quant_strict_acc_probs <- plogis(mod_vow_quant_strict_psamp %*% matrix(c(1, min(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_vow_quant_strict_acc_probs), 5)
+lower <- round(quantile(mod_vow_quant_strict_acc_probs, 0.025), 5)
+upper <- round(quantile(mod_vow_quant_strict_acc_probs, 0.975), 5)
+
+vow_quant_acc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# vocative-like - all probabilities
+mod_vow_quant_strict_voc_probs <- plogis(mod_vow_quant_strict_psamp %*% matrix(c(1, max(v_acc_voc$case_broad_sum))))
+
+# get posterior mean and 95% CI for accusative
+mean <- round(mean(mod_vow_quant_strict_voc_probs), 5)
+lower <- round(quantile(mod_vow_quant_strict_voc_probs, 0.025), 5)
+upper <- round(quantile(mod_vow_quant_strict_voc_probs, 0.975), 5)
+
+vow_quant_voc_post <- data.frame(mean, lower, upper, row.names = NULL)
+
+# merge
+vow_quant_post <- rbind(vow_quant_acc_post, vow_quant_voc_post)
+vow_quant_post$case_broad <- c("acc-like", "vocative")
+
+```
+
+### Plot 
+
+```{r plot vowel quant}
+
+# plot and save
+ggplot(data = vow_quant_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family, aes(x = case_broad, y = v_long, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  labs(title = "Results: Vowel length",
+       subtitle = "Vocatives do not have more long vowels\n",
+       y = "proportion of forms \nwith long vowels\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/vowels_long.pdf", width = 4.5, height = 3.6)
+ggsave("../plots/vowels_long.png", width = 4.5, height = 3.6)
+
+
+```
+
+## Vowel quality?
+
+### Prepare
+
+```{r prep vowel qual}
+
+# subset
+v_acc_voc_v_height <- filter(v_acc_voc, !is.na(form_add_all) & vowel_pres & !is.na(v_height))
+
+# raw data by language family
+v_acc_voc_v_height_agg <- 
+v_acc_voc_v_height %>%
+  count(family1, case_broad, v_height) %>%
+  complete(nesting(family1, case_broad), v_height, fill = list(n = 0)) %>% 
+  group_by(family1, case_broad) %>%
+  mutate(prop=n/sum(n)) %>%
+  ungroup()
+
+# load in model output for overall consonant model
+vow_quant_model <- readRDS('../models/mod_v_height.rds')
+
+# extract posteriors
+psamp <- posterior_samples(mod_v_height)
+
+acc_matrix <- matrix(c(1, min(v_acc_voc_v_height$case_broad_sum)))
+voc_matrix <- matrix(c(1, max(v_acc_voc_v_height$case_broad_sum)))
+l_over_h_samp <- as.matrix(dplyr::select(psamp, matches("b_mul")))
+m_over_h_samp <- as.matrix(dplyr::select(psamp, matches("b_mum")))
+
+# probabilities!
+p_h_acc <- 1 / (1 + exp(l_over_h_samp %*% acc_matrix) + exp(m_over_h_samp %*% acc_matrix))
+p_h_voc <- 1 / (1 + exp(l_over_h_samp %*% voc_matrix) + exp(m_over_h_samp %*% voc_matrix))
+p_l_acc <- p_h_acc * exp(l_over_h_samp %*% acc_matrix)
+p_l_voc <- p_h_voc * exp(l_over_h_samp %*% voc_matrix)
+p_m_acc <- p_h_acc * exp(m_over_h_samp %*% acc_matrix)
+p_m_voc <- p_h_voc * exp(m_over_h_samp %*% voc_matrix)
+
+# means / quantiles / differences
+# low vowels
+low_acc_mean <- mean(p_l_acc)
+low_acc_lower <- quantile(p_l_acc, 0.025)
+low_acc_upper <- quantile(p_l_acc, 0.975)
+
+low_acc_post <- data.frame(low_acc_mean, low_acc_lower, low_acc_upper, row.names = NULL)
+colnames(low_acc_post) <- c("mean", "lower", "upper")
+
+low_voc_mean <- mean(p_l_voc)
+low_voc_lower <- quantile(p_l_voc, 0.025)
+low_voc_upper <- quantile(p_l_voc, 0.975)
+
+low_voc_post <- data.frame(low_voc_mean, low_voc_lower, low_voc_upper, row.names = NULL)
+colnames(low_voc_post) <- c("mean", "lower", "upper")
+
+# mid vowels
+mid_acc_mean <- mean(p_m_acc)
+mid_acc_lower <- quantile(p_m_acc, 0.025)
+mid_acc_upper <- quantile(p_m_acc, 0.975)
+
+mid_acc_post <- data.frame(mid_acc_mean, mid_acc_lower, mid_acc_upper, row.names = NULL)
+colnames(mid_acc_post) <- c("mean", "lower", "upper")
+
+mid_voc_mean <- mean(p_m_voc)
+mid_voc_lower <- quantile(p_m_voc, 0.025)
+mid_voc_upper <- quantile(p_m_voc, 0.975)
+
+mid_voc_post <- data.frame(mid_voc_mean, mid_voc_lower, mid_voc_upper, row.names = NULL)
+colnames(mid_voc_post) <- c("mean", "lower", "upper")
+
+# high vowels
+high_acc_mean <- mean(p_h_acc)
+high_acc_lower <- quantile(p_h_acc, 0.025)
+high_acc_upper <- quantile(p_h_acc, 0.975)
+
+high_acc_post <- data.frame(high_acc_mean, high_acc_lower, high_acc_upper, row.names = NULL)
+colnames(high_acc_post) <- c("mean", "lower", "upper")
+
+high_voc_mean <- mean(p_h_voc)
+high_voc_lower <- quantile(p_h_voc, 0.025)
+high_voc_upper <- quantile(p_h_voc, 0.975)
+
+high_voc_post <- data.frame(high_voc_mean, high_voc_lower, high_voc_upper, row.names = NULL)
+colnames(high_voc_post) <- c("mean", "lower", "upper")
+
+# merge
+vow_qual_post <- rbind(low_acc_post, low_voc_post,
+                       mid_acc_post, mid_voc_post,
+                       high_acc_post, high_voc_post)
+
+# add v_height and case_broad
+vow_qual_post$case_broad <- rep(c("acc-like", "vocative"), 3)
+vow_qual_post$v_height <- rep(c("l", "m", "h"), each = 2)
+
+```
+
+### Plot (publication plot Figure 4)
+
+```{r vowel qual plot}
+
+# rename and relevel v_height
+vow_qual_post$v_height <- as.factor(vow_qual_post$v_height)
+v_acc_voc_v_height_agg$v_height <- as.factor(v_acc_voc_v_height_agg$v_height)
+
+levels(vow_qual_post$v_height) <- c("high", "low", "mid")
+levels(v_acc_voc_v_height_agg$v_height) <- c("high", "low", "mid")
+
+# reorder factor levels
+source("https://raw.githubusercontent.com/janhove/janhove.github.io/master/RCode/sortLvls.R")
+vow_qual_post$v_height <- sortLvls.fnc(vow_qual_post$v_height, c(2,3,1))
+v_acc_voc_v_height_agg$v_height <- sortLvls.fnc(v_acc_voc_v_height_agg$v_height, c(2,3,1))
+
+
+# plot
+ggplot(data = vow_qual_post, aes(x = case_broad, y = mean, fill = case_broad)) +
+  geom_point(data = v_acc_voc_v_height_agg, aes(x = case_broad, y = prop, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  facet_grid(~ v_height) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  labs(title = "Results: Vowel quality",
+       subtitle = "Vocatives have more mid vowels and less high vowels\n",
+       y = "proportion of forms \nwith respective vowel quality\n", 
+       x = "\n") +
+  theme_voc
+
+# save  
+ggsave("../plots/vowels_qual.pdf", width = 8, height = 3.6)
+ggsave("../plots/vowels_qual.png", width = 8, height = 3.6)
+
+
+```
+
+## Plot maps of the major finding
+
+### Consonants
+
+```{r map plots}
+
+library(maps)
+
+world_map <- map_data("world")
+
+map <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "lightgray", colour = "white", size = 0.2) +
+  geom_point(data = v_aggr, aes(x = longitude, y = latitude, color = cons_pres, group = NA, size = 4),
+             alpha = 0.8, position = position_jitter(0.5,0.5)) +
+  coord_map(xlim = c(-180, 180),ylim = c(-60, 80)) +
+  #coord_fixed(ylim = c(-60, 80), ratio = 1) +
+  #ylim(-60,80) +
+  facet_grid(~case_broad) +
+  scale_colour_gradient(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1), low = "#4dac26", high = "#d01c8b") +
+  labs(title = "Map: Presence of consonants in suffixes",
+       subtitle = "Vocatives often have no consonants\n") +
+  theme_voc +
+  theme(
+    legend.position = "right",
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank())
+
+map
+
+# save  
+ggsave("../plots/maps_consonants.pdf", width = 10, height = 3.6)
+ggsave("../plots/maps_consonants.png", width = 10, height = 3.6)
+
+
+```
+
+### Combine plots (publication plot Figure 3)
+
+```{r combine plots}
+
+library(ggpubr)
+
+# plot map
+map_combo <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill = "lightgray", colour = "white", size = 0.2) +
+  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, color = cons_pres, group = NA), alpha = 0.8, size = 3, position = position_jitter(0.1)) +
+   coord_map(xlim = c(-180, 180),ylim = c(-60, 80)) +
+  #ylim(-60,80) +
+  #coord_fixed(ylim = c(-60, 80), ratio = 1) +
+  facet_grid(~case_broad) +
+  scale_colour_gradient(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1), low = "#4dac26", high = "#d01c8b") +
+  labs(title = "A - Map: Presence of consonants in suffixes",
+       subtitle = "Vocatives often have no consonants\n") +
+  theme_voc +
+  theme(
+    legend.position = "right",
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    axis.ticks = element_blank())
+
+# plot consonant overall
+cons_overall_combo <- ggplot(data = cons_pres_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family, aes(x = case_broad, y = cons_pres, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "B - Overall results",
+       #subtitle = "Overall: Vocatives often have no consonants\n",
+       y = "proportion of forms \nwith a consonant\n", 
+       x = "\n") +
+  theme_voc
+
+# plot consonant suffix
+cons_suffix_combo <- 
+  ggplot(data = cons_pres_suff_post, aes(x = case_broad, y = mean)) +
+  geom_point(data = v_aggr_family_suffix, aes(x = case_broad, y = cons_pres, 
+                                       color = case_broad, size = n), alpha = 0.3,
+             position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
+  geom_errorbar(aes(ymin = lower, ymax = upper), 
+                width = 0.075) +
+  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
+  scale_fill_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_color_manual(guide = guide_legend(title = "Case"),
+                    values = c("#f1a340", "#998ec3")) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  labs(title = "C - Results for suffixes only",
+       #subtitle = "Suffixes only: Vocatives often have no consonants\n",
+       y = " \n", 
+       x = "\n") +
+  theme_voc
+
+map_and_point <- 
+  ggarrange(map_combo, hjust = -1,
+            ggarrange(cons_overall_combo, cons_suffix_combo,
+                      ncol = 2, 
+                      #labels = c("B", "C"), font.label = list(size = 14),
+                      widths = c(1,1)),
+            heights = c(1,1),
+            #labels = "A", font.label = list(size = 14),
+            nrow = 2,
+            common.legend = F)
+
+map_and_point
+
+# save  
+ggsave("../plots/maps_combined.pdf", width = 9, height = 7)
+ggsave("../plots/maps_combined.png", width = 9, height = 7)
+
+
+```
+
+
+
