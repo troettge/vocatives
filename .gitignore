@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 Rplots.pdf
+prelim_plots
+scripts/vocatives_first_pass_analysis.Rmd
