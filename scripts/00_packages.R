@@ -13,7 +13,8 @@ packages <- c("readbulk",
 	            "tidyverse",
               "brms",
               "ggbeeswarm",
-              "maps")
+              "maps",
+              "ggpubr")
 
 ## install packages (don't run)
 install.packages(packages)
