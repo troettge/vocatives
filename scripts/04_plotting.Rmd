@@ -126,6 +126,10 @@ v_aggr_family_suffix <- v_aggr_suffix %>%
             n = mean(n)) %>%
   ungroup()
 
+
+v_aggr$case_broad <- as.factor(v_aggr$case_broad)
+levels(v_aggr$case_broad) <- c("accusative-like", "vocative")
+
 v_aggr_family$case_broad <- as.factor(v_aggr_family$case_broad)
 levels(v_aggr_family$case_broad) <- c("accusative-like", "vocative")
 
