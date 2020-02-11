@@ -31,6 +31,17 @@ langs <- read_csv('../derived_data/voc_languages.csv')
 # join them
 v <- full_join(v,langs)
 
+# color scheme
+
+# purple - green
+#color1 = "#af8dc3"
+#color2 = "#7fbf7b"
+
+# red - blue
+color1 = "#ca0020"
+color2 = "#0571b0"
+  
+  
 # store theme
 theme_voc <- 
 theme_classic() + 
@@ -194,16 +205,19 @@ prosody_post$case_broad <- c("accusative-like", "vocative")
 # plot and save
 ggplot(data = prosody_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family, aes(x = case_broad, y = prosody_clean, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = prosody_clean, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Prosodic manipulation",
        subtitle = "Vocatives are often prosodically marked\n",
@@ -212,8 +226,8 @@ ggplot(data = prosody_post, aes(x = case_broad, y = mean)) +
   theme_voc
 
 # save  
-ggsave("../plots/prosody.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/prosody.png", width = 4.5, height = 3.6)
+ggsave("../plots/prosody.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/prosody.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -297,16 +311,19 @@ cons_pres_suff_post$case_broad <- c("accusative-like", "vocative")
 # plot and save
 ggplot(data = cons_pres_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family, aes(x = case_broad, y = cons_pres, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = cons_pres, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Presence of consonant",
        subtitle = "Overall: Vocatives often have no consonants\n",
@@ -315,8 +332,8 @@ ggplot(data = cons_pres_post, aes(x = case_broad, y = mean)) +
   theme_voc
 
 # save  
-ggsave("../plots/consonant.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/consonant.png", width = 4.5, height = 3.6)
+ggsave("../plots/consonant.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/consonant.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -328,16 +345,19 @@ ggsave("../plots/consonant.png", width = 4.5, height = 3.6)
 # plot and save
 ggplot(data = cons_pres_suff_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family_suffix, aes(x = case_broad, y = cons_pres, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = cons_pres, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Consonants in suffixes",
        subtitle = "Suffixes only: Vocatives often have no consonants\n",
@@ -347,8 +367,8 @@ ggplot(data = cons_pres_suff_post, aes(x = case_broad, y = mean)) +
 
 
 # save  
-ggsave("../plots/consonant_suffix.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/consonant_suffix.png", width = 4.5, height = 3.6)
+ggsave("../plots/consonant_suffix.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/consonant_suffix.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -401,17 +421,20 @@ v_aggr_family_cons <- v_aggr_family %>%
 # plot and save
 ggplot(data = cons_final_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family_cons, aes(x = case_broad, y = cons_end, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = cons_end, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_size_continuous(guide = FALSE, range = c(2,6)) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
+  scale_size_continuous(guide = FALSE, range = c(2,6))  +
   labs(title = "Results: Position of consonant",
        subtitle = "Vocative do not have less final consonants\n",
        y = "proportion of forms \nwith a final consonant\n", 
@@ -419,8 +442,8 @@ ggplot(data = cons_final_post, aes(x = case_broad, y = mean)) +
   theme_voc
 
 # save  
-ggsave("../plots/consonant_final.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/consonant_final.png", width = 4.5, height = 3.6)
+ggsave("../plots/consonant_final.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/consonant_final.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -473,16 +496,19 @@ v_aggr_family_cons <- v_aggr_family %>%
 # plot and save
 ggplot(data = cons_vl_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family_cons, aes(x = case_broad, y = obstr_vl_pres, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = obstr_vl_pres, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Voicing of consonant",
        subtitle = "Vocative do not have less voiceless consonants\n",
@@ -491,8 +517,8 @@ ggplot(data = cons_vl_post, aes(x = case_broad, y = mean)) +
   theme_voc
 
 # save  
-ggsave("../plots/consonant_vl.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/consonant_vl.png", width = 4.5, height = 3.6)
+ggsave("../plots/consonant_vl.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/consonant_vl.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -541,17 +567,20 @@ vow_pres_post$case_broad <- c("accusative-like", "vocative")
 
 # plot and save
 ggplot(data = vow_pres_post, aes(x = case_broad, y = mean)) +
-  geom_point(data = v_aggr_family, aes(x = case_broad, y = vowel_pres, 
-                                       color = case_broad, size = n), alpha = 0.3,
+  geom_point(data = v_aggr_family,aes(x = case_broad, y = vowel_pres, 
+                                       fill = vowel_pres, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Presence of vowel",
        subtitle = "Most forms have a vowel\n",
@@ -560,8 +589,8 @@ ggplot(data = vow_pres_post, aes(x = case_broad, y = mean)) +
   theme_voc
 
 # save  
-ggsave("../plots/vowels.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/vowels.png", width = 4.5, height = 3.6)
+ggsave("../plots/vowels.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/vowels.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -612,16 +641,20 @@ vow_quant_post$case_broad <- c("accusative-like", "vocative")
 # plot and save
 ggplot(data = vow_quant_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family, aes(x = case_broad, y = v_long, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = v_long, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Vowel length",
        subtitle = "Vocatives do not have more long vowels\n",
        y = "proportion of forms \nwith long vowels\n", 
@@ -629,8 +662,8 @@ ggplot(data = vow_quant_post, aes(x = case_broad, y = mean)) +
   theme_voc
 
 # save  
-ggsave("../plots/vowels_long.pdf", width = 4.5, height = 3.6)
-ggsave("../plots/vowels_long.png", width = 4.5, height = 3.6)
+ggsave("../plots/vowels_long.pdf", width = 5.5, height = 3.6)
+ggsave("../plots/vowels_long.png", width = 5.5, height = 3.6)
 
 
 ```
@@ -751,18 +784,22 @@ v_acc_voc_v_height_agg$v_height <- sortLvls.fnc(v_acc_voc_v_height_agg$v_height,
 
 
 # plot
-ggplot(data = vow_qual_post, aes(x = case_broad, y = mean, fill = case_broad)) +
+ggplot(data = vow_qual_post, aes(x = case_broad, y = mean, fill = mean)) +
   geom_point(data = v_acc_voc_v_height_agg, aes(x = case_broad, y = prop, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = prop, shape = case_broad, size = n),  
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
+  #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
   facet_grid(~ v_height) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
+  scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "Results: Vowel quality",
        subtitle = "Vocatives have more mid vowels and fewer high vowels\n",
        y = "proportion of forms \nwith respective vowel quality\n", 
@@ -788,13 +825,17 @@ world_map <- map_data("world")
 
 map <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
   geom_polygon(fill = "lightgray", colour = "white", size = 0.2) +
-  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, color = cons_pres, group = NA, size = 4),
+  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, shape = case_broad, fill = cons_pres, group = NA), size = 4, color = "black", stroke = 0.3,
              alpha = 0.8, position = position_jitter(0.5,0.5)) +
   coord_map(xlim = c(-180, 180),ylim = c(-60, 80)) +
   #coord_fixed(ylim = c(-60, 80), ratio = 1) +
   #ylim(-60,80) +
   facet_grid(~case_broad) +
-  scale_colour_gradient(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1), low = "#4dac26", high = "#d01c8b") +
+  scale_shape_manual(guide = FALSE, values = c(24,25)) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   labs(title = "Map: Presence of consonants in suffixes",
        subtitle = "Vocatives often have no consonants\n") +
   theme_voc +
@@ -823,12 +864,17 @@ library(ggpubr)
 # plot map
 map_combo <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
   geom_polygon(fill = "lightgray", colour = "white", size = 0.2) +
-  geom_point(data = v_aggr, aes(x = longitude, y = latitude, color = cons_pres, group = NA), alpha = 0.8, size = 3, position = position_jitter(0.1)) +
+  geom_point(data = v_aggr_suffix, aes(x = longitude, y = latitude, shape = case_broad, fill = cons_pres, group = NA), size = 4, color = "black", stroke = 0.3,
+             alpha = 0.8, position = position_jitter(0.5,0.5)) +
    coord_map(xlim = c(-180, 180),ylim = c(-60, 80)) +
   #ylim(-60,80) +
   #coord_fixed(ylim = c(-60, 80), ratio = 1) +
   facet_grid(~case_broad) +
-  scale_colour_gradient(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1), low = "#4dac26", high = "#d01c8b") +
+    scale_shape_manual(guide = FALSE, values = c(24,25)) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   labs(title = "A - Map: Presence of consonants",
        subtitle = "Vocatives often have no consonants\n") +
   theme_voc +
@@ -839,19 +885,23 @@ map_combo <- ggplot(world_map, aes(x = long, y = lat, group = group)) +
     axis.line = element_blank(),
     axis.ticks = element_blank())
 
+
 # plot consonant overall
 cons_overall_combo <- ggplot(data = cons_pres_post, aes(x = case_broad, y = mean)) +
   geom_point(data = v_aggr_family, aes(x = case_broad, y = cons_pres, 
-                                       color = case_broad, size = n), alpha = 0.3,
+                                       fill = cons_pres, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "B - Overall results",
        #subtitle = "Overall: Vocatives often have no consonants\n",
@@ -859,20 +909,24 @@ cons_overall_combo <- ggplot(data = cons_pres_post, aes(x = case_broad, y = mean
        x = "\n") +
   theme_voc
 
+
 # plot consonant suffix
 cons_suffix_combo <- 
   ggplot(data = cons_pres_suff_post, aes(x = case_broad, y = mean)) +
-  geom_point(data = v_aggr_family_suffix, aes(x = case_broad, y = cons_pres, 
-                                       color = case_broad, size = n), alpha = 0.3,
+geom_point(data = v_aggr_family_suffix, aes(x = case_broad, y = cons_pres, 
+                                       fill = cons_pres, 
+                                       shape = case_broad, size = n), 
+             alpha = 0.6, color = "black", stroke = 0.1,
              position = position_quasirandom(width = 0.2)) +
   #geom_line(aes( group = 1)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), 
                 width = 0.075) +
-  geom_point(aes(fill = case_broad), size = 6, shape = 21) +
-  scale_fill_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
-  scale_color_manual(guide = guide_legend(title = "Case"),
-                    values = c("#f1a340", "#998ec3")) +
+  geom_point(aes(fill = mean, shape = case_broad), stroke = 1, size = 6) +
+  scale_shape_manual(values = c(24,25)) +
+  scale_fill_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                      low = color1, midpoint = 0.5, high = color2) +
+  scale_color_gradient2(limits = c(0,1), breaks = c(0,0.25,0.5,0.75,1),
+                       low = color1, midpoint = 0.5, high = color2) +
   scale_size_continuous(guide = FALSE, range = c(2,6)) +
   labs(title = "C - Results for suffixes only",
        #subtitle = "Suffixes only: Vocatives often have no consonants\n",
@@ -895,7 +949,7 @@ map_and_point
 
 # save  
 ggsave("../plots/maps_combined.pdf", width = 9, height = 7)
-ggsave("../plots/maps_combined.png", width = 9, height = 7)
+ggsave("../plots/maps_combined_transparent.png", width = 9, height = 7)
 
 
 ```
