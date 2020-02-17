@@ -38,8 +38,8 @@ v <- full_join(v,langs)
 #color2 = "#7fbf7b"
 
 # red - blue
-color1 = "#ca0020"
-color2 = "#0571b0"
+color1 = "#0571b0"
+color2 = "#ca0020"
   
   
 # store theme
