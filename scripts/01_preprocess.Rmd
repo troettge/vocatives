@@ -133,6 +133,7 @@ vowels <- c("V","u","a",".w$","i","o","e","ə",".j$","ɯ","ẽ","õ","ɛ","ɔ","
 vowels.no.wj <- c("V","u","a","i","o","e","ə","ɯ","ẽ","õ","ɛ","ɔ","ê","ʊ","ɑ","æ","ã","ĩ","ɨ","y","A")
 consonants <- c("n","t","w[VuaioeəɯẽõɛɔêʊɑæãĩɨyA]","m","h","j[VuaioeəɯẽõɛɔêʊɑæãĩɨyA]","r","s","l","k","ʔ","v","C","d","g","K","J","ŋ","p","q","χ")
 obstr_vl <- c("t","h","s","k","ʔ","C","K","p","q","χ")
+obstr <- c("t","h","s","k","ʔ","v","C","d","g","K","J","p","q","χ")
 
 vowel_height <- list(
   `V`= NA,
@@ -191,6 +192,8 @@ v <- v %>%
     cons_pres = ifelse(form_add_all != "", grepl(paste0(consonants, collapse="|"),form_add_all), NA),
     # does it end in a vowel or not?
     vowel_end = ifelse(form_add_all != "", grepl(paste0(paste0(vowels,"$"), collapse="|"),form_add_all), NA),
+    # does it have an obstruent?
+    obstr_pres = ifelse(form_add_all != "", grepl(paste0(obstr, collapse="|"),form_add_all), NA),
     # does it have a voiceless obstruent?
     obstr_vl_pres = ifelse(form_add_all != "", grepl(paste0(obstr_vl, collapse="|"),form_add_all), NA),
     # proportion of voiceless to voiced material

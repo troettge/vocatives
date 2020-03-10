@@ -22,10 +22,7 @@ Loading libraries & raw data.
 library(tidyverse)
 library(brms)
 
-<<<<<<< HEAD:scripts/vocatives_models.Rmd
-=======
 # load in raw data
->>>>>>> 9a92ba816e30175f16de1ef5b74890914587d64b:scripts/03_modelling.Rmd
 v <- read_csv('../derived_data/vocatives_processed.csv')
 langs <- read_csv('../derived_data/voc_languages.csv') %>%
   filter(!(language %in% c("Korean","Alaaba")))
@@ -545,6 +542,77 @@ v_acc_voc_cons %>%
 ```
 
 While these low-n families have little impact on raw proportions, they have a much larger impact once the estimates for large-n families are weighted down in a mixed effects regression model.
+
+When a consonant is present, is it typically an obstruent or a sonorant?
+
+```{r}
+v_acc_voc_cons <- filter(v_acc_voc_non_zero, cons_pres)
+
+# raw data
+v_acc_voc_cons %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(obstr_pres))
+
+# raw data by language family
+v_acc_voc_cons %>%
+  group_by(family1, case_broad) %>%
+  summarise(prop=mean(obstr_pres)) %>%
+  ungroup() %>%
+  group_by(case_broad) %>%
+  summarise(prop=mean(prop))
+
+```
+
+Bayesian modelling:
+
+```{r}
+v_acc_voc_cons <- v_acc_voc_cons %>%
+  mutate(case_broad_sum=ifelse(case_broad=="vocative", 1, 0),
+         case_broad_sum=case_broad_sum-mean(case_broad_sum))
+
+priors_consonants <- c(
+  set_prior("student_t(5,0,2.5)", class = "b"),
+  set_prior("student_t(5,0,2.5)", class = "Intercept"),
+  set_prior("lkj(2)", class = "cor"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="family1"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "Intercept", group="macroarea"),
+  set_prior("student_t(4,0,2)", class = "sd", coef = "case_broad_sum", group="macroarea")
+)
+
+# output of this model is very strange!
+mod_obstr <- brm(obstr_pres ~ case_broad_sum + 
+                      (1 + case_broad_sum | family1) + 
+                      (1 + case_broad_sum | macroarea),
+            data=v_acc_voc_cons, family="bernoulli", cores=2,
+            control=list(adapt_delta=0.99),
+            prior=priors_consonants)
+# mod_vl_obstr <- readRDS("../models/mod_vl_obstr.rds")
+saveRDS(mod_obstr, "../models/mod_vl_obstr.rds")
+summary(mod_obstr)
+pp_check(mod_obstr)
+marginal_effects(mod_obstr)
+stanplot(mod_obstr, type="dens")
+```
+
+Manual estimates.
+
+```{r}
+mod_obstr_psamp <- as.matrix(posterior_samples(mod_obstr)[,1:2])
+# accusative-like - all probabilities
+mod_obstr_acc_probs <- plogis(mod_obstr_psamp %*% matrix(c(1, min(v_acc_voc_cons$case_broad_sum))))
+round(mean(mod_obstr_acc_probs), 5)
+round(quantile(mod_obstr_acc_probs, c(0.025, 0.975)), 5)
+
+# vocative-like - all probabilities
+mod_obstr_voc_probs <- plogis(mod_obstr_psamp %*% matrix(c(1, max(v_acc_voc_cons$case_broad_sum))))
+round(mean(mod_obstr_voc_probs), 5)
+round(quantile(mod_obstr_voc_probs, c(0.025, 0.975)), 5)
+
+# difference
+round(mean(mod_obstr_voc_probs - mod_obstr_acc_probs), 5)
+round(quantile(mod_obstr_voc_probs - mod_obstr_acc_probs, c(0.025, 0.975)), 5)
+```
 
 ## 3.3 Presence of vowel
 

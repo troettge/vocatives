@@ -1,474 +1,474 @@
-language,case,default,morphological,noun_type,noun_class,number,conditioning,form,form_add,form_replace,form_delete,prosodic_form,prosody_clean,prosody_stress,prosody_tone,prosody_vowel_lengthening,case_broad,form_add_s,form_add_prefix,form_add_suffix,form_add_all,vowel_pres,cons_pres,vowel_end,obstr_vl_pres,obstr_vl_count,obstr_vl_prop,last_vowel,last_vowel_qual,v_height,v_long,cons_end,cons_onset
-Aguaruna,accusative,TRUE,affix,NA,,,,-na,-n,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-n,,n,n,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Aguaruna,nominative,TRUE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Aguaruna,vocative,TRUE,prosodic,"personal names, kindship terms",,,,NA,-V,,,"supression of apocope, accent shift to final syllable",TRUE,TRUE,FALSE,FALSE,vocative,-V,,V,V,TRUE,FALSE,TRUE,FALSE,0,0,V,V,NA,FALSE,FALSE,FALSE
-Aguaruna,vocative,FALSE,affix,NA,,,,-u,-Vu,,,accent shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,-Vu,,Vu,Vu,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Aguaruna,vocative,FALSE,affix,human referents,,,,-ta,-Vta,,,accent shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,-Vta,,Vta,Vta,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,a,a,l,FALSE,FALSE,TRUE
-Aguaruna,vocative,FALSE,affix,human referents,,,,-wa,-Vwa,,,accent shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,-Vwa,,Vwa,Vwa,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Akkadian,accusative,FALSE,affix,NA,,sg,,-am,-am,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-am,,am,am,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Akkadian,accusative,FALSE,affix,NA,,dual,,-i:n,-iin,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-iin,,iin,iin,TRUE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,TRUE,FALSE
-Akkadian,accusative,FALSE,affix,NA,m,pl,,-i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
-Akkadian,accusative,FALSE,affix,NA,f,pl,,-a:t-im,-aatim,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aatim,,aatim,aatim,TRUE,TRUE,FALSE,TRUE,1,0.2,i,i,h,FALSE,TRUE,FALSE
-Akkadian,nominative,FALSE,affix,NA,,sg,,-um,-um,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-um,,um,um,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,TRUE,FALSE
-Akkadian,nominative,FALSE,affix,NA,,dual,,-a:n,-aan,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-aan,,aan,aan,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,TRUE,FALSE
-Akkadian,nominative,FALSE,affix,NA,m,pl,,-u:,-uu,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-uu,,uu,uu,TRUE,FALSE,TRUE,FALSE,0,0,uu,u,h,TRUE,FALSE,FALSE
-Akkadian,nominative,FALSE,affix,NA,f,pl,,-a:t-um,-aatum,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-aatum,,aatum,aatum,TRUE,TRUE,FALSE,TRUE,1,0.2,u,u,h,FALSE,TRUE,FALSE
-Akkadian,vocative,FALSE,affix,NA,,,,-i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
-Amele,vocative,FALSE,particle,"proper name, kinship term, title, greeting",,,,__ ## o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Amele,vocative,FALSE,particle,"proper name, kinship term, title, greeting",,,,__ ## e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Amharic,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Amharic,accusative,FALSE,affix,definite,,,C_,-ən,-ən,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ən,,ən,ən,TRUE,TRUE,FALSE,FALSE,0,0,ə,ə,m,FALSE,TRUE,FALSE
-Amharic,accusative,FALSE,affix,definite,,,V_,-n,-n,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-n,,n,n,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Amharic,accusative,FALSE,affix,indefinite,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Amharic,vocative,FALSE,prosodic,NA,,,,NA,zero,,,rising tone,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Amharic,vocative,FALSE,particle,NA,,,,hoj (Interjection),-hoj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-hoj,,hoj,hoj,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,oj,o,m,TRUE,FALSE,TRUE
-Amharic,vocative,FALSE,affix,NA,m,,,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Amharic,vocative,FALSE,affix,NA,f,,,-it,-it,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-it,,it,it,TRUE,TRUE,FALSE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
-Atong,accusative,FALSE,clitic,NA,,,s_,-taw,-taw,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-taw,,taw,taw,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,aw,a,l,TRUE,FALSE,TRUE
-Atong,accusative,FALSE,clitic,NA,,,everywhere else,-aw,-aw,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aw,,aw,aw,TRUE,FALSE,TRUE,FALSE,0,0,aw,a,l,TRUE,FALSE,FALSE
-Atong,vocative,FALSE,affix,kinship term,,,,a-,a-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Awtuw,accusative,FALSE,affix,NA,[-f],,,-re,-re,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-re,,re,re,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Awtuw,accusative,FALSE,affix,NA,[+f],,,-te,-te,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-te,,te,te,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
-Awtuw,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Awtuw,vocative,FALSE,affix,"personal name, kinship term",,,,-wo,-wo,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-wo,,wo,wo,TRUE,TRUE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
-Awtuw,vocative,FALSE,affix,"personal name, kinship term",,,,-ə,-ə,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ə,,ə,ə,TRUE,FALSE,TRUE,FALSE,0,0,ə,ə,m,FALSE,FALSE,FALSE
-Beja,accusative,FALSE,affix,NA,,,,-oo,-oo,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
-Beja,nominative,FALSE,affix,NA,,,,-uu,-uu,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-uu,,uu,uu,TRUE,FALSE,TRUE,FALSE,0,0,uu,u,h,TRUE,FALSE,FALSE
-Beja,vocative,FALSE,affix,NA,,,V_,-yi,-ji,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ji,,ji,ji,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Beja,vocative,FALSE,affix,NA,,,C_,-ay,-aj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aj,,aj,aj,TRUE,FALSE,TRUE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
-Bilua,vocative,FALSE,affix,"personal name, kinship term",,,,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Boraana Oromo,vocative,FALSE,affix,proper name,,,,-o:,-oo,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
-Boraana Oromo,vocative,FALSE,affix,proper name,,,,-so:,-soo,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-soo,,soo,soo,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,oo,o,m,TRUE,FALSE,TRUE
-Boraana Oromo,vocative,FALSE,affix,proper name,,,,-ole:,-olee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-olee,,olee,olee,TRUE,TRUE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,TRUE
-Boraana Oromo,vocative,FALSE,affix,proper name,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Boraana Oromo,vocative,FALSE,affix,proper name,,,,-je:,-jee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-jee,,jee,jee,TRUE,TRUE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,TRUE
-Boraana Oromo,vocative,FALSE,affix,proper name,,,,-itu:,-ituu,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ituu,,ituu,ituu,TRUE,TRUE,TRUE,TRUE,1,0.25,uu,u,h,TRUE,FALSE,TRUE
-Cantonese,vocative,FALSE,particle,personal noun,,,,a ## __,a-,,,add final H tone,TRUE,FALSE,TRUE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Chagatay,accusative,FALSE,affix,NA,,,,-ni / -nɯ,-ni,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ni,,ni,ni,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Chagatay,accusative,FALSE,affix,NA,,,,-ni / -nɯ,-nɯ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-nɯ,,nɯ,nɯ,TRUE,TRUE,TRUE,FALSE,0,0,ɯ,ɯ,h,FALSE,FALSE,TRUE
-Chagatay,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Chagatay,vocative,FALSE,particle,NA,,,,ay ## __,aj-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,aj-,aj,,aj,TRUE,FALSE,TRUE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
-Chuckchi,vocative,FALSE,no,NA,,,,NA,,,,reduced vowel in final syll--> full vowel,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Chuckchi,vocative,FALSE,no,NA,,,,NA,,,,epenthetic schwa in final syll --> o,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Chuckchi,vocative,FALSE,no,NA,,,,NA,zero,,,lengthening of all vowels,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Chuckchi,vocative,FALSE,no,NA,,,,NA,-j,,,vowel + j,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Classical Arabic,accusative,FALSE,affix,NA,,,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Classical Arabic,nominative,FALSE,affix,NA,,,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Classical Arabic,vocative,FALSE,particle,NA,,,,ja: ##,jaa-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,jaa-,jaa,,jaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Eastern Burushaski,vocative,FALSE,prosodic,NA,,,,NA,zero,,,vowel lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Eastern Burushaski,absolutive,FALSE,affix,NA,,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Eastern Burushaski,ergative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Fijian,vocative,FALSE,particle,personal name,,,,i ## _,i-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,i-,i,,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Fore,accusative,FALSE,affix,NA,,,_non-fricative continuant,initial C becomes prenasalised stop,n-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,n-,n,,n,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Fore,accusative,FALSE,affix,NA,,,_V,nk__,nk-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,nk-,nk,,nk,FALSE,TRUE,FALSE,TRUE,1,0.5,NA,NA,NA,NA,TRUE,FALSE
-Fore,accusative,FALSE,affix,NA,,,_T,?__,ʔ-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,ʔ-,ʔ,,ʔ,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Fore,accusative,FALSE,affix,NA,,,_s,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Fore,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Fore,vocative,FALSE,affix,NA,,,,-ó,-o,,,comes with pitch accent,TRUE,FALSE,TRUE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Georgian,ergative,FALSE,affix,NA,,,C_,-ma,-ma,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ma,,ma,ma,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Georgian,ergative,FALSE,affix,NA,,,V_,-m,-m,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-m,,m,m,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Georgian,nominative,FALSE,affix,NA,,,C_,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Georgian,nominative,FALSE,affix,NA,,,V_,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Georgian,vocative,FALSE,affix,NA,,,C_,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Georgian,vocative,FALSE,affix,NA,,,V_,-v,-v,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-v,,v,v,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Georgian,vocative,FALSE,affix,NA,,,V_,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hawaiian,accusative,FALSE,particle,NA,,,,i ## _,i-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,i-,i,,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Hawaiian,accusative,FALSE,particle,"pronouns, names of people, places",,,,ia: ## _,iaa-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,iaa-,iaa,,iaa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Hawaiian,nominative,FALSE,particle,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hawaiian,vocative,FALSE,particle,NA,,,,e: ## __,ee-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ee-,ee,,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Hindi,nominative,FALSE,affix,NA,f/m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hindi,nominative,FALSE,affix,NA,f,plural,,-e [with tilde],-ẽ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ẽ,,ẽ,ẽ,TRUE,FALSE,TRUE,FALSE,0,0,ẽ,ẽ,m,FALSE,FALSE,FALSE
-Hindi,nominative,FALSE,affix,NA,m,plural,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hindi,oblique,FALSE,affix,NA,f/m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hindi,oblique,FALSE,affix,NA,f,plural,,-õ,-õ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-õ,,õ,õ,TRUE,FALSE,TRUE,FALSE,0,0,õ,õ,m,FALSE,FALSE,FALSE
-Hindi,oblique,FALSE,affix,NA,m,plural,,-õ,-õ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-õ,,õ,õ,TRUE,FALSE,TRUE,FALSE,0,0,õ,õ,m,FALSE,FALSE,FALSE
-Hindi,vocative,FALSE,affix,NA,f/m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hindi,vocative,FALSE,affix,NA,f/m,plural,,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Hualapai,accusative,FALSE,particle,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hualapai,nominative,FALSE,particle,NA,,,,ts\,-tʃ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-C,,C,C,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Hualapai,vocative,FALSE,affix,NA,,sg,,-ɛ,-ɛ,,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,-ɛ,,ɛ,ɛ,TRUE,FALSE,TRUE,FALSE,0,0,ɛ,ɛ,m,FALSE,FALSE,FALSE
-Hualapai,vocative,FALSE,affix,NA,,pl,,-jɛ,-jɛ,,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,-jɛ,,jɛ,jɛ,TRUE,TRUE,TRUE,FALSE,0,0,ɛ,ɛ,m,FALSE,FALSE,TRUE
-Hualapai,vocative,FALSE,affix,NA,,sg,i_,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hualapai,vocative,FALSE,affix,NA,,,a_,stem final -E/-a replaced by -E,,ɛ,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hualapai,vocative,FALSE,affix,NA,,,ɛ_,NA,zero,,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hup,accusative,FALSE,affix,NA,animate,,,-an,-an,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-an,,an,an,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Hup,accusative,FALSE,affix,NA,inanimate,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hup,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Hup,vocative,FALSE,affix,"personal name, kindship term",,,m,-w@d,-wəd,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-wəd,,wəd,wəd,TRUE,TRUE,FALSE,FALSE,0,0,ə,ə,m,FALSE,TRUE,FALSE
-Hup,vocative,FALSE,affix,"personal name, kindship term",,,f,-wa,-wa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-wa,,wa,wa,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Iraqw,vocative,FALSE,prosodic,person,,,,NA,zero,,,high tone on penultimate syllable,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kakua,accusative,FALSE,clitic,NA,,,,=di?,-diʔ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-diʔ,,diʔ,diʔ,TRUE,TRUE,FALSE,TRUE,1,0.3333333333333333,i,i,h,FALSE,TRUE,FALSE
-Kakua,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,reduplication of the stem vowel,zero,,,"reduplication of the stem vowel, high tone",TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,NA,-a,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Kannada,accusative,FALSE,affix,NA,,,,-anna,-anna,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-anna,,anna,anna,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Kannada,accusative,FALSE,affix,NA,,,,-annu,-annu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-annu,,annu,annu,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
-Kannada,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kannada,vocative,FALSE,affix,rational noun,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Kannada,vocative,FALSE,prosodic,rational noun,,,"{i,a}_",NA,zero,,,-lengthening of stem final vowel,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Karo,vocative,FALSE,prosodic,NA,,,,NA,zero,,,final stress + V lengthening (instead of penultimate stress),TRUE,TRUE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kashmiri,absolutive,FALSE,affix,NA,declension I,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kashmiri,absolutive,FALSE,affix,NA,declension I,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kashmiri,absolutive,FALSE,affix,NA,declension III,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kashmiri,absolutive,FALSE,affix,NA,declension III,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kashmiri,ergative,FALSE,affix,NA,declension I,sg,,-an,-an,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-an,,an,an,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Kashmiri,ergative,FALSE,affix,NA,declension I,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-av,,av,av,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Kashmiri,ergative,FALSE,affix,NA,declension III,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Kashmiri,ergative,FALSE,affix,NA,declension III,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-av,,av,av,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Kashmiri,vocative,FALSE,affix,NA,declension I,sg,,-a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Kashmiri,vocative,FALSE,affix,NA,declension I,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-av,,av,av,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Kashmiri,vocative,FALSE,affix,NA,declension III,sg,,-i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
-Kashmiri,vocative,FALSE,affix,NA,declension III,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-av,,av,av,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Khalkha Mongolian,accusative,FALSE,affix,NA,,,,-iig,-iig,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-iig,,iig,iig,TRUE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,TRUE,FALSE
-Khalkha Mongolian,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-aa,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-ee,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-oo,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
-Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-ɔɔ,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-ɔɔ,,ɔɔ,ɔɔ,TRUE,FALSE,TRUE,FALSE,0,0,ɔɔ,ɔ,m,TRUE,FALSE,FALSE
-Kilmeri,vocative,FALSE,affix,NA,,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Kisi,vocative,FALSE,affix,NA,,,,-wêi,-wêi,,,final vowel can be expressively lengthened,TRUE,FALSE,FALSE,TRUE,vocative,-wêi,,wêi,wêi,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Koasati,accusative,FALSE,affix,NA,,,,-n,-n,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-n,,n,n,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Koasati,nominative,FALSE,affix,NA,,,,-k,-k,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-k,,k,k,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Koasati,vocative,FALSE,deletion,"proper nounds, kinship terms",,,V_,delete V,,,-V,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Koasati,vocative,FALSE,deletion,"proper nounds, kinship terms",,,ka_,delete -ka,,,-ka,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Konso,accusative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Konso,nominative,FALSE,affix,"Proper names, pronouns and days of a week",,,,-ʔ,-ʔ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ʔ,,ʔ,ʔ,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Konso,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Konso,vocative,FALSE,affix,"nouns that trigger M/F gender agreement on the verb, proper names ending on -o",,,o_,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Konso,vocative,FALSE,affix,"nouns that trigger M/F gender agreement on the verb, proper names ending on -o",,,o_,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Konso,vocative,FALSE,affix,nouns that trigger a plural gender agreement on the verb,,,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Konso,vocative,FALSE,affix,proper names ending in -e,,,e_,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Konso,vocative,FALSE,affix,proper names ending in -e,,,e_,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Konso,vocative,FALSE,affix,proper names ending in -a,,,a_,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Kulung,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Kulung,ergative,FALSE,affix,NA,,,,-ʔa,-ʔa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʔa,,ʔa,ʔa,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
-Kulung,vocative,FALSE,affix,NA,,,,-ʔa,-ʔa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ʔa,,ʔa,ʔa,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
-Lao,vocative,FALSE,particle,NA,,,,?e:y,ʔeej-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ʔeej-,ʔeej,,ʔeej,TRUE,TRUE,TRUE,TRUE,1,0.25,ee,e,m,TRUE,FALSE,TRUE
-Latvian,accusative,FALSE,affix,NA,m-I,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Latvian,accusative,FALSE,affix,NA,m-II,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Latvian,accusative,FALSE,affix,NA,m-IIa,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Latvian,accusative,FALSE,affix,NA,m-III,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Latvian,accusative,FALSE,affix,NA,f-IV,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Latvian,accusative,FALSE,affix,NA,f-V,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Latvian,accusative,FALSE,affix,NA,f-VI,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Latvian,nominative,FALSE,affix,NA,m-I,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-s,,s,s,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Latvian,nominative,FALSE,affix,NA,m-II,sg,,-is,-is,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-is,,is,is,TRUE,TRUE,FALSE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
-Latvian,nominative,FALSE,affix,NA,m-IIa,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-s,,s,s,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Latvian,nominative,FALSE,affix,NA,m-III,sg,,-us,-us,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-us,,us,us,TRUE,TRUE,FALSE,TRUE,1,0.5,u,u,h,FALSE,TRUE,FALSE
-Latvian,nominative,FALSE,affix,NA,f-IV,sg,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Latvian,nominative,FALSE,affix,NA,f-V,sg,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Latvian,nominative,FALSE,affix,NA,f-VI,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-s,,s,s,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Latvian,vocative,FALSE,affix,NA,m-I,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Latvian,vocative,FALSE,affix,NA,m-I,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-s,,s,s,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Latvian,vocative,FALSE,affix,NA,m-II,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Latvian,vocative,FALSE,affix,NA,m-II,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Latvian,vocative,FALSE,affix,NA,m-IIa,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-s,,s,s,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Latvian,vocative,FALSE,affix,NA,m-III,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Latvian,vocative,FALSE,affix,NA,f-IV,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Latvian,vocative,FALSE,affix,NA,f-IV,sg,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Latvian,vocative,FALSE,affix,NA,f-V,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Latvian,vocative,FALSE,affix,NA,f-V,sg,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Latvian,vocative,FALSE,affix,NA,f-VI,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-s,,s,s,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Lavukaleve,vocative,FALSE,prosodic,NA,,,V_,final vowel --> -ou,,ow,,stress shift to prefinal syllable,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Lavukaleve,vocative,FALSE,particle,NA,,sg,,na,-na,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-na,,na,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Lavukaleve,vocative,FALSE,particle,NA,,dual,,nail,-nail,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-nail,,nail,nail,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Lavukaleve,vocative,FALSE,particle,NA,,pl,,nail,-nail,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-nail,,nail,nail,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Lezgian,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Lezgian,ergative,TRUE,affix,NA,,,default,-di,-di,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-di,,di,di,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,Personal names,,,C_,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Lezgian,ergative,FALSE,affix,"Abstract nouns derived by -wal, all plural nouns (except for -bur)",,,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Lezgian,ergative,FALSE,affix,Plurals in -bur,,,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Lezgian,ergative,FALSE,affix,non-discrete mass,,,,-edi,-edi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-edi,,edi,edi,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,monosyllabic denoting animals,,,,-re,-re,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-re,,re,re,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,monosyllabic denoting animals,,,,-ra,-ra,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ra,,ra,ra,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,rest,,,,-ʊni,-ʊni,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʊni,,ʊni,ʊni,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,non-discrete mass,,,,-adi,-adi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-adi,,adi,adi,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,rest,,,,-ɑ,-ɑ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ɑ,,ɑ,ɑ,TRUE,FALSE,TRUE,FALSE,0,0,ɑ,ɑ,l,FALSE,FALSE,FALSE
-Lezgian,ergative,FALSE,affix,rest,,,,-ʊ,-ʊ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʊ,,ʊ,ʊ,TRUE,FALSE,TRUE,FALSE,0,0,ʊ,ʊ,h,FALSE,FALSE,FALSE
-Lezgian,ergative,FALSE,affix,rest,,,,-tsi,-tsi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ki,,Ki,Ki,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,rest,,,,-ts'i,-ts'i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ki,,Ki,Ki,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,rest,,,,-tʃi,-tʃi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ci,,Ci,Ci,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,rest,,,,-tʃ'i,-tʃ'i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ci,,Ci,Ci,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
-Lezgian,ergative,FALSE,affix,rest,,,,-dʒi,-dʒi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ji,,Ji,Ji,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Lezgian,vocative,FALSE,particle,NA,,,,ja-,ja-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ja-,ja,,ja,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Limbu,absolutive,FALSE,affix,indef,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Limbu,absolutive,FALSE,affix,definite,,,,-?in,-ʔin,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ʔin,,ʔin,ʔin,TRUE,TRUE,FALSE,TRUE,1,0.3333333333333333,i,i,h,FALSE,TRUE,FALSE
-Limbu,ergative,FALSE,affix,indef,,,"{ʔ,k,t,p,b,m,n,N}_",-le,-le,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-le,,le,le,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Limbu,ergative,FALSE,affix,indef,,,"{ʔ,k,t,p,b,m,n,N}_",-re,-re,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-re,,re,re,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Limbu,ergative,FALSE,affix,indef,,,_V,-lle,-lle,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-lle,,lle,lle,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Limbu,vocative,FALSE,affix,NA,,sg,,-e,-e,,,half-long,TRUE,FALSE,FALSE,TRUE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Limbu,vocative,FALSE,affix,NA,,pl,,-se,-se,,,half-long,TRUE,FALSE,FALSE,TRUE,vocative,-se,,se,se,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
-Limbu,vocative,FALSE,affix,NA,,pl,,-re,-re,,,half-long,TRUE,FALSE,FALSE,TRUE,vocative,-re,,re,re,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Maithili,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Maithili,accusative/dative,FALSE,particle,NA,,,,ke/ke~,-ke,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ke,,ke,ke,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
-Maithili,accusative/dative,FALSE,particle,NA,,,,ke/ke~,-kẽ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-kẽ,,kẽ,kẽ,TRUE,TRUE,TRUE,TRUE,1,0.5,ẽ,ẽ,m,FALSE,FALSE,TRUE
-Maithili,accusative/dative,FALSE,particle,"animals, proper names of places, animate common nouns, inanimate object nouns, etc. (complicated, interacts with determiner etc.",,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Maithili,vocative,FALSE,particle,NA,,,,"y@u,",jəu-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,jəu-,jəu,,jəu,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
-Maithili,vocative,FALSE,particle,NA,,,,"{, h{, g{",æ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,æ-,æ,,æ,TRUE,FALSE,TRUE,FALSE,0,0,æ,æ,l,FALSE,FALSE,FALSE
-Maithili,vocative,FALSE,particle,NA,,,,"{, h{, g{",hæ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,hæ-,hæ,,hæ,TRUE,TRUE,TRUE,TRUE,1,0.5,æ,æ,l,FALSE,FALSE,TRUE
-Maithili,vocative,FALSE,particle,NA,,,,"{, h{, g{",gæ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,gæ-,gæ,,gæ,TRUE,TRUE,TRUE,FALSE,0,0,æ,æ,l,FALSE,FALSE,TRUE
-Maithili,vocative,FALSE,particle,NA,,,,"{,  h@u, r@u",æ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,æ-,æ,,æ,TRUE,FALSE,TRUE,FALSE,0,0,æ,æ,l,FALSE,FALSE,FALSE
-Maithili,vocative,FALSE,particle,NA,,,,"{,  h@u, r@u",hæu-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,hæu-,hæu,,hæu,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,u,u,h,FALSE,FALSE,TRUE
-Maithili,vocative,FALSE,particle,NA,,,,"{,  h@u, r@u",ræu-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ræu-,ræu,,ræu,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
-Malayalam,accusative,FALSE,affix,NA,,,,-e,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Malayalam,nominative,FALSE,affix,NA,,,,zero,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Malayalam,vocative,TRUE,affix,NA,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Malayalam,vocative,FALSE,affix,NA,,,-an,an# -> a:#,,aa,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Malayalam,vocative,FALSE,affix,NA,,,-i,i# -> i:#,zero,,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Malayalam,vocative,FALSE,affix,NA,,,-u,u# -> u:#,zero,,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Malayalam,vocative,FALSE,affix,NA,,,-am,am# -> am:#,zero,,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Maltese,object marker,FALSE,particle,"restricted in various ways, e.g. only precedes animate direct objects OR indirect objects that are not place nominals",,,,lil ## _,lil-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,lil-,lil,,lil,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Maltese,vocative,FALSE,particle,descriptive expression,,,,aa ## _,aa-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,aa-,aa,,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Manambu,accusative,FALSE,affix,NA,,,,-a:m,-aam,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aam,,aam,aam,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,TRUE,FALSE
-Manambu,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Manambu,vocative,FALSE,affix,NA,,,,"-a, -@:j, -aj",-a,,,"schwa --> E:, final syllable undergoes lengthening, stress moves to last syllable, ""slight rise on the last syllable""",TRUE,TRUE,TRUE,TRUE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Manambu,vocative,FALSE,affix,NA,,,,NA,-əəj,,,"schwa --> E:, final syllable undergoes lengthening, stress moves to last syllable, ""slight rise on the last syllable""",TRUE,TRUE,TRUE,TRUE,vocative,-əəj,,əəj,əəj,TRUE,FALSE,TRUE,FALSE,0,0,əə,ə,m,TRUE,FALSE,FALSE
-Manambu,vocative,FALSE,affix,NA,,,,NA,-aj,,,"schwa --> E:, final syllable undergoes lengthening, stress moves to last syllable, ""slight rise on the last syllable""",TRUE,TRUE,TRUE,TRUE,vocative,-aj,,aj,aj,TRUE,FALSE,TRUE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
-Mangarayi,absolutive,FALSE,affix,NA,n,,n,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Mangarayi,accusative,FALSE,affix,NA,f,,f,Nan-,ŋan-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,ŋan-,ŋan,,ŋan,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Mangarayi,accusative,FALSE,affix,NA,m,,m,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Mangarayi,ergative,FALSE,affix,NA,n,,n,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Mangarayi,nominative,FALSE,affix,NA,f,,f,Nala-,ŋala-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,ŋala-,ŋala,,ŋala,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Mangarayi,nominative,FALSE,affix,NA,m,,m,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Mangarayi,vocative,FALSE,affix,NA,,,V_,-y,-j,,,"diphtongization, lengthening, rise-fall in pitch",TRUE,FALSE,TRUE,TRUE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Mangarayi,vocative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Mani,vocative,FALSE,particle,NA,,,,-yo/ye/o/e,-jo,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-jo,,jo,jo,TRUE,TRUE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
-Mani,vocative,FALSE,particle,NA,,,,NA,-je,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-je,,je,je,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Mani,vocative,FALSE,particle,NA,,,,NA,-e,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Mani,vocative,FALSE,particle,NA,,,,NA,-o,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Maori,accusative,FALSE,particle,NA,,,,i ## _,i-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,i-,i,,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Maori,accusative,FALSE,particle,NA,,,,ki ## _,ki-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,ki-,ki,,ki,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
-Maori,nominative,FALSE,particle,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Maori,vocative,FALSE,particle,NA,,,,e ## __,e-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,e-,e,,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Marathi,accusative,FALSE,affix,NA,m,singular,,a:la:,-aalaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aalaa,,aalaa,aalaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Marathi,accusative,FALSE,affix,NA,m,plural,,ã:nna:,-ããnnaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ããnnaa,,ããnnaa,ããnnaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Marathi,accusative,FALSE,affix,NA,f,singular,,ela:,-elaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-elaa,,elaa,elaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Marathi,accusative,FALSE,affix,NA,f,plural,,ã:nna:,-ããnnaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ããnnaa,,ããnnaa,ããnnaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Marathi,accusative,FALSE,affix,NA,neuter,singular,,a:la:,-aalaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aalaa,,aalaa,aalaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Marathi,accusative,FALSE,affix,NA,neuter,plural,,ã:nna:,-ããnnaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ããnnaa,,ããnnaa,ããnnaa,TRUE,TRUE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
-Marathi,nominative,FALSE,affix,NA,m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Marathi,nominative,FALSE,affix,NA,m,plural,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Marathi,nominative,FALSE,affix,NA,f,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Marathi,nominative,FALSE,affix,NA,f,plural,,a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Marathi,nominative,FALSE,affix,NA,neuter,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Marathi,nominative,FALSE,affix,NA,neuter,plural,,a/e,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Marathi,nominative,FALSE,affix,NA,neuter,plural,,a/e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Marathi,vocative,FALSE,affix,NA,m,singular,,a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Marathi,vocative,FALSE,affix,NA,m,plural,,ã:nno,-ããnno,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ããnno,,ããnno,ããnno,TRUE,TRUE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
-Marathi,vocative,FALSE,affix,NA,f,singular,,i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
-Marathi,vocative,FALSE,affix,NA,f,plural,,[nasal i]nno,-ĩnno,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ĩnno,,ĩnno,ĩnno,TRUE,TRUE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
-Marathi,vocative,FALSE,affix,NA,neuter,singular,,a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Marathi,vocative,FALSE,affix,NA,neuter,plural,,ã:nno,-ããnno,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ããnno,,ããnno,ããnno,TRUE,TRUE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
-Meithei,accusative,FALSE,affix,NA,,,,-pu,-pu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-pu,,pu,pu,TRUE,TRUE,TRUE,TRUE,1,0.5,u,u,h,FALSE,FALSE,TRUE
-Meithei,nominative,FALSE,affix,NA,,,,-n@,-nə,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-nə,,nə,nə,TRUE,TRUE,TRUE,FALSE,0,0,ə,ə,m,FALSE,FALSE,TRUE
-Meithei,vocative,FALSE,affix,NA,,,,-sa,-sa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-sa,,sa,sa,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
-Mongsen Ao,agentive,FALSE,particle,NA,,,,n@,-nə,,,carries mid tone,TRUE,FALSE,TRUE,FALSE,nom-like,-nə,,nə,nə,TRUE,TRUE,TRUE,FALSE,0,0,ə,ə,m,FALSE,FALSE,TRUE
-Mongsen Ao,vocative,FALSE,affix,NA,,,,a-,a-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Murui,accusative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Murui,accusative,FALSE,affix,NA,,,,-na,-na,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-na,,na,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Murui,accusative,FALSE,affix,NA,,,,-mo,-mo,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-mo,,mo,mo,TRUE,TRUE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
-Murui,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Murui,nominative,FALSE,affix,NA,,,,-dɨ,-dɨ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-dɨ,,dɨ,dɨ,TRUE,TRUE,TRUE,FALSE,0,0,ɨ,ɨ,h,FALSE,FALSE,TRUE
-Ngiti,vocative,FALSE,prosodic,NA,,,,NA,zero,,,add final H tone,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Murui,vocative,FALSE,deletion,kinship term,,,,omitting otherwise obligatory animate classifier,,,-aɨ,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Murui,vocative,FALSE,deletion,kinship term,,,,omitting otherwise obligatory animate classifier,,,-nɨaɨ,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Nishnaabemwin (Ottawa),vocative,FALSE,deletion,NA,,,,"word form is changed ""shortening of a term of reference, often by deleting the last syllable or the last consonant""",,,C#,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Nishnaabemwin (Ottawa),vocative,FALSE,deletion,NA,,,,"word form is changed ""shortening of a term of reference, often by deleting the last syllable or the last consonant""",,,CV#,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,I pl,-idig,-idig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-idig,,idig,idig,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,II pl,-dig,-dig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-dig,,dig,dig,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,III pl,-widig,-widig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-widig,,widig,widig,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,IV pl,-odig,-odig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-odig,,odig,odig,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,V pl,-iidig,-iidig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-iidig,,iidig,iidig,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,I pl,-idog,-idog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-idog,,idog,idog,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,II pl,-dog,-dog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-dog,,dog,dog,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,III pl,-widog,-widog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-widog,,widog,widog,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,IV pl,-odog,-odog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-odog,,odog,odog,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
-Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,V pl,-iidog,-iidog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-iidog,,iidog,iidog,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
-Palula,ergative,FALSE,affix,NA,,,,-a/-i,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Palula,ergative,FALSE,affix,NA,,,,-a/-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Palula,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Palula,vocative,FALSE,deletion,subset of kindship terms,,,i_,deletion of gender signalling affix -i or -u,,,i,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Palula,vocative,FALSE,deletion,subset of kindship terms,,,u_,deletion of gender signalling affix -i or -u,,,u,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Puyuma,nominative,FALSE,affix,"common noun, indef",,,,a-,a-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Puyuma,nominative,FALSE,affix,"common noun, def",,,,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Puyuma,nominative,FALSE,affix,common noun,,sg,,i-,i-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,i-,i,,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Puyuma,nominative,FALSE,affix,common noun,,pl,,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Puyuma,oblique,FALSE,affix,"common noun, indef",,,,d´a-,d´a-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,da-,da,,da,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Puyuma,oblique,FALSE,affix,"common noun, def",,,,kana-,kana-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,kana-,kana,,kana,TRUE,TRUE,TRUE,TRUE,1,0.25,a,a,l,FALSE,FALSE,TRUE
-Puyuma,oblique,FALSE,affix,personal noun,,sg,,kan-,kan-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,kan-,kan,,kan,TRUE,TRUE,FALSE,TRUE,1,0.3333333333333333,a,a,l,FALSE,TRUE,FALSE
-Puyuma,oblique,FALSE,affix,personal noun,,pl,,kana-,kana-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,kana-,kana,,kana,TRUE,TRUE,TRUE,TRUE,1,0.25,a,a,l,FALSE,FALSE,TRUE
-Puyuma,vocative,FALSE,clitic,name / kinship term,,,,=a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Rapa Nui,vocative,FALSE,particle,NA,,,,e REFERENT e:,e--ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,e--ee,e,ee,eee,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-"rGyalrong, Jiaomuzu",ergative,FALSE,affix,NA,,,,-k@,-kə,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-kə,,kə,kə,TRUE,TRUE,TRUE,TRUE,1,0.5,ə,ə,m,FALSE,FALSE,TRUE
-"rGyalrong, Jiaomuzu",vocative,FALSE,affix,NA,,,ta_,a-,,a-,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Salako (Kendayan),vocative,FALSE,affix,person,,,,-ɔ,-ɔ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ɔ,,ɔ,ɔ,TRUE,FALSE,TRUE,FALSE,0,0,ɔ,ɔ,m,FALSE,FALSE,FALSE
-Samoan,absolutive,FALSE,affix,NA,,,,zero / ia (preposition),zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Samoan,absolutive,FALSE,particle,NA,,,,zero / ia (preposition),ia-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,ia-,ia,,ia,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Samoan,ergative,FALSE,particle,NA,,,,e (preposition),e-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,e-,e,,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Samoan,vocative,FALSE,affix,"name, noun of address, few common noun",,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Seediq,nominative,FALSE,particle,NA,,,,ka-,ka-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,ka-,ka,,ka,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
-Seediq,oblique,FALSE,affix,"personal name, kinship term",,,,-an,-an,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-an,,an,an,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
-Seediq,vocative,FALSE,deletion,"personal name, kinship term",,,,keep last syllable of stem only (Masaw -> Saw),,,CV...-,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sierra Popoluca,vocative,FALSE,prosodic,NA,,,,NA,,,,stress shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,accusative,FALSE,affix,NA,m,sg,-V,change of stem-final vowel to -e,,-e,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,accusative,FALSE,affix,NA,m,pl,-V,change of stem-final vowel to -@nl,,-enl,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,accusative,FALSE,affix,NA,f,sg,-V,change of stem-final vowel to -@,,-e,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,accusative,FALSE,affix,NA,f,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,vocative,FALSE,affix,NA,m,sg,u_,E:- / ar`E:- (Interjection) + change of stem-final vowel to -a,ɛɛ-,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ɛɛ-,ɛɛ,,ɛɛ,TRUE,FALSE,TRUE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,FALSE
-Sindhi,vocative,FALSE,affix,NA,m,pl,,E:- / ar`E:- (Interjection) + change of stem-final vowel to -O,arɛɛ-,-ɔ,,NA,FALSE,FALSE,FALSE,FALSE,vocative,arɛɛ-,arɛɛ,,arɛɛ,TRUE,TRUE,TRUE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,TRUE
-Sindhi,vocative,FALSE,affix,NA,m,sg,u_,E:- / ar`E:- (Interjection) + change of stem-final vowel to -a,ɛɛ-,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ɛɛ-,ɛɛ,,ɛɛ,TRUE,FALSE,TRUE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,FALSE
-Sindhi,vocative,FALSE,affix,NA,m,pl,,E:- / ar`E:- (Interjection) + change of stem-final vowel to -O,arɛɛ-,-ɔ,,NA,FALSE,FALSE,FALSE,FALSE,vocative,arɛɛ-,arɛɛ,,arɛɛ,TRUE,TRUE,TRUE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,TRUE
-Sindhi,vocative,FALSE,affix,NA,f,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sindhi,vocative,FALSE,affix,NA,f,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Somali,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Somali,nominative,FALSE,affix,NA,,,,zero,zero,,,tonal change,TRUE,FALSE,TRUE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Somali,vocative,FALSE,affix,name,f,sg,,-èey,-eej,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-eej,,eej,eej,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Somali,vocative,FALSE,affix,name,f,sg,o_,-òoy,-ooj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ooj,,ooj,ooj,TRUE,FALSE,TRUE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
-Somali,vocative,FALSE,affix,name,f,sg,a_,-àay,-aaj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aaj,,aaj,aaj,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Somali,vocative,FALSE,affix,name,,,,-òw,-ow,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ow,,ow,ow,TRUE,FALSE,TRUE,FALSE,0,0,ow,o,m,TRUE,FALSE,FALSE
-Somali,vocative,FALSE,affix,other noun,f,sg,,-yahay,-jahaj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-jahaj,,jahaj,jahaj,TRUE,TRUE,TRUE,TRUE,1,0.2,aj,a,l,TRUE,FALSE,TRUE
-Somali,vocative,FALSE,affix,other noun,,,,-yohow,-johow,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-johow,,johow,johow,TRUE,TRUE,TRUE,TRUE,1,0.2,ow,o,m,TRUE,FALSE,TRUE
-Somali,vocative,FALSE,affix,name,,,,zero,zero,,,tonal change,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,accusative,FALSE,affix,NA,,sg,prefixed with 1.person possessive,-to,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,accusative,FALSE,affix,NA,,pl,prefixed with 1.person possessive,-j(a)-Son,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,accusative,FALSE,affix,NA,,sg,not prefixed with 1.person possessive,-(e)n,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,nominative,FALSE,affix,NA,,sg,prefixed with 1.person possessive,-(e)n,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,nominative,FALSE,affix,NA,,pl,prefixed with 1.person possessive,-jej,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,nominative,FALSE,affix,NA,,sg,not prefixed with 1.person possessive,zero,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,vocative,FALSE,deletion,proper noun,,,,drop feminine sufix (-men/?men) for vocative,,,-men,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,vocative,FALSE,deletion,proper noun,,,,drop feminine sufix (-men/?men) for vocative,,,-ʔmen,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,vocative,FALSE,affix,kinship term,,sg,,-eʔ,,,,no laryngeal increments,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,vocative,FALSE,affix,kinship term,,sg,,-deʔ,,,,no laryngeal increments,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Southern Pomo,vocative,FALSE,affix,kinship term,,pl,prefixed with 1.person possessive,-jaʃo,,,,no laryngeal increments,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sunwar,accusative,FALSE,affix,NA,,,,-kali,-kali,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-kali,,kali,kali,TRUE,TRUE,TRUE,TRUE,1,0.25,i,i,h,FALSE,FALSE,TRUE
-Sunwar,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Sunwar,vocative,FALSE,affix,NA,,,,-au,-aw,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aw,,aw,aw,TRUE,FALSE,TRUE,FALSE,0,0,aw,a,l,TRUE,FALSE,FALSE
-Tamil,accusative,FALSE,affix,NA,,,,-ai,-aj,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aj,,aj,aj,TRUE,FALSE,TRUE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
-Tamil,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Tamil,vocative,FALSE,affix,NA,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Tamil,vocative,FALSE,affix,NA,,,,-a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-Timucua,vocative,FALSE,clitic,NA,,,,-lechu,-letʃu,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-leCu,,leCu,leCu,TRUE,TRUE,TRUE,TRUE,1,0.25,u,u,h,FALSE,FALSE,TRUE
-Toqabaqita,vocative,FALSE,clitic,NA,,,,-?ae,-ʔæ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ʔæ,,ʔæ,ʔæ,TRUE,TRUE,TRUE,TRUE,1,0.5,æ,æ,l,FALSE,FALSE,TRUE
-Tukang Besi,"""nominative""",FALSE,particle,NA,,,,na,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Tukang Besi,non-nominative,FALSE,particle,NA,,,,te,te-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,te-,te,,te,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
-Tukang Besi,vocative,FALSE,affix,NA,,,V_,-ó (replace final vowel),,-o,,accented,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Turkish,accusative,FALSE,affix,NA,,,V_,-ji,-ji,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ji,,ji,ji,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Turkish,accusative,FALSE,affix,NA,,,C_,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Turkish,accusative,FALSE,affix,NA,,,V_,-ju,-ju,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ju,,ju,ju,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
-Turkish,accusative,FALSE,affix,NA,,,C_,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Turkish,accusative,FALSE,affix,NA,,,V_,-jy,-jy,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-jy,,jy,jy,TRUE,TRUE,TRUE,FALSE,0,0,y,y,h,FALSE,FALSE,TRUE
-Turkish,accusative,FALSE,affix,NA,,,C_,-y,-y,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-y,,y,y,TRUE,FALSE,TRUE,FALSE,0,0,y,y,h,FALSE,FALSE,FALSE
-Turkish,accusative,FALSE,affix,NA,,,V_,-jɯ,-jɯ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-jɯ,,jɯ,jɯ,TRUE,TRUE,TRUE,FALSE,0,0,ɯ,ɯ,h,FALSE,FALSE,TRUE
-Turkish,accusative,FALSE,affix,NA,,,C_,-ɯ,-ɯ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ɯ,,ɯ,ɯ,TRUE,FALSE,TRUE,FALSE,0,0,ɯ,ɯ,h,FALSE,FALSE,FALSE
-Turkish,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Turkish,vocative,FALSE,prosodic,NA,,,,NA,,,,stress on PU (instead of F),TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Turkish,vocative,FALSE,particle,NA,,,poetry,ey ## __,ej-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ej-,ej,,ej,TRUE,FALSE,TRUE,FALSE,0,0,ej,e,m,TRUE,FALSE,FALSE
-Turung,agentive,FALSE,particle,NA,,,subject of transitive verb,i: (mid level tone),-ii,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
-Turung,anti-agentive,FALSE,particle,NA,,,animate direct object,phe: (high falling tone),-phee,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-pee,,pee,pee,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,ee,e,m,TRUE,FALSE,TRUE
-Turung,vocative,FALSE,affix,kinship term,,,,a- (low falling tone),a-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Udihe,accusative,FALSE,affix,NA,class I,,,-wA,-wA,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-wA,,wA,wA,TRUE,TRUE,TRUE,FALSE,0,0,A,A,l,FALSE,FALSE,TRUE
-Udihe,accusative,FALSE,affix,NA,class II,,,-mA,-mA,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-mA,,mA,mA,TRUE,TRUE,TRUE,FALSE,0,0,A,A,l,FALSE,FALSE,TRUE
-Udihe,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Udihe,vocative,FALSE,affix,NA,,,"{e,a,o,u}_",-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Udihe,vocative,FALSE,affix,NA,,,i_,-ie,-ie,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ie,,ie,ie,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Udihe,vocative,FALSE,affix,NA,,,C_,-Ai,-Ai,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-Ai,,Ai,Ai,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Wampis,accusative,FALSE,affix,NA,,,,=na,-na,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-na,,na,na,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Wampis,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Wampis,vocative,FALSE,prosodic,"kinship term, foreign name",,,,NA,-V,,,"supression of apocope, high tone",TRUE,FALSE,TRUE,FALSE,vocative,-V,,V,V,TRUE,FALSE,TRUE,FALSE,0,0,V,V,NA,FALSE,FALSE,FALSE
-Wampis,vocative,FALSE,affix,kinship term,,,,-ua/-ta,-wa,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-wa,,wa,wa,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Wampis,vocative,FALSE,affix,kinship term,,,,-ua/-ta,-ta,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-ta,,ta,ta,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
-Wampis,vocative,FALSE,affix,foreign name,,,C_,-a,-a,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Yakkha,ergative,FALSE,clitic,NA,,,,=Na,-ŋa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ŋa,,ŋa,ŋa,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Yakkha,nominative,FALSE,clitic,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yakkha,vocative,FALSE,clitic,NA,,,,=u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-u,,u,u,TRUE,FALSE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
-Yapese,vocative,FALSE,deletion,NA,,,,NA,,,CV...-,shortening to CVC,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yandruwandha,vocative,FALSE,affix,NA,,,V_,V# -> a#,,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yandruwandha,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yandruwandha,ergative,FALSE,affix,NA,,,,-li,-li,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-li,,li,li,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Wirangu,vocative,FALSE,affix,NA,,,,-yi,-ji,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ji,,ji,ji,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
-Wirangu,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Wirangu,ergative,FALSE,affix,NA,,,,-ngu,-ŋu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ŋu,,ŋu,ŋu,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
-Yalarnnga,vocative,FALSE,affix,kinship term,,,V_,V# -> a#,,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yalarnnga,absolutive,FALSE,affix,kinship term,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yalarnnga,ergative,FALSE,affix,kinship term,,,,-lu,-lu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-lu,,lu,lu,TRUE,TRUE,TRUE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
-Mian,vocative,FALSE,clitic,kinship term,,,,=o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-!Gora,vocative,FALSE,clitic,NA,,,,=e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-!Gora,nominative,FALSE,clitic,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-!Gora,oblique,FALSE,clitic,NA,,,,=a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Yintyingka,vocative,FALSE,affix,NA,,,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Akoose,vocative,FALSE,particle,names,,,,á ## __,a-,,,high tone; coalesces with initial vowel,TRUE,FALSE,TRUE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Nkore-Kiga,vocative,FALSE,particle,name / title / grouping of persons,,,,ai ##,aj-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,aj-,aj,,aj,TRUE,FALSE,TRUE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
-Khwe,vocative,FALSE,affix,NA,,,,-è,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Khwe,vocative,FALSE,affix,NA,,,"{e,i}+__",-yè,-je,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-je,,je,je,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Khwe,vocative,FALSE,affix,NA,,,"{o,u}+__",-wè,-we,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-we,,we,we,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Khwe,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Khwe,ergative,FALSE,particle,NA,,,,__ ## à,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Herero,vocative,FALSE,prosodic,NA,,,,loss of initial o- augment + extra high tone on first syllable,,,o-,extra high tone,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Eton,vocative,FALSE,particle,proper name / noun with human reference,,,,a ## __,a-,,,dissimilating high tone: low when following tone is high; high when following tone is low?,TRUE,FALSE,TRUE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Arapaho,vocative,FALSE,affix,all terms of relationship,,,,-óó,-oo,,,high pitch accent,TRUE,TRUE,TRUE,FALSE,vocative,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
-Arapaho,vocative,FALSE,affix,all terms of relationship,,,,-hóó,-hoo,,,high pitch accent,TRUE,TRUE,TRUE,FALSE,vocative,-hoo,,hoo,hoo,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,oo,o,m,TRUE,FALSE,TRUE
-Yup'ik,vocative,FALSE,prosodic,personal names / kinship terms,,,,V -> VV / __C0#,zero,,,final vowel lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yup'ik,vocative,FALSE,deletion,personal names,,,,deletion of an unspecified number of segments (can be one / two whole syllables) at end,,,-...CV,segment deletion,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yup'ik,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Yup'ik,absolutive-modalis (indefinite object),FALSE,affix,NA,,,,-mek,-mek,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-mek,,mek,mek,TRUE,TRUE,FALSE,TRUE,1,0.3333333333333333,e,e,m,FALSE,TRUE,FALSE
-West Greenlandic,vocative,FALSE,clitic,NA,,,,=aa,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
-West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,-q,-q,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-q,,q,q,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,-k,-k,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-k,,k,k,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,-t,-t,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-t,,t,t,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-West Greenlandic,relative,FALSE,clitic,NA,,singular,,-p,-p,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-p,,p,p,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-West Greenlandic,relative,FALSE,clitic,NA,,singular,,-up,-up,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-up,,up,up,TRUE,TRUE,FALSE,TRUE,1,0.5,u,u,h,FALSE,TRUE,FALSE
-West Greenlandic,absolutive,FALSE,clitic,NA,,plural,,-t,-t,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-t,,t,t,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-West Greenlandic,absolutive,FALSE,clitic,NA,,plural,,-it,-it,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-it,,it,it,TRUE,TRUE,FALSE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
-West Greenlandic,relative,FALSE,clitic,NA,,plural,,-t,-t,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-t,,t,t,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-West Greenlandic,relative,FALSE,clitic,NA,,plural,,-it,-it,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-it,,it,it,TRUE,TRUE,FALSE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
-Ket,vocative,FALSE,affix,some animate nouns,feminine,,,-á,-a,,,strong accent,TRUE,TRUE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Ket,vocative,FALSE,affix,some animate nouns,feminine,,,-ə́,-ə,,,strong accent,TRUE,TRUE,FALSE,FALSE,vocative,-ə,,ə,ə,TRUE,FALSE,TRUE,FALSE,0,0,ə,ə,m,FALSE,FALSE,FALSE
-Ket,vocative,FALSE,affix,some animate nouns,masculine,,,-ó,-o,,,strong accent,TRUE,TRUE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
-Nivkh,vocative,FALSE,affix,NA,,,C_,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Nivkh,vocative,FALSE,prosodic,NA,,,u_,"V -> VV, optional opening (e.g. u -> o)",,-o,,"V -> VV, optional opening (e.g. u -> o)",TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Nivkh,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Nivkh,accusative,FALSE,affix,NA,,,,-aχ,-aχ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aχ,,aχ,aχ,TRUE,TRUE,FALSE,TRUE,1,0.5,a,a,l,FALSE,TRUE,FALSE
-Nivkh,accusative,FALSE,affix,NA,,,,-χ,-χ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-χ,,χ,χ,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Wolaytta,vocative,FALSE,affix,NA,,,,-ej,-ej,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ej,,ej,ej,TRUE,FALSE,TRUE,FALSE,0,0,ej,e,m,TRUE,FALSE,FALSE
-Wolaytta,vocative,FALSE,affix,NA,,,,-ow,-ow,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ow,,ow,ow,TRUE,FALSE,TRUE,FALSE,0,0,ow,o,m,TRUE,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,"classes I, II, III",singular,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,class IV,singular,,-ja,-ja,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ja,,ja,ja,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
-Wolaytta,subject case,FALSE,affix,NA,,plural,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,class I,,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,class II,,,-ij,-ij,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ij,,ij,ij,TRUE,FALSE,TRUE,FALSE,0,0,ij,i,h,TRUE,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,class III,,,-uw,-uw,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-uw,,uw,uw,TRUE,FALSE,TRUE,FALSE,0,0,uw,u,h,TRUE,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,class IV,,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Wolaytta,subject case,FALSE,affix,NA,,plural,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
-Kickapoo,vocative,FALSE,affix,NA,,singular,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Kickapoo,vocative,FALSE,affix,NA,,plural,,-etike,-etike,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-etike,,etike,etike,TRUE,TRUE,TRUE,TRUE,2,0.4,e,e,m,FALSE,FALSE,TRUE
-Crow,vocative,FALSE,prosodic,personal names and kin terms,,,final short vowel,V -> VV,zero,,,final V lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Plains Cree,vocative,FALSE,affix,kin terms and nouns of intimate possession,,singular,,-ee,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
-Plains Cree,vocative,FALSE,"deletion, prosodic",kin terms and nouns of intimate possession,,singular,,loss of final syllable,,,-CV,remaining final V may lengthen if short,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Plains Cree,vocative,FALSE,affix,kin terms and nouns of intimate possession,,plural,,-etik,-etik,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-etik,,etik,etik,TRUE,TRUE,FALSE,TRUE,2,0.5,i,i,h,FALSE,TRUE,FALSE
-Witsuwit'en,vocative,FALSE,affix,some kin terms,,,,-ʔ,-ʔ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ʔ,,ʔ,ʔ,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Nez Perce,vocative,FALSE,affix,grandparent to grandchild,,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Nez Perce,vocative,FALSE,affix,senior referent,,,,-eʔ,-eʔ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-eʔ,,eʔ,eʔ,TRUE,TRUE,FALSE,TRUE,1,0.5,e,e,m,FALSE,TRUE,FALSE
-Nez Perce,nominative,FALSE,affix,NA,,,after thematic suffix,-m,-m,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-m,,m,m,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Nez Perce,nominative,FALSE,affix,NA,,,after /n/,-im,-im,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-im,,im,im,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nez Perce,nominative,FALSE,affix,NA,,,after a vowel,-nm,-nm,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-nm,,nm,nm,FALSE,TRUE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
-Nez Perce,nominative,FALSE,affix,NA,,,elsewhere,-nim,-nim,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-nim,,nim,nim,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Nez Perce,objective,FALSE,affix,NA,,,,-ne,-ne,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ne,,ne,ne,TRUE,TRUE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
-Miami-Illinois,vocative,FALSE,affix,NA,,singular,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Miami-Illinois,vocative,FALSE,affix,NA,,plural,,-enka,-enka,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-enka,,enka,enka,TRUE,TRUE,TRUE,TRUE,1,0.25,a,a,l,FALSE,FALSE,TRUE
-Bora,vocative,FALSE,affix,NA,,,,-h,-h,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-h,,h,h,FALSE,TRUE,FALSE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
-Bora,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Bora,direct object,FALSE,affix,NA,animate,,,-ke,-ke,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ke,,ke,ke,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
-Bora,direct object,FALSE,affix,NA,inanimate,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Chiapas Zoque,vocative,FALSE,affix,NA,,,,=y,-j,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
-Chiapas Zoque,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Chiapas Zoque,ergative,FALSE,affix,NA,,,,=ʔis,-ʔis,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʔis,,ʔis,ʔis,TRUE,TRUE,FALSE,TRUE,2,0.6666666666666666,i,i,h,FALSE,TRUE,FALSE
-Nahuatl,vocative,FALSE,affix,person,,,used by men,-é,-e,,,"accented, stress-shift from penult to vocative suffix",TRUE,TRUE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
-Nahuatl,vocative,FALSE,prosodic,person,,,used by women,"stress-shift to final syllable, ""raised voice""",zero,,,"stress-shift to final from penult, raised voice",TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Nahuatl,vocative,FALSE,particle,person,,,used by both,in ## __,in-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,in-,in,,in,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
-Tariana,vocative,FALSE,prosodic,NA,,,,delete gender suffix (final syllable),,,-CV,delete final syll,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Tariana,vocative,FALSE,prosodic,NA,,,,stress-shift to final syllable from penult,,,,stress shift penult > ult,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Tariana,vocative,FALSE,prosodic,NA,,,,"delete gender suffix, stress shift",,,-CV,stress shift penult > ult,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Pirahã,vocative,FALSE,particle,proper noun,,,,ko ## __,ko-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ko-,ko,,ko,TRUE,TRUE,TRUE,TRUE,1,0.5,o,o,m,FALSE,FALSE,TRUE
-Nuxalk,vocative,FALSE,prosodic,NA,,,,NA,,,,adds moras in a variety of ways to achieve a 4/5 mora template,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+language,case,default,morphological,noun_type,noun_class,number,conditioning,form,form_add,form_replace,form_delete,prosodic_form,prosody_clean,prosody_stress,prosody_tone,prosody_vowel_lengthening,case_broad,form_add_s,form_add_prefix,form_add_suffix,form_add_all,vowel_pres,cons_pres,vowel_end,obstr_pres,obstr_vl_pres,obstr_vl_count,obstr_vl_prop,last_vowel,last_vowel_qual,v_height,v_long,cons_end,cons_onset
+Aguaruna,accusative,TRUE,affix,NA,,,,-na,-n,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-n,,n,n,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Aguaruna,nominative,TRUE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Aguaruna,vocative,TRUE,prosodic,"personal names, kindship terms",,,,NA,-V,,,"supression of apocope, accent shift to final syllable",TRUE,TRUE,FALSE,FALSE,vocative,-V,,V,V,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,V,V,NA,FALSE,FALSE,FALSE
+Aguaruna,vocative,FALSE,affix,NA,,,,-u,-Vu,,,accent shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,-Vu,,Vu,Vu,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Aguaruna,vocative,FALSE,affix,human referents,,,,-ta,-Vta,,,accent shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,-Vta,,Vta,Vta,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,a,a,l,FALSE,FALSE,TRUE
+Aguaruna,vocative,FALSE,affix,human referents,,,,-wa,-Vwa,,,accent shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,-Vwa,,Vwa,Vwa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Akkadian,accusative,FALSE,affix,NA,,sg,,-am,-am,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-am,,am,am,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Akkadian,accusative,FALSE,affix,NA,,dual,,-i:n,-iin,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-iin,,iin,iin,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,ii,i,h,TRUE,TRUE,FALSE
+Akkadian,accusative,FALSE,affix,NA,m,pl,,-i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
+Akkadian,accusative,FALSE,affix,NA,f,pl,,-a:t-im,-aatim,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aatim,,aatim,aatim,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.2,i,i,h,FALSE,TRUE,FALSE
+Akkadian,nominative,FALSE,affix,NA,,sg,,-um,-um,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-um,,um,um,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,u,u,h,FALSE,TRUE,FALSE
+Akkadian,nominative,FALSE,affix,NA,,dual,,-a:n,-aan,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-aan,,aan,aan,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,aa,a,l,TRUE,TRUE,FALSE
+Akkadian,nominative,FALSE,affix,NA,m,pl,,-u:,-uu,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-uu,,uu,uu,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,uu,u,h,TRUE,FALSE,FALSE
+Akkadian,nominative,FALSE,affix,NA,f,pl,,-a:t-um,-aatum,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-aatum,,aatum,aatum,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.2,u,u,h,FALSE,TRUE,FALSE
+Akkadian,vocative,FALSE,affix,NA,,,,-i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
+Amele,vocative,FALSE,particle,"proper name, kinship term, title, greeting",,,,__ ## o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Amele,vocative,FALSE,particle,"proper name, kinship term, title, greeting",,,,__ ## e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Amharic,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Amharic,accusative,FALSE,affix,definite,,,C_,-ən,-ən,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ən,,ən,ən,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,ə,ə,m,FALSE,TRUE,FALSE
+Amharic,accusative,FALSE,affix,definite,,,V_,-n,-n,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-n,,n,n,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Amharic,accusative,FALSE,affix,indefinite,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Amharic,vocative,FALSE,prosodic,NA,,,,NA,zero,,,rising tone,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Amharic,vocative,FALSE,particle,NA,,,,hoj (Interjection),-hoj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-hoj,,hoj,hoj,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,oj,o,m,TRUE,FALSE,TRUE
+Amharic,vocative,FALSE,affix,NA,m,,,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Amharic,vocative,FALSE,affix,NA,f,,,-it,-it,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-it,,it,it,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
+Atong,accusative,FALSE,clitic,NA,,,s_,-taw,-taw,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-taw,,taw,taw,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,aw,a,l,TRUE,FALSE,TRUE
+Atong,accusative,FALSE,clitic,NA,,,everywhere else,-aw,-aw,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aw,,aw,aw,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aw,a,l,TRUE,FALSE,FALSE
+Atong,vocative,FALSE,affix,kinship term,,,,a-,a-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Awtuw,accusative,FALSE,affix,NA,[-f],,,-re,-re,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-re,,re,re,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Awtuw,accusative,FALSE,affix,NA,[+f],,,-te,-te,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-te,,te,te,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
+Awtuw,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Awtuw,vocative,FALSE,affix,"personal name, kinship term",,,,-wo,-wo,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-wo,,wo,wo,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
+Awtuw,vocative,FALSE,affix,"personal name, kinship term",,,,-ə,-ə,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ə,,ə,ə,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ə,ə,m,FALSE,FALSE,FALSE
+Beja,accusative,FALSE,affix,NA,,,,-oo,-oo,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
+Beja,nominative,FALSE,affix,NA,,,,-uu,-uu,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-uu,,uu,uu,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,uu,u,h,TRUE,FALSE,FALSE
+Beja,vocative,FALSE,affix,NA,,,V_,-yi,-ji,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ji,,ji,ji,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Beja,vocative,FALSE,affix,NA,,,C_,-ay,-aj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aj,,aj,aj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
+Bilua,vocative,FALSE,affix,"personal name, kinship term",,,,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Boraana Oromo,vocative,FALSE,affix,proper name,,,,-o:,-oo,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
+Boraana Oromo,vocative,FALSE,affix,proper name,,,,-so:,-soo,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-soo,,soo,soo,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,oo,o,m,TRUE,FALSE,TRUE
+Boraana Oromo,vocative,FALSE,affix,proper name,,,,-ole:,-olee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-olee,,olee,olee,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,TRUE
+Boraana Oromo,vocative,FALSE,affix,proper name,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Boraana Oromo,vocative,FALSE,affix,proper name,,,,-je:,-jee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-jee,,jee,jee,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,TRUE
+Boraana Oromo,vocative,FALSE,affix,proper name,,,,-itu:,-ituu,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ituu,,ituu,ituu,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,uu,u,h,TRUE,FALSE,TRUE
+Cantonese,vocative,FALSE,particle,personal noun,,,,a ## __,a-,,,add final H tone,TRUE,FALSE,TRUE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Chagatay,accusative,FALSE,affix,NA,,,,-ni / -nɯ,-ni,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ni,,ni,ni,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Chagatay,accusative,FALSE,affix,NA,,,,-ni / -nɯ,-nɯ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-nɯ,,nɯ,nɯ,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ɯ,ɯ,h,FALSE,FALSE,TRUE
+Chagatay,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Chagatay,vocative,FALSE,particle,NA,,,,ay ## __,aj-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,aj-,aj,,aj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
+Chuckchi,vocative,FALSE,no,NA,,,,NA,,,,reduced vowel in final syll--> full vowel,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Chuckchi,vocative,FALSE,no,NA,,,,NA,,,,epenthetic schwa in final syll --> o,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Chuckchi,vocative,FALSE,no,NA,,,,NA,zero,,,lengthening of all vowels,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Chuckchi,vocative,FALSE,no,NA,,,,NA,-j,,,vowel + j,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Classical Arabic,accusative,FALSE,affix,NA,,,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Classical Arabic,nominative,FALSE,affix,NA,,,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Classical Arabic,vocative,FALSE,particle,NA,,,,ja: ##,jaa-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,jaa-,jaa,,jaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Eastern Burushaski,vocative,FALSE,prosodic,NA,,,,NA,zero,,,vowel lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Eastern Burushaski,absolutive,FALSE,affix,NA,,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Eastern Burushaski,ergative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Fijian,vocative,FALSE,particle,personal name,,,,i ## _,i-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,i-,i,,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Fore,accusative,FALSE,affix,NA,,,_non-fricative continuant,initial C becomes prenasalised stop,n-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,n-,n,,n,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Fore,accusative,FALSE,affix,NA,,,_V,nk__,nk-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,nk-,nk,,nk,FALSE,TRUE,FALSE,TRUE,TRUE,1,0.5,NA,NA,NA,NA,TRUE,FALSE
+Fore,accusative,FALSE,affix,NA,,,_T,?__,ʔ-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,ʔ-,ʔ,,ʔ,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Fore,accusative,FALSE,affix,NA,,,_s,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Fore,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Fore,vocative,FALSE,affix,NA,,,,-ó,-o,,,comes with pitch accent,TRUE,FALSE,TRUE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Georgian,ergative,FALSE,affix,NA,,,C_,-ma,-ma,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ma,,ma,ma,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Georgian,ergative,FALSE,affix,NA,,,V_,-m,-m,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-m,,m,m,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Georgian,nominative,FALSE,affix,NA,,,C_,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Georgian,nominative,FALSE,affix,NA,,,V_,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Georgian,vocative,FALSE,affix,NA,,,C_,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Georgian,vocative,FALSE,affix,NA,,,V_,-v,-v,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-v,,v,v,FALSE,TRUE,FALSE,TRUE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Georgian,vocative,FALSE,affix,NA,,,V_,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hawaiian,accusative,FALSE,particle,NA,,,,i ## _,i-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,i-,i,,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Hawaiian,accusative,FALSE,particle,"pronouns, names of people, places",,,,ia: ## _,iaa-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,iaa-,iaa,,iaa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Hawaiian,nominative,FALSE,particle,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hawaiian,vocative,FALSE,particle,NA,,,,e: ## __,ee-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ee-,ee,,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Hindi,nominative,FALSE,affix,NA,f/m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hindi,nominative,FALSE,affix,NA,f,plural,,-e [with tilde],-ẽ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ẽ,,ẽ,ẽ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ẽ,ẽ,m,FALSE,FALSE,FALSE
+Hindi,nominative,FALSE,affix,NA,m,plural,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hindi,oblique,FALSE,affix,NA,f/m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hindi,oblique,FALSE,affix,NA,f,plural,,-õ,-õ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-õ,,õ,õ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,õ,õ,m,FALSE,FALSE,FALSE
+Hindi,oblique,FALSE,affix,NA,m,plural,,-õ,-õ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-õ,,õ,õ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,õ,õ,m,FALSE,FALSE,FALSE
+Hindi,vocative,FALSE,affix,NA,f/m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hindi,vocative,FALSE,affix,NA,f/m,plural,,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Hualapai,accusative,FALSE,particle,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hualapai,nominative,FALSE,particle,NA,,,,ts\,-tʃ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-C,,C,C,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Hualapai,vocative,FALSE,affix,NA,,sg,,-ɛ,-ɛ,,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,-ɛ,,ɛ,ɛ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɛ,ɛ,m,FALSE,FALSE,FALSE
+Hualapai,vocative,FALSE,affix,NA,,pl,,-jɛ,-jɛ,,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,-jɛ,,jɛ,jɛ,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ɛ,ɛ,m,FALSE,FALSE,TRUE
+Hualapai,vocative,FALSE,affix,NA,,sg,i_,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hualapai,vocative,FALSE,affix,NA,,,a_,stem final -E/-a replaced by -E,,ɛ,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hualapai,vocative,FALSE,affix,NA,,,ɛ_,NA,zero,,,primary stressed suffix,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hup,accusative,FALSE,affix,NA,animate,,,-an,-an,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-an,,an,an,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Hup,accusative,FALSE,affix,NA,inanimate,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hup,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hup,vocative,FALSE,affix,"personal name, kindship term",,,m,-w@d,-wəd,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-wəd,,wəd,wəd,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,ə,ə,m,FALSE,TRUE,FALSE
+Hup,vocative,FALSE,affix,"personal name, kindship term",,,f,-wa,-wa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-wa,,wa,wa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Iraqw,vocative,FALSE,prosodic,person,,,,NA,zero,,,high tone on penultimate syllable,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kakua,accusative,FALSE,clitic,NA,,,,=di?,-diʔ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-diʔ,,diʔ,diʔ,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.3333333333333333,i,i,h,FALSE,TRUE,FALSE
+Kakua,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,reduplication of the stem vowel,zero,,,"reduplication of the stem vowel, high tone",TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kakua,vocative,FALSE,affix,"personal name, kindship term",,,,NA,-a,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Kannada,accusative,FALSE,affix,NA,,,,-anna,-anna,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-anna,,anna,anna,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Kannada,accusative,FALSE,affix,NA,,,,-annu,-annu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-annu,,annu,annu,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
+Kannada,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kannada,vocative,FALSE,affix,rational noun,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Kannada,vocative,FALSE,prosodic,rational noun,,,"{i,a}_",NA,zero,,,-lengthening of stem final vowel,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Karo,vocative,FALSE,prosodic,NA,,,,NA,zero,,,final stress + V lengthening (instead of penultimate stress),TRUE,TRUE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kashmiri,absolutive,FALSE,affix,NA,declension I,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kashmiri,absolutive,FALSE,affix,NA,declension I,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kashmiri,absolutive,FALSE,affix,NA,declension III,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kashmiri,absolutive,FALSE,affix,NA,declension III,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kashmiri,ergative,FALSE,affix,NA,declension I,sg,,-an,-an,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-an,,an,an,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Kashmiri,ergative,FALSE,affix,NA,declension I,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-av,,av,av,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Kashmiri,ergative,FALSE,affix,NA,declension III,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Kashmiri,ergative,FALSE,affix,NA,declension III,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-av,,av,av,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Kashmiri,vocative,FALSE,affix,NA,declension I,sg,,-a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Kashmiri,vocative,FALSE,affix,NA,declension I,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-av,,av,av,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Kashmiri,vocative,FALSE,affix,NA,declension III,sg,,-i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
+Kashmiri,vocative,FALSE,affix,NA,declension III,pl,,-av,-av,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-av,,av,av,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Khalkha Mongolian,accusative,FALSE,affix,NA,,,,-iig,-iig,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-iig,,iig,iig,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,ii,i,h,TRUE,TRUE,FALSE
+Khalkha Mongolian,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-aa,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-ee,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-oo,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
+Khalkha Mongolian,vocative,FALSE,clitic,"kinship term, title, personal name",,,,-aa / -ee / -oo / -ɔɔ (vowel harmony),-ɔɔ,,,"raised pitch, stronger intensity",TRUE,FALSE,TRUE,FALSE,vocative,-ɔɔ,,ɔɔ,ɔɔ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɔɔ,ɔ,m,TRUE,FALSE,FALSE
+Kilmeri,vocative,FALSE,affix,NA,,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Kisi,vocative,FALSE,affix,NA,,,,-wêi,-wêi,,,final vowel can be expressively lengthened,TRUE,FALSE,FALSE,TRUE,vocative,-wêi,,wêi,wêi,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Koasati,accusative,FALSE,affix,NA,,,,-n,-n,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-n,,n,n,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Koasati,nominative,FALSE,affix,NA,,,,-k,-k,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-k,,k,k,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Koasati,vocative,FALSE,deletion,"proper nounds, kinship terms",,,V_,delete V,,,-V,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Koasati,vocative,FALSE,deletion,"proper nounds, kinship terms",,,ka_,delete -ka,,,-ka,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Konso,accusative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Konso,nominative,FALSE,affix,"Proper names, pronouns and days of a week",,,,-ʔ,-ʔ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ʔ,,ʔ,ʔ,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Konso,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Konso,vocative,FALSE,affix,"nouns that trigger M/F gender agreement on the verb, proper names ending on -o",,,o_,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Konso,vocative,FALSE,affix,"nouns that trigger M/F gender agreement on the verb, proper names ending on -o",,,o_,-o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Konso,vocative,FALSE,affix,nouns that trigger a plural gender agreement on the verb,,,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Konso,vocative,FALSE,affix,proper names ending in -e,,,e_,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Konso,vocative,FALSE,affix,proper names ending in -e,,,e_,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Konso,vocative,FALSE,affix,proper names ending in -a,,,a_,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Kulung,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Kulung,ergative,FALSE,affix,NA,,,,-ʔa,-ʔa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʔa,,ʔa,ʔa,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
+Kulung,vocative,FALSE,affix,NA,,,,-ʔa,-ʔa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ʔa,,ʔa,ʔa,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
+Lao,vocative,FALSE,particle,NA,,,,?e:y,ʔeej-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ʔeej-,ʔeej,,ʔeej,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,ee,e,m,TRUE,FALSE,TRUE
+Latvian,accusative,FALSE,affix,NA,m-I,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Latvian,accusative,FALSE,affix,NA,m-II,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Latvian,accusative,FALSE,affix,NA,m-IIa,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Latvian,accusative,FALSE,affix,NA,m-III,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Latvian,accusative,FALSE,affix,NA,f-IV,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Latvian,accusative,FALSE,affix,NA,f-V,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Latvian,accusative,FALSE,affix,NA,f-VI,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Latvian,nominative,FALSE,affix,NA,m-I,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-s,,s,s,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Latvian,nominative,FALSE,affix,NA,m-II,sg,,-is,-is,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-is,,is,is,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
+Latvian,nominative,FALSE,affix,NA,m-IIa,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-s,,s,s,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Latvian,nominative,FALSE,affix,NA,m-III,sg,,-us,-us,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-us,,us,us,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,u,u,h,FALSE,TRUE,FALSE
+Latvian,nominative,FALSE,affix,NA,f-IV,sg,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Latvian,nominative,FALSE,affix,NA,f-V,sg,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Latvian,nominative,FALSE,affix,NA,f-VI,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-s,,s,s,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Latvian,vocative,FALSE,affix,NA,m-I,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Latvian,vocative,FALSE,affix,NA,m-I,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-s,,s,s,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Latvian,vocative,FALSE,affix,NA,m-II,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Latvian,vocative,FALSE,affix,NA,m-II,sg,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Latvian,vocative,FALSE,affix,NA,m-IIa,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-s,,s,s,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Latvian,vocative,FALSE,affix,NA,m-III,sg,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Latvian,vocative,FALSE,affix,NA,f-IV,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Latvian,vocative,FALSE,affix,NA,f-IV,sg,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Latvian,vocative,FALSE,affix,NA,f-V,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Latvian,vocative,FALSE,affix,NA,f-V,sg,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Latvian,vocative,FALSE,affix,NA,f-VI,sg,,-s,-s,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-s,,s,s,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Lavukaleve,vocative,FALSE,prosodic,NA,,,V_,final vowel --> -ou,,ow,,stress shift to prefinal syllable,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Lavukaleve,vocative,FALSE,particle,NA,,sg,,na,-na,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-na,,na,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Lavukaleve,vocative,FALSE,particle,NA,,dual,,nail,-nail,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-nail,,nail,nail,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Lavukaleve,vocative,FALSE,particle,NA,,pl,,nail,-nail,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-nail,,nail,nail,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Lezgian,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Lezgian,ergative,TRUE,affix,NA,,,default,-di,-di,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-di,,di,di,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,Personal names,,,C_,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Lezgian,ergative,FALSE,affix,"Abstract nouns derived by -wal, all plural nouns (except for -bur)",,,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Lezgian,ergative,FALSE,affix,Plurals in -bur,,,,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Lezgian,ergative,FALSE,affix,non-discrete mass,,,,-edi,-edi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-edi,,edi,edi,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,monosyllabic denoting animals,,,,-re,-re,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-re,,re,re,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,monosyllabic denoting animals,,,,-ra,-ra,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ra,,ra,ra,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,rest,,,,-ʊni,-ʊni,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʊni,,ʊni,ʊni,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,non-discrete mass,,,,-adi,-adi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-adi,,adi,adi,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,rest,,,,-ɑ,-ɑ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ɑ,,ɑ,ɑ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɑ,ɑ,l,FALSE,FALSE,FALSE
+Lezgian,ergative,FALSE,affix,rest,,,,-ʊ,-ʊ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʊ,,ʊ,ʊ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ʊ,ʊ,h,FALSE,FALSE,FALSE
+Lezgian,ergative,FALSE,affix,rest,,,,-tsi,-tsi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ki,,Ki,Ki,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,rest,,,,-ts'i,-ts'i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ki,,Ki,Ki,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,rest,,,,-tʃi,-tʃi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ci,,Ci,Ci,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,rest,,,,-tʃ'i,-tʃ'i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ci,,Ci,Ci,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
+Lezgian,ergative,FALSE,affix,rest,,,,-dʒi,-dʒi,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-Ji,,Ji,Ji,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Lezgian,vocative,FALSE,particle,NA,,,,ja-,ja-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ja-,ja,,ja,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Limbu,absolutive,FALSE,affix,indef,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Limbu,absolutive,FALSE,affix,definite,,,,-?in,-ʔin,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ʔin,,ʔin,ʔin,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.3333333333333333,i,i,h,FALSE,TRUE,FALSE
+Limbu,ergative,FALSE,affix,indef,,,"{ʔ,k,t,p,b,m,n,N}_",-le,-le,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-le,,le,le,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Limbu,ergative,FALSE,affix,indef,,,"{ʔ,k,t,p,b,m,n,N}_",-re,-re,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-re,,re,re,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Limbu,ergative,FALSE,affix,indef,,,_V,-lle,-lle,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-lle,,lle,lle,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Limbu,vocative,FALSE,affix,NA,,sg,,-e,-e,,,half-long,TRUE,FALSE,FALSE,TRUE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Limbu,vocative,FALSE,affix,NA,,pl,,-se,-se,,,half-long,TRUE,FALSE,FALSE,TRUE,vocative,-se,,se,se,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
+Limbu,vocative,FALSE,affix,NA,,pl,,-re,-re,,,half-long,TRUE,FALSE,FALSE,TRUE,vocative,-re,,re,re,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Maithili,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Maithili,accusative/dative,FALSE,particle,NA,,,,ke/ke~,-ke,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ke,,ke,ke,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
+Maithili,accusative/dative,FALSE,particle,NA,,,,ke/ke~,-kẽ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-kẽ,,kẽ,kẽ,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,ẽ,ẽ,m,FALSE,FALSE,TRUE
+Maithili,accusative/dative,FALSE,particle,"animals, proper names of places, animate common nouns, inanimate object nouns, etc. (complicated, interacts with determiner etc.",,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Maithili,vocative,FALSE,particle,NA,,,,"y@u,",jəu-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,jəu-,jəu,,jəu,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
+Maithili,vocative,FALSE,particle,NA,,,,"{, h{, g{",æ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,æ-,æ,,æ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,æ,æ,l,FALSE,FALSE,FALSE
+Maithili,vocative,FALSE,particle,NA,,,,"{, h{, g{",hæ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,hæ-,hæ,,hæ,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,æ,æ,l,FALSE,FALSE,TRUE
+Maithili,vocative,FALSE,particle,NA,,,,"{, h{, g{",gæ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,gæ-,gæ,,gæ,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,æ,æ,l,FALSE,FALSE,TRUE
+Maithili,vocative,FALSE,particle,NA,,,,"{,  h@u, r@u",æ-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,æ-,æ,,æ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,æ,æ,l,FALSE,FALSE,FALSE
+Maithili,vocative,FALSE,particle,NA,,,,"{,  h@u, r@u",hæu-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,hæu-,hæu,,hæu,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,u,u,h,FALSE,FALSE,TRUE
+Maithili,vocative,FALSE,particle,NA,,,,"{,  h@u, r@u",ræu-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ræu-,ræu,,ræu,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
+Malayalam,accusative,FALSE,affix,NA,,,,-e,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Malayalam,nominative,FALSE,affix,NA,,,,zero,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Malayalam,vocative,TRUE,affix,NA,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Malayalam,vocative,FALSE,affix,NA,,,-an,an# -> a:#,,aa,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Malayalam,vocative,FALSE,affix,NA,,,-i,i# -> i:#,zero,,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Malayalam,vocative,FALSE,affix,NA,,,-u,u# -> u:#,zero,,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Malayalam,vocative,FALSE,affix,NA,,,-am,am# -> am:#,zero,,,final lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Maltese,object marker,FALSE,particle,"restricted in various ways, e.g. only precedes animate direct objects OR indirect objects that are not place nominals",,,,lil ## _,lil-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,lil-,lil,,lil,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Maltese,vocative,FALSE,particle,descriptive expression,,,,aa ## _,aa-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,aa-,aa,,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Manambu,accusative,FALSE,affix,NA,,,,-a:m,-aam,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aam,,aam,aam,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,aa,a,l,TRUE,TRUE,FALSE
+Manambu,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Manambu,vocative,FALSE,affix,NA,,,,"-a, -@:j, -aj",-a,,,"schwa --> E:, final syllable undergoes lengthening, stress moves to last syllable, ""slight rise on the last syllable""",TRUE,TRUE,TRUE,TRUE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Manambu,vocative,FALSE,affix,NA,,,,NA,-əəj,,,"schwa --> E:, final syllable undergoes lengthening, stress moves to last syllable, ""slight rise on the last syllable""",TRUE,TRUE,TRUE,TRUE,vocative,-əəj,,əəj,əəj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,əə,ə,m,TRUE,FALSE,FALSE
+Manambu,vocative,FALSE,affix,NA,,,,NA,-aj,,,"schwa --> E:, final syllable undergoes lengthening, stress moves to last syllable, ""slight rise on the last syllable""",TRUE,TRUE,TRUE,TRUE,vocative,-aj,,aj,aj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
+Mangarayi,absolutive,FALSE,affix,NA,n,,n,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Mangarayi,accusative,FALSE,affix,NA,f,,f,Nan-,ŋan-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,ŋan-,ŋan,,ŋan,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Mangarayi,accusative,FALSE,affix,NA,m,,m,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Mangarayi,ergative,FALSE,affix,NA,n,,n,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Mangarayi,nominative,FALSE,affix,NA,f,,f,Nala-,ŋala-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,ŋala-,ŋala,,ŋala,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Mangarayi,nominative,FALSE,affix,NA,m,,m,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Mangarayi,vocative,FALSE,affix,NA,,,V_,-y,-j,,,"diphtongization, lengthening, rise-fall in pitch",TRUE,FALSE,TRUE,TRUE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Mangarayi,vocative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Mani,vocative,FALSE,particle,NA,,,,-yo/ye/o/e,-jo,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-jo,,jo,jo,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
+Mani,vocative,FALSE,particle,NA,,,,NA,-je,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-je,,je,je,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Mani,vocative,FALSE,particle,NA,,,,NA,-e,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Mani,vocative,FALSE,particle,NA,,,,NA,-o,,,"final syllable lengthening, final H tone",TRUE,FALSE,TRUE,TRUE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Maori,accusative,FALSE,particle,NA,,,,i ## _,i-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,i-,i,,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Maori,accusative,FALSE,particle,NA,,,,ki ## _,ki-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,ki-,ki,,ki,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,i,i,h,FALSE,FALSE,TRUE
+Maori,nominative,FALSE,particle,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Maori,vocative,FALSE,particle,NA,,,,e ## __,e-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,e-,e,,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Marathi,accusative,FALSE,affix,NA,m,singular,,a:la:,-aalaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aalaa,,aalaa,aalaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Marathi,accusative,FALSE,affix,NA,m,plural,,ã:nna:,-ããnnaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ããnnaa,,ããnnaa,ããnnaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Marathi,accusative,FALSE,affix,NA,f,singular,,ela:,-elaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-elaa,,elaa,elaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Marathi,accusative,FALSE,affix,NA,f,plural,,ã:nna:,-ããnnaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ããnnaa,,ããnnaa,ããnnaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Marathi,accusative,FALSE,affix,NA,neuter,singular,,a:la:,-aalaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aalaa,,aalaa,aalaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Marathi,accusative,FALSE,affix,NA,neuter,plural,,ã:nna:,-ããnnaa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ããnnaa,,ããnnaa,ããnnaa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,TRUE
+Marathi,nominative,FALSE,affix,NA,m,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Marathi,nominative,FALSE,affix,NA,m,plural,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Marathi,nominative,FALSE,affix,NA,f,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Marathi,nominative,FALSE,affix,NA,f,plural,,a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Marathi,nominative,FALSE,affix,NA,neuter,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Marathi,nominative,FALSE,affix,NA,neuter,plural,,a/e,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Marathi,nominative,FALSE,affix,NA,neuter,plural,,a/e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Marathi,vocative,FALSE,affix,NA,m,singular,,a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Marathi,vocative,FALSE,affix,NA,m,plural,,ã:nno,-ããnno,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ããnno,,ããnno,ããnno,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
+Marathi,vocative,FALSE,affix,NA,f,singular,,i:,-ii,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
+Marathi,vocative,FALSE,affix,NA,f,plural,,[nasal i]nno,-ĩnno,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ĩnno,,ĩnno,ĩnno,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
+Marathi,vocative,FALSE,affix,NA,neuter,singular,,a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Marathi,vocative,FALSE,affix,NA,neuter,plural,,ã:nno,-ããnno,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ããnno,,ããnno,ããnno,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
+Meithei,accusative,FALSE,affix,NA,,,,-pu,-pu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-pu,,pu,pu,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,u,u,h,FALSE,FALSE,TRUE
+Meithei,nominative,FALSE,affix,NA,,,,-n@,-nə,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-nə,,nə,nə,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ə,ə,m,FALSE,FALSE,TRUE
+Meithei,vocative,FALSE,affix,NA,,,,-sa,-sa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-sa,,sa,sa,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
+Mongsen Ao,agentive,FALSE,particle,NA,,,,n@,-nə,,,carries mid tone,TRUE,FALSE,TRUE,FALSE,nom-like,-nə,,nə,nə,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ə,ə,m,FALSE,FALSE,TRUE
+Mongsen Ao,vocative,FALSE,affix,NA,,,,a-,a-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Murui,accusative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Murui,accusative,FALSE,affix,NA,,,,-na,-na,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-na,,na,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Murui,accusative,FALSE,affix,NA,,,,-mo,-mo,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-mo,,mo,mo,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,TRUE
+Murui,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Murui,nominative,FALSE,affix,NA,,,,-dɨ,-dɨ,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-dɨ,,dɨ,dɨ,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,ɨ,ɨ,h,FALSE,FALSE,TRUE
+Ngiti,vocative,FALSE,prosodic,NA,,,,NA,zero,,,add final H tone,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Murui,vocative,FALSE,deletion,kinship term,,,,omitting otherwise obligatory animate classifier,,,-aɨ,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Murui,vocative,FALSE,deletion,kinship term,,,,omitting otherwise obligatory animate classifier,,,-nɨaɨ,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nishnaabemwin (Ottawa),vocative,FALSE,deletion,NA,,,,"word form is changed ""shortening of a term of reference, often by deleting the last syllable or the last consonant""",,,C#,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nishnaabemwin (Ottawa),vocative,FALSE,deletion,NA,,,,"word form is changed ""shortening of a term of reference, often by deleting the last syllable or the last consonant""",,,CV#,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,I pl,-idig,-idig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-idig,,idig,idig,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,II pl,-dig,-dig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-dig,,dig,dig,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,III pl,-widig,-widig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-widig,,widig,widig,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,IV pl,-odig,-odig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-odig,,odig,odig,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,V pl,-iidig,-iidig,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-iidig,,iidig,iidig,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,I pl,-idog,-idog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-idog,,idog,idog,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,II pl,-dog,-dog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-dog,,dog,dog,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,III pl,-widog,-widog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-widog,,widog,widog,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,IV pl,-odog,-odog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-odog,,odog,odog,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
+Nishnaabemwin (Ottawa),vocative,FALSE,affix,NA,,,V pl,-iidog,-iidog,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-iidog,,iidog,iidog,TRUE,TRUE,FALSE,TRUE,FALSE,0,0,o,o,m,FALSE,TRUE,FALSE
+Palula,ergative,FALSE,affix,NA,,,,-a/-i,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Palula,ergative,FALSE,affix,NA,,,,-a/-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Palula,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Palula,vocative,FALSE,deletion,subset of kindship terms,,,i_,deletion of gender signalling affix -i or -u,,,i,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Palula,vocative,FALSE,deletion,subset of kindship terms,,,u_,deletion of gender signalling affix -i or -u,,,u,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Puyuma,nominative,FALSE,affix,"common noun, indef",,,,a-,a-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Puyuma,nominative,FALSE,affix,"common noun, def",,,,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Puyuma,nominative,FALSE,affix,common noun,,sg,,i-,i-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,i-,i,,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Puyuma,nominative,FALSE,affix,common noun,,pl,,na-,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Puyuma,oblique,FALSE,affix,"common noun, indef",,,,d´a-,d´a-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,da-,da,,da,TRUE,TRUE,TRUE,TRUE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Puyuma,oblique,FALSE,affix,"common noun, def",,,,kana-,kana-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,kana-,kana,,kana,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,a,a,l,FALSE,FALSE,TRUE
+Puyuma,oblique,FALSE,affix,personal noun,,sg,,kan-,kan-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,kan-,kan,,kan,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.3333333333333333,a,a,l,FALSE,TRUE,FALSE
+Puyuma,oblique,FALSE,affix,personal noun,,pl,,kana-,kana-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,kana-,kana,,kana,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,a,a,l,FALSE,FALSE,TRUE
+Puyuma,vocative,FALSE,clitic,name / kinship term,,,,=a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Rapa Nui,vocative,FALSE,particle,NA,,,,e REFERENT e:,e--ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,e--ee,e,ee,eee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+"rGyalrong, Jiaomuzu",ergative,FALSE,affix,NA,,,,-k@,-kə,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-kə,,kə,kə,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,ə,ə,m,FALSE,FALSE,TRUE
+"rGyalrong, Jiaomuzu",vocative,FALSE,affix,NA,,,ta_,a-,,a-,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Salako (Kendayan),vocative,FALSE,affix,person,,,,-ɔ,-ɔ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ɔ,,ɔ,ɔ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɔ,ɔ,m,FALSE,FALSE,FALSE
+Samoan,absolutive,FALSE,affix,NA,,,,zero / ia (preposition),zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Samoan,absolutive,FALSE,particle,NA,,,,zero / ia (preposition),ia-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,ia-,ia,,ia,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Samoan,ergative,FALSE,particle,NA,,,,e (preposition),e-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,e-,e,,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Samoan,vocative,FALSE,affix,"name, noun of address, few common noun",,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Seediq,nominative,FALSE,particle,NA,,,,ka-,ka-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,ka-,ka,,ka,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
+Seediq,oblique,FALSE,affix,"personal name, kinship term",,,,-an,-an,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-an,,an,an,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,a,a,l,FALSE,TRUE,FALSE
+Seediq,vocative,FALSE,deletion,"personal name, kinship term",,,,keep last syllable of stem only (Masaw -> Saw),,,CV...-,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sierra Popoluca,vocative,FALSE,prosodic,NA,,,,NA,,,,stress shift to final syllable,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,accusative,FALSE,affix,NA,m,sg,-V,change of stem-final vowel to -e,,-e,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,accusative,FALSE,affix,NA,m,pl,-V,change of stem-final vowel to -@nl,,-enl,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,accusative,FALSE,affix,NA,f,sg,-V,change of stem-final vowel to -@,,-e,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,accusative,FALSE,affix,NA,f,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,vocative,FALSE,affix,NA,m,sg,u_,E:- / ar`E:- (Interjection) + change of stem-final vowel to -a,ɛɛ-,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ɛɛ-,ɛɛ,,ɛɛ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,FALSE
+Sindhi,vocative,FALSE,affix,NA,m,pl,,E:- / ar`E:- (Interjection) + change of stem-final vowel to -O,arɛɛ-,-ɔ,,NA,FALSE,FALSE,FALSE,FALSE,vocative,arɛɛ-,arɛɛ,,arɛɛ,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,TRUE
+Sindhi,vocative,FALSE,affix,NA,m,sg,u_,E:- / ar`E:- (Interjection) + change of stem-final vowel to -a,ɛɛ-,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ɛɛ-,ɛɛ,,ɛɛ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,FALSE
+Sindhi,vocative,FALSE,affix,NA,m,pl,,E:- / ar`E:- (Interjection) + change of stem-final vowel to -O,arɛɛ-,-ɔ,,NA,FALSE,FALSE,FALSE,FALSE,vocative,arɛɛ-,arɛɛ,,arɛɛ,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ɛɛ,ɛ,m,TRUE,FALSE,TRUE
+Sindhi,vocative,FALSE,affix,NA,f,sg,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sindhi,vocative,FALSE,affix,NA,f,pl,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Somali,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Somali,nominative,FALSE,affix,NA,,,,zero,zero,,,tonal change,TRUE,FALSE,TRUE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Somali,vocative,FALSE,affix,name,f,sg,,-èey,-eej,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-eej,,eej,eej,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Somali,vocative,FALSE,affix,name,f,sg,o_,-òoy,-ooj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ooj,,ooj,ooj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
+Somali,vocative,FALSE,affix,name,f,sg,a_,-àay,-aaj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aaj,,aaj,aaj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Somali,vocative,FALSE,affix,name,,,,-òw,-ow,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ow,,ow,ow,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ow,o,m,TRUE,FALSE,FALSE
+Somali,vocative,FALSE,affix,other noun,f,sg,,-yahay,-jahaj,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-jahaj,,jahaj,jahaj,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.2,aj,a,l,TRUE,FALSE,TRUE
+Somali,vocative,FALSE,affix,other noun,,,,-yohow,-johow,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-johow,,johow,johow,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.2,ow,o,m,TRUE,FALSE,TRUE
+Somali,vocative,FALSE,affix,name,,,,zero,zero,,,tonal change,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,accusative,FALSE,affix,NA,,sg,prefixed with 1.person possessive,-to,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,accusative,FALSE,affix,NA,,pl,prefixed with 1.person possessive,-j(a)-Son,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,accusative,FALSE,affix,NA,,sg,not prefixed with 1.person possessive,-(e)n,,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,nominative,FALSE,affix,NA,,sg,prefixed with 1.person possessive,-(e)n,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,nominative,FALSE,affix,NA,,pl,prefixed with 1.person possessive,-jej,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,nominative,FALSE,affix,NA,,sg,not prefixed with 1.person possessive,zero,,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,vocative,FALSE,deletion,proper noun,,,,drop feminine sufix (-men/?men) for vocative,,,-men,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,vocative,FALSE,deletion,proper noun,,,,drop feminine sufix (-men/?men) for vocative,,,-ʔmen,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,vocative,FALSE,affix,kinship term,,sg,,-eʔ,,,,no laryngeal increments,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,vocative,FALSE,affix,kinship term,,sg,,-deʔ,,,,no laryngeal increments,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Southern Pomo,vocative,FALSE,affix,kinship term,,pl,prefixed with 1.person possessive,-jaʃo,,,,no laryngeal increments,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sunwar,accusative,FALSE,affix,NA,,,,-kali,-kali,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-kali,,kali,kali,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,i,i,h,FALSE,FALSE,TRUE
+Sunwar,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sunwar,vocative,FALSE,affix,NA,,,,-au,-aw,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aw,,aw,aw,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aw,a,l,TRUE,FALSE,FALSE
+Tamil,accusative,FALSE,affix,NA,,,,-ai,-aj,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aj,,aj,aj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
+Tamil,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tamil,vocative,FALSE,affix,NA,,,,-e:,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Tamil,vocative,FALSE,affix,NA,,,,-a:,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+Timucua,vocative,FALSE,clitic,NA,,,,-lechu,-letʃu,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-leCu,,leCu,leCu,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,u,u,h,FALSE,FALSE,TRUE
+Toqabaqita,vocative,FALSE,clitic,NA,,,,-?ae,-ʔæ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ʔæ,,ʔæ,ʔæ,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,æ,æ,l,FALSE,FALSE,TRUE
+Tukang Besi,"""nominative""",FALSE,particle,NA,,,,na,na-,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,na-,na,,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Tukang Besi,non-nominative,FALSE,particle,NA,,,,te,te-,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,te-,te,,te,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
+Tukang Besi,vocative,FALSE,affix,NA,,,V_,-ó (replace final vowel),,-o,,accented,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Turkish,accusative,FALSE,affix,NA,,,V_,-ji,-ji,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ji,,ji,ji,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Turkish,accusative,FALSE,affix,NA,,,C_,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Turkish,accusative,FALSE,affix,NA,,,V_,-ju,-ju,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ju,,ju,ju,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
+Turkish,accusative,FALSE,affix,NA,,,C_,-u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Turkish,accusative,FALSE,affix,NA,,,V_,-jy,-jy,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-jy,,jy,jy,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,y,y,h,FALSE,FALSE,TRUE
+Turkish,accusative,FALSE,affix,NA,,,C_,-y,-y,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-y,,y,y,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,y,y,h,FALSE,FALSE,FALSE
+Turkish,accusative,FALSE,affix,NA,,,V_,-jɯ,-jɯ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-jɯ,,jɯ,jɯ,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,ɯ,ɯ,h,FALSE,FALSE,TRUE
+Turkish,accusative,FALSE,affix,NA,,,C_,-ɯ,-ɯ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ɯ,,ɯ,ɯ,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ɯ,ɯ,h,FALSE,FALSE,FALSE
+Turkish,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Turkish,vocative,FALSE,prosodic,NA,,,,NA,,,,stress on PU (instead of F),TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Turkish,vocative,FALSE,particle,NA,,,poetry,ey ## __,ej-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ej-,ej,,ej,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ej,e,m,TRUE,FALSE,FALSE
+Turung,agentive,FALSE,particle,NA,,,subject of transitive verb,i: (mid level tone),-ii,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ii,,ii,ii,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ii,i,h,TRUE,FALSE,FALSE
+Turung,anti-agentive,FALSE,particle,NA,,,animate direct object,phe: (high falling tone),-phee,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-pee,,pee,pee,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,ee,e,m,TRUE,FALSE,TRUE
+Turung,vocative,FALSE,affix,kinship term,,,,a- (low falling tone),a-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Udihe,accusative,FALSE,affix,NA,class I,,,-wA,-wA,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-wA,,wA,wA,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,A,A,l,FALSE,FALSE,TRUE
+Udihe,accusative,FALSE,affix,NA,class II,,,-mA,-mA,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-mA,,mA,mA,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,A,A,l,FALSE,FALSE,TRUE
+Udihe,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Udihe,vocative,FALSE,affix,NA,,,"{e,a,o,u}_",-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Udihe,vocative,FALSE,affix,NA,,,i_,-ie,-ie,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ie,,ie,ie,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Udihe,vocative,FALSE,affix,NA,,,C_,-Ai,-Ai,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-Ai,,Ai,Ai,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Wampis,accusative,FALSE,affix,NA,,,,=na,-na,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-na,,na,na,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Wampis,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Wampis,vocative,FALSE,prosodic,"kinship term, foreign name",,,,NA,-V,,,"supression of apocope, high tone",TRUE,FALSE,TRUE,FALSE,vocative,-V,,V,V,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,V,V,NA,FALSE,FALSE,FALSE
+Wampis,vocative,FALSE,affix,kinship term,,,,-ua/-ta,-wa,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-wa,,wa,wa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Wampis,vocative,FALSE,affix,kinship term,,,,-ua/-ta,-ta,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-ta,,ta,ta,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,a,a,l,FALSE,FALSE,TRUE
+Wampis,vocative,FALSE,affix,foreign name,,,C_,-a,-a,,,high tone,TRUE,FALSE,TRUE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Yakkha,ergative,FALSE,clitic,NA,,,,=Na,-ŋa,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ŋa,,ŋa,ŋa,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Yakkha,nominative,FALSE,clitic,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yakkha,vocative,FALSE,clitic,NA,,,,=u,-u,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-u,,u,u,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,FALSE
+Yapese,vocative,FALSE,deletion,NA,,,,NA,,,CV...-,shortening to CVC,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yandruwandha,vocative,FALSE,affix,NA,,,V_,V# -> a#,,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yandruwandha,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yandruwandha,ergative,FALSE,affix,NA,,,,-li,-li,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-li,,li,li,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Wirangu,vocative,FALSE,affix,NA,,,,-yi,-ji,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ji,,ji,ji,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,TRUE
+Wirangu,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Wirangu,ergative,FALSE,affix,NA,,,,-ngu,-ŋu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ŋu,,ŋu,ŋu,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
+Yalarnnga,vocative,FALSE,affix,kinship term,,,V_,V# -> a#,,-a,,NA,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yalarnnga,absolutive,FALSE,affix,kinship term,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yalarnnga,ergative,FALSE,affix,kinship term,,,,-lu,-lu,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-lu,,lu,lu,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,u,u,h,FALSE,FALSE,TRUE
+Mian,vocative,FALSE,clitic,kinship term,,,,=o,-o,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+!Gora,vocative,FALSE,clitic,NA,,,,=e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+!Gora,nominative,FALSE,clitic,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+!Gora,oblique,FALSE,clitic,NA,,,,=a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Yintyingka,vocative,FALSE,affix,NA,,,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Akoose,vocative,FALSE,particle,names,,,,á ## __,a-,,,high tone; coalesces with initial vowel,TRUE,FALSE,TRUE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Nkore-Kiga,vocative,FALSE,particle,name / title / grouping of persons,,,,ai ##,aj-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,aj-,aj,,aj,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aj,a,l,TRUE,FALSE,FALSE
+Khwe,vocative,FALSE,affix,NA,,,,-è,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Khwe,vocative,FALSE,affix,NA,,,"{e,i}+__",-yè,-je,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-je,,je,je,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Khwe,vocative,FALSE,affix,NA,,,"{o,u}+__",-wè,-we,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-we,,we,we,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Khwe,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Khwe,ergative,FALSE,particle,NA,,,,__ ## à,-a,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Herero,vocative,FALSE,prosodic,NA,,,,loss of initial o- augment + extra high tone on first syllable,,,o-,extra high tone,TRUE,FALSE,TRUE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Eton,vocative,FALSE,particle,proper name / noun with human reference,,,,a ## __,a-,,,dissimilating high tone: low when following tone is high; high when following tone is low?,TRUE,FALSE,TRUE,FALSE,vocative,a-,a,,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Arapaho,vocative,FALSE,affix,all terms of relationship,,,,-óó,-oo,,,high pitch accent,TRUE,TRUE,TRUE,FALSE,vocative,-oo,,oo,oo,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,oo,o,m,TRUE,FALSE,FALSE
+Arapaho,vocative,FALSE,affix,all terms of relationship,,,,-hóó,-hoo,,,high pitch accent,TRUE,TRUE,TRUE,FALSE,vocative,-hoo,,hoo,hoo,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.3333333333333333,oo,o,m,TRUE,FALSE,TRUE
+Yup'ik,vocative,FALSE,prosodic,personal names / kinship terms,,,,V -> VV / __C0#,zero,,,final vowel lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yup'ik,vocative,FALSE,deletion,personal names,,,,deletion of an unspecified number of segments (can be one / two whole syllables) at end,,,-...CV,segment deletion,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yup'ik,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Yup'ik,absolutive-modalis (indefinite object),FALSE,affix,NA,,,,-mek,-mek,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-mek,,mek,mek,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.3333333333333333,e,e,m,FALSE,TRUE,FALSE
+West Greenlandic,vocative,FALSE,clitic,NA,,,,=aa,-aa,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-aa,,aa,aa,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,aa,a,l,TRUE,FALSE,FALSE
+West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,-q,-q,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-q,,q,q,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,-k,-k,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-k,,k,k,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,-t,-t,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-t,,t,t,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+West Greenlandic,absolutive,FALSE,clitic,NA,,singular,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+West Greenlandic,relative,FALSE,clitic,NA,,singular,,-p,-p,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-p,,p,p,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+West Greenlandic,relative,FALSE,clitic,NA,,singular,,-up,-up,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-up,,up,up,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,u,u,h,FALSE,TRUE,FALSE
+West Greenlandic,absolutive,FALSE,clitic,NA,,plural,,-t,-t,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-t,,t,t,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+West Greenlandic,absolutive,FALSE,clitic,NA,,plural,,-it,-it,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-it,,it,it,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
+West Greenlandic,relative,FALSE,clitic,NA,,plural,,-t,-t,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-t,,t,t,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+West Greenlandic,relative,FALSE,clitic,NA,,plural,,-it,-it,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-it,,it,it,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,i,i,h,FALSE,TRUE,FALSE
+Ket,vocative,FALSE,affix,some animate nouns,feminine,,,-á,-a,,,strong accent,TRUE,TRUE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Ket,vocative,FALSE,affix,some animate nouns,feminine,,,-ə́,-ə,,,strong accent,TRUE,TRUE,FALSE,FALSE,vocative,-ə,,ə,ə,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ə,ə,m,FALSE,FALSE,FALSE
+Ket,vocative,FALSE,affix,some animate nouns,masculine,,,-ó,-o,,,strong accent,TRUE,TRUE,FALSE,FALSE,vocative,-o,,o,o,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,o,o,m,FALSE,FALSE,FALSE
+Nivkh,vocative,FALSE,affix,NA,,,C_,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Nivkh,vocative,FALSE,prosodic,NA,,,u_,"V -> VV, optional opening (e.g. u -> o)",,-o,,"V -> VV, optional opening (e.g. u -> o)",TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nivkh,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nivkh,accusative,FALSE,affix,NA,,,,-aχ,-aχ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-aχ,,aχ,aχ,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,a,a,l,FALSE,TRUE,FALSE
+Nivkh,accusative,FALSE,affix,NA,,,,-χ,-χ,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-χ,,χ,χ,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Wolaytta,vocative,FALSE,affix,NA,,,,-ej,-ej,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ej,,ej,ej,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ej,e,m,TRUE,FALSE,FALSE
+Wolaytta,vocative,FALSE,affix,NA,,,,-ow,-ow,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ow,,ow,ow,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ow,o,m,TRUE,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,"classes I, II, III",singular,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,class IV,singular,,-ja,-ja,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ja,,ja,ja,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,TRUE
+Wolaytta,subject case,FALSE,affix,NA,,plural,,-i,-i,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-i,,i,i,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,i,i,h,FALSE,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,class I,,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,class II,,,-ij,-ij,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-ij,,ij,ij,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ij,i,h,TRUE,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,class III,,,-uw,-uw,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-uw,,uw,uw,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,uw,u,h,TRUE,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,class IV,,,-j,-j,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Wolaytta,subject case,FALSE,affix,NA,,plural,,-a,-a,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-a,,a,a,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,a,a,l,FALSE,FALSE,FALSE
+Kickapoo,vocative,FALSE,affix,NA,,singular,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Kickapoo,vocative,FALSE,affix,NA,,plural,,-etike,-etike,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-etike,,etike,etike,TRUE,TRUE,TRUE,TRUE,TRUE,2,0.4,e,e,m,FALSE,FALSE,TRUE
+Crow,vocative,FALSE,prosodic,personal names and kin terms,,,final short vowel,V -> VV,zero,,,final V lengthening,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Plains Cree,vocative,FALSE,affix,kin terms and nouns of intimate possession,,singular,,-ee,-ee,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ee,,ee,ee,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,ee,e,m,TRUE,FALSE,FALSE
+Plains Cree,vocative,FALSE,"deletion, prosodic",kin terms and nouns of intimate possession,,singular,,loss of final syllable,,,-CV,remaining final V may lengthen if short,TRUE,FALSE,FALSE,TRUE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Plains Cree,vocative,FALSE,affix,kin terms and nouns of intimate possession,,plural,,-etik,-etik,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-etik,,etik,etik,TRUE,TRUE,FALSE,TRUE,TRUE,2,0.5,i,i,h,FALSE,TRUE,FALSE
+Witsuwit'en,vocative,FALSE,affix,some kin terms,,,,-ʔ,-ʔ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-ʔ,,ʔ,ʔ,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Nez Perce,vocative,FALSE,affix,grandparent to grandchild,,,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Nez Perce,vocative,FALSE,affix,senior referent,,,,-eʔ,-eʔ,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-eʔ,,eʔ,eʔ,TRUE,TRUE,FALSE,TRUE,TRUE,1,0.5,e,e,m,FALSE,TRUE,FALSE
+Nez Perce,nominative,FALSE,affix,NA,,,after thematic suffix,-m,-m,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-m,,m,m,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Nez Perce,nominative,FALSE,affix,NA,,,after /n/,-im,-im,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-im,,im,im,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nez Perce,nominative,FALSE,affix,NA,,,after a vowel,-nm,-nm,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-nm,,nm,nm,FALSE,TRUE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,TRUE,FALSE
+Nez Perce,nominative,FALSE,affix,NA,,,elsewhere,-nim,-nim,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,-nim,,nim,nim,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Nez Perce,objective,FALSE,affix,NA,,,,-ne,-ne,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ne,,ne,ne,TRUE,TRUE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,TRUE
+Miami-Illinois,vocative,FALSE,affix,NA,,singular,,-e,-e,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Miami-Illinois,vocative,FALSE,affix,NA,,plural,,-enka,-enka,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-enka,,enka,enka,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.25,a,a,l,FALSE,FALSE,TRUE
+Bora,vocative,FALSE,affix,NA,,,,-h,-h,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-h,,h,h,FALSE,TRUE,FALSE,TRUE,TRUE,1,1,NA,NA,NA,NA,TRUE,FALSE
+Bora,nominative,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Bora,direct object,FALSE,affix,NA,animate,,,-ke,-ke,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ke,,ke,ke,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,e,e,m,FALSE,FALSE,TRUE
+Bora,direct object,FALSE,affix,NA,inanimate,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Chiapas Zoque,vocative,FALSE,affix,NA,,,,=y,-j,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,-j,,j,j,FALSE,FALSE,FALSE,FALSE,FALSE,0,0,NA,NA,NA,NA,FALSE,FALSE
+Chiapas Zoque,absolutive,FALSE,affix,NA,,,,zero,zero,,,NA,FALSE,FALSE,FALSE,FALSE,nom-like,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Chiapas Zoque,ergative,FALSE,affix,NA,,,,=ʔis,-ʔis,,,NA,FALSE,FALSE,FALSE,FALSE,acc-like,-ʔis,,ʔis,ʔis,TRUE,TRUE,FALSE,TRUE,TRUE,2,0.6666666666666666,i,i,h,FALSE,TRUE,FALSE
+Nahuatl,vocative,FALSE,affix,person,,,used by men,-é,-e,,,"accented, stress-shift from penult to vocative suffix",TRUE,TRUE,FALSE,FALSE,vocative,-e,,e,e,TRUE,FALSE,TRUE,FALSE,FALSE,0,0,e,e,m,FALSE,FALSE,FALSE
+Nahuatl,vocative,FALSE,prosodic,person,,,used by women,"stress-shift to final syllable, ""raised voice""",zero,,,"stress-shift to final from penult, raised voice",TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nahuatl,vocative,FALSE,particle,person,,,used by both,in ## __,in-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,in-,in,,in,TRUE,TRUE,FALSE,FALSE,FALSE,0,0,i,i,h,FALSE,TRUE,FALSE
+Tariana,vocative,FALSE,prosodic,NA,,,,delete gender suffix (final syllable),,,-CV,delete final syll,FALSE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tariana,vocative,FALSE,prosodic,NA,,,,stress-shift to final syllable from penult,,,,stress shift penult > ult,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Tariana,vocative,FALSE,prosodic,NA,,,,"delete gender suffix, stress shift",,,-CV,stress shift penult > ult,TRUE,TRUE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Pirahã,vocative,FALSE,particle,proper noun,,,,ko ## __,ko-,,,NA,FALSE,FALSE,FALSE,FALSE,vocative,ko-,ko,,ko,TRUE,TRUE,TRUE,TRUE,TRUE,1,0.5,o,o,m,FALSE,FALSE,TRUE
+Nuxalk,vocative,FALSE,prosodic,NA,,,,NA,,,,adds moras in a variety of ways to achieve a 4/5 mora template,TRUE,FALSE,FALSE,FALSE,vocative,,,,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
